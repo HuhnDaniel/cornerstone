@@ -3489,6 +3489,10 @@ video {
   background-image: none;
 }
 
+.bg-homepage {
+  background-image: url('../assets/cornerstone-background-sepia.jpg');
+}
+
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--gradient-color-stops));
 }
@@ -22113,6 +22117,10 @@ video {
     background-image: none;
   }
 
+  .sm\:bg-homepage {
+    background-image: url('../assets/cornerstone-background-sepia.jpg');
+  }
+
   .sm\:bg-gradient-to-t {
     background-image: linear-gradient(to top, var(--gradient-color-stops));
   }
@@ -40705,6 +40713,10 @@ video {
 
   .md\:bg-none {
     background-image: none;
+  }
+
+  .md\:bg-homepage {
+    background-image: url('../assets/cornerstone-background-sepia.jpg');
   }
 
   .md\:bg-gradient-to-t {
@@ -59301,6 +59313,10 @@ video {
     background-image: none;
   }
 
+  .lg\:bg-homepage {
+    background-image: url('../assets/cornerstone-background-sepia.jpg');
+  }
+
   .lg\:bg-gradient-to-t {
     background-image: linear-gradient(to top, var(--gradient-color-stops));
   }
@@ -77893,6 +77909,10 @@ video {
 
   .xl\:bg-none {
     background-image: none;
+  }
+
+  .xl\:bg-homepage {
+    background-image: url('../assets/cornerstone-background-sepia.jpg');
   }
 
   .xl\:bg-gradient-to-t {
