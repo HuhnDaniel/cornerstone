@@ -2,8 +2,8 @@ import React from 'react';
 
 function Homepage() {
 	return (
-		<main className="text-blue-300">
-			Cornerstone
+		<main>
+			<div className="fixed bg-homepage h-full w-full bg-cover"></div>
 		</main>
 	);
 }
