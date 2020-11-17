@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Header from '../components/Header';
+
 function Homepage() {
 	return (
-		<main>
-			<div className="fixed bg-homepage h-full w-full bg-cover"></div>
+		<main className="fixed top-0 left-0 bg-homepage h-full w-full bg-cover">
+            <Header />
 		</main>
 	);
 }
