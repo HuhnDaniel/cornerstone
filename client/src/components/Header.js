@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 
-function Header({ textColor }) {
-    const [menuStatus, setMenuStatus] = useState(false)
+function Header({ menuStatus, textColor }) {
+    // const [menuStatus, setMenuStatus] = useState(false)
 
-    function menuToggle(e) {
-        e.preventDefault();
+    // function menuToggle(e) {
+    //     e.preventDefault();
 
-        console.log(e.target.tagName);
-        if (menuStatus) {
-            setMenuStatus(false);
-        } else if (e.target.tagName === 'BUTTON') {
-            setMenuStatus(true);
-        }
-    }
+    //     console.log(e.target.tagName);
+    //     if (menuStatus) {
+    //         setMenuStatus(false);
+    //     } else if (e.target.tagName === 'BUTTON') {
+    //         setMenuStatus(true);
+    //     }
+    // }
 
     return (
-        <header onClick={menuToggle} className={`flex flex-col m-4 text-2.5xl text-${textColor} items-center`}>
+        <header className={`flex flex-col m-4 text-2.5xl text-${textColor} items-center`}>
 			<Link to={"/"}>
             	<h1 className="text-5xl">CORNERSTONE</h1>
             	<h2 className="-mt-4">ART &amp; CRAFT COLLECTIVE</h2>
