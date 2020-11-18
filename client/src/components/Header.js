@@ -19,17 +19,17 @@ function Header({ textColor }) {
         <header onClick={menuToggle} className={`flex flex-col m-4 text-2.5xl text-${textColor} items-center`}>
 			<Link to={"/"}>
             	<h1 className="text-5xl">CORNERSTONE</h1>
-            	<h2>ART &amp; CRAFT COLLECTIVE</h2>
+            	<h2 className="-mt-4">ART &amp; CRAFT COLLECTIVE</h2>
 			</Link>
             <button>☰</button>
             {
                 menuStatus ? (
                     <div className="flex flex-col items-center">
 						<Link to={"/"}>Home</Link>
-                        <Link to={"/explore/"}>People</Link>
-                        <Link to={"/explore/"}>Projects</Link>
-                        <Link to={"/explore/"}>Fields</Link>
-                        <h1>Contact</h1>
+                        <Link to={"/people/"}>People</Link>
+                        <Link to={"/projects/"}>Projects</Link>
+                        <Link to={"/fields/"}>Fields</Link>
+                        <Link to={"/contact/"}>Contact</Link>
                     </div>
                 ) : (
                     null
