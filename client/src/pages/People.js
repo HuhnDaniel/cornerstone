@@ -2,10 +2,10 @@ import React from 'react';
 
 import Header from '../components/Header';
 
-function People() {
+function People({ menuStatus, menuToggle }) {
 	return (
-		<main>
-            <Header textColor={"black"} />
+		<main onClick={menuToggle}>
+            <Header menuStatus={menuStatus} textColor={"black"} />
 			<h1>People</h1>
 		</main>
 	);
