@@ -1,15 +1,17 @@
 import React from 'react';
 
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+
 import fields from '../assets/data/fields';
 
 function Fields({ menuStatus, menuToggle }) {
     return (
-        <main onClick={menuToggle}>
-            <Header menuStatus={menuStatus} textColor={"black"} />
+        <main onClick={menuToggle} className="relative">
+            <Header menuStatus={menuStatus} />
             <h1 className="text-2.5xl mx-8 sm:mx-16 md:mx-32">Fields</h1>
 
-            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-8">
+            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-8 pb-16">
                 {
                     fields.map((field, i) => {
                         return (
@@ -24,6 +26,8 @@ function Fields({ menuStatus, menuToggle }) {
                     })
                 }
             </section>
+
+			<Footer />
         </main>
     );
 }

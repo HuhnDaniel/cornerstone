@@ -23,15 +23,10 @@ function App() {
 	return (
 		<Router>
 			<Switch>
-				{/* <Route exact path="/people/" component={People} /> */}
 				<Route exact path="/people/" children={ <People menuStatus={menuStatus} menuToggle={menuToggle} /> } />
-				{/* <Route exact path="/projects/" component={Projects} /> */}
 				<Route exact path="/projects/" children={ <Projects menuStatus={menuStatus} menuToggle={menuToggle} /> } />
-				{/* <Route exact path="/fields/" component={Fields} /> */}
 				<Route exact path="/fields/" children={ <Fields menuStatus={menuStatus} menuToggle={menuToggle} /> } />
-				{/* <Route exact path="/contact/" component={Contact} /> */}
 				<Route exact path="/contact/" children={ <Contact menuStatus={menuStatus} menuToggle={menuToggle} /> } />
-				{/* <Route path="/" component={Homepage} /> */}
 				<Route path="/" children={ <Homepage menuStatus={menuStatus} menuToggle={menuToggle} /> } />
 			</Switch>
 		</Router>

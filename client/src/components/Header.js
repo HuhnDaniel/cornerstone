@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-function Header({ menuStatus, textColor }) {
+function Header({ menuStatus }) {
     return (
-        <header className={`flex flex-col m-4 text-2.5xl text-${textColor} items-center`}>
+        <header className={`flex flex-col m-4 text-2.5xl items-center`}>
 			<Link to={"/"}>
             	<h1 className="text-5xl">CORNERSTONE</h1>
             	<h2 className="-mt-4">ART &amp; CRAFT COLLECTIVE</h2>
