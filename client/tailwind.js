@@ -154,11 +154,18 @@ module.exports = {
       '48': '12rem',
       '56': '14rem',
       '64': '16rem',
+      '72': '18rem',
+      '80': '20rem'
     },
     backgroundColor: theme => theme('colors'),
     backgroundImage: {
 	  none: 'none',
-	  'homepage': "url('../images/cornerstone-background-sepia.jpg')",
+      'homepage': 'url("../images/cornerstone-background-sepia.jpg")',
+      'architecture': 'url("../images/architecture.jpg")',
+      'creativeWriting': 'url("../images/creative-writing.jpg")',
+      'graphicDesign': 'url("../images/graphic-design.jpg")',
+      'illustration': 'url("../images/illustration.jpg")',
+      'webDevelopment': 'url("../images/web-development.jpg")',
       'gradient-to-t': 'linear-gradient(to top, var(--gradient-color-stops))',
       'gradient-to-tr': 'linear-gradient(to top right, var(--gradient-color-stops))',
       'gradient-to-r': 'linear-gradient(to right, var(--gradient-color-stops))',
@@ -380,6 +387,7 @@ module.exports = {
     opacity: {
       '0': '0',
       '25': '0.25',
+      '30': '0.3',
       '50': '0.5',
       '75': '0.75',
       '100': '1',
