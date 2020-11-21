@@ -1,29 +1,29 @@
-import architecture from '../images/architecture.jpg';
-import creativeWriting from '../images/creative-writing.jpg';
-import graphicDesign from '../images/graphic-design.jpg';
-import illustration from '../images/illustration.jpg';
-import webDevelopment from '../images/web-development.jpg';
+// import architecture from '../images/architecture.jpg';
+// import creativeWriting from '../images/creative-writing.jpg';
+// import graphicDesign from '../images/graphic-design.jpg';
+// import illustration from '../images/illustration.jpg';
+// import webDevelopment from '../images/web-development.jpg';
 
 const fields = [
     {
         field: "Architecture",
-        image: architecture
+        image: "architecture"
     },
     {
         field: "Creative Writing",
-        image: creativeWriting
+        image: "creativeWriting"
     },
     {
         field: "Graphic Design",
-        image: graphicDesign
+        image: "graphicDesign"
     },
     {
         field: "Illustration",
-        image: illustration
+        image: "illustration"
     },
     {
         field: "Web Development",
-        image: webDevelopment
+        image: "webDevelopment"
     }
 ]
 
