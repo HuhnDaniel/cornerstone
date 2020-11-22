@@ -7,7 +7,7 @@ import fields from '../assets/data/fields';
 
 function Fields({ menuStatus, menuToggle }) {
     return (
-        <main onClick={menuToggle} className="relative">
+        <main onClick={menuToggle} className="absolute min-h-full min-w-full">
             <Header menuStatus={menuStatus} />
             <h1 className="text-2.5xl mx-16 sm:mx-32">Fields</h1>
 
@@ -23,7 +23,7 @@ function Fields({ menuStatus, menuToggle }) {
                             //     </figure>
                             // </article>
                             <article className={`bg-${field.image} bg-cover rounded-md cursor-pointer mx-auto my-4 h-72 w-72 hover:shadow-md transition transition-transform duration-200 transform hover:scale-105`} key={i}>
-                                <div className="bg-black p-4 bg-opacity-30">
+                                <div className="bg-black p-4 rounded-t bg-opacity-30">
                                     <h3 className="text-2xl text-white">{field.field}</h3>
                                 </div>
                             </article>
