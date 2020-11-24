@@ -11,8 +11,6 @@ function App() {
     const [menuStatus, setMenuStatus] = useState(false)
 
     function menuToggle(e) {
-        e.preventDefault();
-
         if (menuStatus) {
             setMenuStatus(false);
         } else if (e.target.tagName === 'BUTTON') {
