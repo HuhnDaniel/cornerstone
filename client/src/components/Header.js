@@ -22,12 +22,12 @@ function Header({ menuStatus }) {
                     <button className="md:hidden">☰</button>
                 )
             }
-            <nav className="hidden md:grid grid-cols-5 flex-auto">
+            <nav className="hidden md:grid grid-cols-4 flex-auto">
 				<Link to={"/"}>Home</Link>
                 <Link to={"/people/"}>People</Link>
                 <Link to={"/projects/"}>Projects</Link>
                 <Link to={"/fields/"}>Fields</Link>
-                <Link to={"/contact/"}>Contact</Link>
+                {/* <Link to={"/contact/"}>Contact</Link> */}
             </nav>
         </header>
     );
