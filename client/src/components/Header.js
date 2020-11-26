@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 function Header({ menuStatus, isHome }) {
-    console.log(isHome);
     return (
         <header className={"flex flex-col md:flex-row my-4 md:mx-8 text-2.5xl md:text-2xl lg:text-2.5xl items-center"}>
 			<Link to={"/"} className="flex-1">
