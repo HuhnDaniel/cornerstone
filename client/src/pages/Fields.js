@@ -9,7 +9,6 @@ function Fields({ menuStatus, menuToggle }) {
     return (
         <main onClick={menuToggle} className="absolute min-h-full min-w-full">
             <Header menuStatus={menuStatus} />
-            <h1 className="text-2.5xl mx-16 sm:mx-32">Fields</h1>
 
             <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-8 pb-24">
                 {
