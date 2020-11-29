@@ -23,7 +23,7 @@ app.get('*', (req, res) => {
 });
 
 const syncOptions = { force: false };
-if (process.env.NODE_ENV === 'test') {
+if (process.env.NODE_ENV === 'development') {
     syncOptions.force = true;
 };
 
