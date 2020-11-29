@@ -24,13 +24,16 @@
     "homepage": "https://github.com/HuhnDaniel/cornerstone#readme",
     "devDependencies": {
         "concurrently": "^5.3.0",
-        "nodemon": "^2.0.6"
+        "nodemon": "^2.0.6",
+        "sequelize-cli": "^6.2.0"
     },
     "dependencies": {
         "axios": "^0.21.0",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "express-session": "^1.17.1",
-        "if-env": "^1.0.4"
+        "if-env": "^1.0.4",
+        "mysql2": "^2.2.5",
+        "sequelize": "^6.3.5"
     }
 }
