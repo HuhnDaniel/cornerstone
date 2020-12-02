@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 import fields from '../assets/data/fields';
 
+import API from '../utils/API';
+
 function Fields({ menuStatus, menuToggle }) {
+    useEffect(() => {
+        async function getDisciplines() {
+            const { data } = await API.getDisciplines();
+
+            console.log(data);
+        }
+
+        getDisciplines();
+    });
+
     return (
         <main onClick={menuToggle} className="absolute min-h-full min-w-full">
             <Header menuStatus={menuStatus} />
