@@ -2,9 +2,16 @@
 
 module.exports = function (sequelize, DataTypes) {
     const Discipline = sequelize.define('Discipline', {
-        name: {
+        field: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        image: {
+            type: DataTypes.STRING,
+        },
+        artistCredit: {
+            type: DataTypes.STRING(1024),
+            allowNull: true
         }
     });
 
