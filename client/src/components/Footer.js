@@ -8,7 +8,7 @@ function Footer() {
                 <div className="flex-1 grid grid-cols-4">
                     <Link to={"/"} className="text-center">Home</Link>
                     <Link to={"/people/"} className="text-center">Partners</Link>
-                    <Link to={"/fields/"} className="text-center">Disciplines</Link>
+                    <Link to={"/disciplines/"} className="text-center">Disciplines</Link>
                     <Link to={"/contact/"} className="text-center">Contact</Link>
                 </div>
                 <h2 className="flex-1 text-center md:text-right md:pr-8">&#169; 2020 Cornerstone A&amp;C LLC</h2>

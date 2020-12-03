@@ -9,6 +9,9 @@ module.exports = function (sequelize, DataTypes) {
         image: {
             type: DataTypes.STRING,
         },
+        artistName: {
+            type: DataTypes.STRING
+        },
         artistCredit: {
             type: DataTypes.STRING(1024),
             allowNull: true
