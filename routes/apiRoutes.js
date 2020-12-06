@@ -12,6 +12,12 @@ apiRoutes.post('/addDiscipline', async (req, res) => {
     const dbDiscipline = await db.Discipline.create(req.body);
 
     res.json(dbDiscipline);
+});
+
+apiRoutes.get('/getAllPartners', async (req, res) => {
+    const partnerList = await db.Partner.findAll({});
+
+    res.send(partnerList);
 })
 
 module.exports = apiRoutes;

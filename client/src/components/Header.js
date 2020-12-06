@@ -15,7 +15,7 @@ function Header({ menuStatus, isHome }) {
                         {
                             isHome ? ( <Link to={"/"}>Home</Link> ) : ( <h1>About Us</h1> )
                         }
-                        <Link to={"/people/"}>Partners</Link>
+                        <Link to={"/partners/"}>Partners</Link>
                         <Link to={"/disciplines/"}>Disciplines</Link>
                     </nav>
                 ) : (
@@ -26,7 +26,7 @@ function Header({ menuStatus, isHome }) {
                 {
                     isHome ? ( <h1>About Us</h1> ) : ( <Link to={"/"}>Home</Link> )
                 }
-                <Link to={"/people/"}>Partners</Link>
+                <Link to={"/partners/"}>Partners</Link>
                 <Link to={"/disciplines/"}>Disciplines</Link>
             </nav>
         </header>

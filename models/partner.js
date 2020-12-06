@@ -12,6 +12,14 @@ module.exports = function (sequelize, DataTypes) {
                 isEmail: true,
                 len: [6]
             }
+        },
+        phone: {
+            type: DataTypes.BIGINT,
+            unique: true,
+            validate: {
+                isNumeric: true,
+                len: [10, 11]
+            }
         }
     });
 
@@ -19,7 +27,7 @@ module.exports = function (sequelize, DataTypes) {
         Partner.hasMany(models.Project, {
             onDelete: 'cascade'
         });
-    }
+    };
 
     return Partner;
 };

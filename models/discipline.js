@@ -22,7 +22,7 @@ module.exports = function (sequelize, DataTypes) {
         Discipline.hasMany(models.Project, {
             onDelete: 'cascade'
         });
-    }
+    };
 
     return Discipline;
 };
