@@ -7,7 +7,7 @@ function Footer() {
             <div className="flex flex-col md:flex-row">
                 <div className="flex-1 grid grid-cols-4">
                     <Link to={"/"} className="text-center">Home</Link>
-                    <Link to={"/people/"} className="text-center">Partners</Link>
+                    <Link to={"/partners/"} className="text-center">Partners</Link>
                     <Link to={"/disciplines/"} className="text-center">Disciplines</Link>
                     <Link to={"/contact/"} className="text-center">Contact</Link>
                 </div>

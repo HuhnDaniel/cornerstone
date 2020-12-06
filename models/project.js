@@ -10,8 +10,9 @@ module.exports = function (sequelize, DataTypes) {
 
     Project.associate = function (models) {
         Project.belongsTo(models.Partner, {});
+
         Project.belongsTo(models.Discipline, {});
-    }
+    };
 
     return Project;
 };
