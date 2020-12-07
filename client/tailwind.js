@@ -166,6 +166,7 @@ module.exports = {
       'graphicDesign': 'url("../images/graphic-design.jpg")',
       'illustration': 'url("../images/illustration.jpg")',
       'webDevelopment': 'url("../images/web-development.jpg")',
+      'defaultUser': 'url("../images/default-user.svg")',
       'gradient-to-t': 'linear-gradient(to top, var(--gradient-color-stops))',
       'gradient-to-tr': 'linear-gradient(to top right, var(--gradient-color-stops))',
       'gradient-to-r': 'linear-gradient(to right, var(--gradient-color-stops))',
