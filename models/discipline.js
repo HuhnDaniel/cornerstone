@@ -21,7 +21,11 @@ module.exports = function (sequelize, DataTypes) {
     Discipline.associate = function (models) {
         Discipline.hasMany(models.Project, {
             onDelete: 'cascade'
-        });
+		});
+		
+		Discipline.belongsToMany(models.Partner, {
+			through: models.PartnerDiscipline
+		});
     };
 
     return Discipline;

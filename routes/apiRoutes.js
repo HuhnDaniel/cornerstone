@@ -15,7 +15,14 @@ apiRoutes.post('/addDiscipline', async (req, res) => {
 });
 
 apiRoutes.get('/getAllPartners', async (req, res) => {
-    const partnerList = await db.Partner.findAll({});
+    const partnerList = await db.Partner.findAll({
+		include: [{
+			model: db.Discipline,
+			attributes: [
+				'field'
+			]
+		}]
+	});
 
     res.send(partnerList);
 });
