@@ -16,7 +16,9 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING(1024),
             allowNull: true
         }
-    });
+    }, {
+		timestamps: false
+	});
 
     Discipline.associate = function (models) {
         Discipline.hasMany(models.Project, {

@@ -6,7 +6,9 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         }
-    });
+    }, {
+		timestamps: false
+	});
 
     Project.associate = function (models) {
         Project.belongsTo(models.Partner, {});

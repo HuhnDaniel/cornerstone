@@ -21,7 +21,9 @@ module.exports = function (sequelize, DataTypes) {
                 len: [10, 11]
             }
         }
-    });
+    }, {
+		timestamps: false
+	});
 
     Partner.associate = function (models) {
         Partner.hasMany(models.Project, {

@@ -5,15 +5,11 @@ module.exports = {
        await queryInterface.bulkInsert('PartnerDisciplines', [
            {
                PartnerId: 1,
-               DisciplineId: 1,
-               createdAt: new Date(),
-               updatedAt: new Date()
+               DisciplineId: 1
            },
            {
                PartnerId: 2,
-               DisciplineId: 5,
-               createdAt: new Date(),
-               updatedAt: new Date()
+               DisciplineId: 5
            }
        ])
     },
