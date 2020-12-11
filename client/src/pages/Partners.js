@@ -26,7 +26,7 @@ function Partners({ menuStatus, menuToggle }) {
                 {
                     partnerList.map((partner, i) => {
                         return (
-                            <article className={`bg-defaultUser bg-cover rounded-md text-white cursor-pointer mx-auto my-4 h-72 w-72 hover:shadow-md transition transition-transform duration-200 transform hover:scale-105`} key={i}>
+                            <article className={`bg-${partner.profilePic} bg-cover rounded-md text-white cursor-pointer mx-auto my-4 h-72 w-72 hover:shadow-md transition transition-transform duration-200 transform hover:scale-105`} key={i}>
                                 <div className="bg-black p-4 rounded-t bg-opacity-30">
                                     <h3 className="text-2xl">{partner.name}</h3>
                                 </div>

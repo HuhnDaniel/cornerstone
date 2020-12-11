@@ -20,6 +20,10 @@ module.exports = function (sequelize, DataTypes) {
                 isNumeric: true,
                 len: [10, 11]
             }
+        },
+        profilePic: {
+            type: DataTypes.STRING,
+            defaultValue: 'defaultUser'
         }
     }, {
 		timestamps: false
