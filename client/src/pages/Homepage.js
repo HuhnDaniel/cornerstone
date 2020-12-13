@@ -5,10 +5,10 @@ import Footer from '../components/Footer';
 
 function Homepage({ menuStatus, menuToggle }) {
 	return (
-		<main onClick={menuToggle} className="fixed top-0 left-0 bg-homepage min-h-full min-w-full bg-cover text-white">
+        <main onClick={menuToggle} className="absolute top-0 left-0 bg-homepage bg-fixed min-h-full min-w-full bg-cover text-white">
             <Header menuStatus={menuStatus} isHome={true} />
             
-			<article className="grid grid-rows-3 text-lg m-8 items-center justify-items-center bg-black p-4 rounded-lg bg-opacity-30">
+			<article className="flex flex-col space-y-4 text-lg m-8 md:m-16 items-center justify-items-center bg-black py-4 rounded-lg bg-opacity-30 mb-24">
 				<p className="w-4/5 indent">The name is the brand - we are design and technical professionals, collaborating together to bring art to our disciplines, and craftsmanship to our projects. Our skills range from architecture to graphic arts, and from creative writing to web development. Commitment to art and craft is the cornerstone of our work - building a reliable foundation for the services we provide.</p>
 				<p className="w-4/5 indent">We believe all work has intrinsic value. Some of the work on this web site is for business purposes, and some is a form of creative expression. All is intended as contribution to the common good as we complement each other's skills and strengths.</p>
 				<p className="w-4/5 indent">If you have a project you would like us to collaborate with you on as a client - or if you want to bring your skills to the group - please reach out to one of our maker-partners. You can search for our offerings and project examples either by "Design Disciplines" or by "Collaboration Partners".</p>
