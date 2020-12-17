@@ -15,7 +15,7 @@ function App() {
         } else if (e.target.tagName === 'BUTTON') {
             setMenuStatus(true);
         }
-    }
+    };
 
 	return (
 		<Router>
