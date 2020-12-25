@@ -7,7 +7,11 @@ function Homepage({ menuStatus, menuToggle }) {
     const [aboutUsStatus, setAboutUsStatus] = useState(false);
 
     function aboutUsToggle(e) {
-        setAboutUsStatus(true);
+		if (aboutUsStatus) {
+			setAboutUsStatus(false);
+		} else {
+			setAboutUsStatus(true);
+		}
     };
 
 	return (
@@ -26,7 +30,7 @@ function Homepage({ menuStatus, menuToggle }) {
                 )
             }
 
-            <span className="absolute bottom-0 right-0 m-2 text-sm">Photo by <a href="https://unsplash.com/@mana5280?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank" rel="noopener noreferrer">mana5280</a> on <a href="https://unsplash.com/@mana5280?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank" rel="noopener noreferrer">Unsplash</a></span>
+            <span className="absolute bottom-0 right-0 m-2 text-sm">Photo by <a href="https://unsplash.com/@mana5280?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank" rel="noopener noreferrer">mana5280</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank" rel="noopener noreferrer">Unsplash</a></span>
 
 			<Footer />
 		</main>
