@@ -22,6 +22,8 @@ function Contact({ menuStatus, menuToggle }) {
 				</article>
 			</section>
 
+			<span className="absolute bottom-0 right-0 m-2 text-sm">Photo by <a href="https://unsplash.com/@timmossholder?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank" rel="noopener noreferrer">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank" rel="noopener noreferrer">Unsplash</a></span>
+
 			<Footer />
 		</main>
 	);

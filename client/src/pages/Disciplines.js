@@ -32,7 +32,7 @@ function Disciplines({ menuStatus, menuToggle }) {
                                 </div>
                                 {
                                     discipline.artistCredit ? (
-                                        <span className="absolute bottom-0 right-0 p-2 text-sm rounded-tl bg-black bg-opacity-30">Photo by <a href={discipline.artistCredit} target="_blank" rel="noopener noreferrer">{discipline.artistName}</a> on <a href={discipline.artistCredit} target="_blank" rel="noopener noreferrer">Unsplash</a></span>
+                                        <span className="absolute bottom-0 right-0 p-2 text-sm rounded-tl bg-black bg-opacity-30">Photo by <a href={discipline.artistCredit} target="_blank" rel="noopener noreferrer">{discipline.artistName}</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank" rel="noopener noreferrer">Unsplash</a></span>
                                     ) : (
                                         null
                                     )

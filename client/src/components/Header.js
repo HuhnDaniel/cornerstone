@@ -13,7 +13,7 @@ function Header({ menuStatus, aboutUsToggle, isHome }) {
                     <nav className="md:hidden flex flex-col items-center">
                         <button>⨯</button>
                         {
-                            isHome ? ( <button onClick={aboutUsToggle}>About Us</button> ) : ( <Link to={"/"}>Home</Link> )
+                            isHome ? ( <button onClick={aboutUsToggle} className="focus:outline-none">About Us</button> ) : ( <Link to={"/"}>Home</Link> )
                         }
                         <Link to={"/partners/"}>Partners</Link>
                         <Link to={"/disciplines/"}>Disciplines</Link>
@@ -24,7 +24,7 @@ function Header({ menuStatus, aboutUsToggle, isHome }) {
             }
             <nav className="hidden md:grid grid-cols-3 flex-1 text-center">
                 {
-                    isHome ? ( <button onClick={aboutUsToggle}>About Us</button> ) : ( <Link to={"/"}>Home</Link> )
+                    isHome ? ( <button onClick={aboutUsToggle} className="focus:outline-none">About Us</button> ) : ( <Link to={"/"}>Home</Link> )
                 }
                 <Link to={"/partners/"}>Partners</Link>
                 <Link to={"/disciplines/"}>Disciplines</Link>
