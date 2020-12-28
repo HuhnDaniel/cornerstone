@@ -4,7 +4,7 @@ module.exports = {
     up: async (queryInterface, Sequelize) => {
         await queryInterface.bulkInsert('Disciplines', [
             {
-                field: 'Architecture',
+                field: 'Architectural Design and Planning',
                 image: 'architecture',
                 artistName: null,
                 artistCredit: null
@@ -32,6 +32,12 @@ module.exports = {
                 image: 'webDevelopment',
                 artistName: 'clemhlrdt',
                 artistCredit: 'https://unsplash.com/@clemhlrdt?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText'
+            },
+            {
+                field: 'Real Estate Development',
+                image: 'realEstate',
+                artistName: 'Nicholas Gonzalez',
+                artistCredit: 'https://unsplash.com/@mrngonzalez?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText'
             }
         ], {});
     },
