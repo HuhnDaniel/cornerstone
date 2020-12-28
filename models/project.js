@@ -10,11 +10,11 @@ module.exports = function (sequelize, DataTypes) {
 		timestamps: false
 	});
 
-    Project.associate = function (models) {
-        Project.belongsTo(models.Partner, {});
+    // Project.associate = function (models) {
+    //     Project.belongsTo(models.Partner, {});
 
-        Project.belongsTo(models.Discipline, {});
-    };
+    //     Project.belongsTo(models.Discipline, {});
+    // };
 
     return Project;
 };

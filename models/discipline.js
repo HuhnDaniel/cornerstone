@@ -26,7 +26,7 @@ module.exports = function (sequelize, DataTypes) {
 		});
 		
 		Discipline.belongsToMany(models.Partner, {
-			through: models.PartnerDiscipline
+			through: models.Project
 		});
     };
 

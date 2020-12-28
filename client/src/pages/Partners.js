@@ -30,7 +30,13 @@ function Partners({ menuStatus, menuToggle }) {
                                 <div className="bg-black p-4 rounded-t bg-opacity-30">
                                     <h3 className="text-2xl">{partner.name}</h3>
                                 </div>
-                                <span className="absolute bottom-0 right-0 p-2 text-sm rounded-tl bg-black bg-opacity-30">Specializes in {partner.Disciplines[0].field}</span>
+                                {
+                                    partner.Disciplines[0] ? (
+                                        <span className="absolute bottom-0 right-0 p-2 text-sm rounded-tl bg-black bg-opacity-30">Specializes in {partner.Disciplines[0].field}</span>
+                                    ) : (
+                                        null
+                                    )
+                                }
                             </article>
                         )
                     })
