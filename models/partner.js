@@ -24,6 +24,9 @@ module.exports = function (sequelize, DataTypes) {
         profilePic: {
             type: DataTypes.STRING,
             defaultValue: 'defaultUser'
+        },
+        primaryField: {
+            type: DataTypes.STRING
         }
     }, {
 		timestamps: false
@@ -34,9 +37,9 @@ module.exports = function (sequelize, DataTypes) {
             onDelete: 'cascade'
 		});
 		
-		Partner.belongsToMany(models.Discipline, {
-			through: models.Project
-		});
+		// Partner.belongsToMany(models.Discipline, {
+		// 	through: models.Project
+		// });
     };
 
     return Partner;

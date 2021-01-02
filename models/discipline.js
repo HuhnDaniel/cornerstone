@@ -25,9 +25,9 @@ module.exports = function (sequelize, DataTypes) {
             onDelete: 'cascade'
 		});
 		
-		Discipline.belongsToMany(models.Partner, {
-			through: models.Project
-		});
+		// Discipline.belongsToMany(models.Partner, {
+		// 	through: models.Project
+		// });
     };
 
     return Discipline;
