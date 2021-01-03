@@ -24,9 +24,6 @@ module.exports = function (sequelize, DataTypes) {
         profilePic: {
             type: DataTypes.STRING,
             defaultValue: 'defaultUser'
-        },
-        primaryField: {
-            type: DataTypes.STRING
         }
     }, {
 		timestamps: false

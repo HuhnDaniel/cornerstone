@@ -11,8 +11,16 @@ function Partners({ menuStatus, menuToggle }) {
     useEffect(() => {
         async function getPartners() {
             const { data } = await API.getPartners();
+            console.log(data);
 
-            setPartnerList(data);
+            data.partnerList.map((partner) => {
+                partner.discipline = data.partnerDisciplines.find(discipline => discipline.id === partner.id).field;
+                console.log(partner);
+            });
+
+            console.log(data.partnerList);
+
+            setPartnerList(data.partnerList);
         }
 
         getPartners();
@@ -31,7 +39,7 @@ function Partners({ menuStatus, menuToggle }) {
                                     <h3 className="text-2xl">{partner.name}</h3>
                                 </div>
                                 
-                                <span className="absolute bottom-0 right-0 p-2 text-sm rounded-tl bg-black bg-opacity-30">Specializes in {partner.primaryField}</span>
+                                <span className="absolute bottom-0 right-0 p-2 text-sm rounded-tl bg-black bg-opacity-30">Specializes in {partner.discipline}</span>
                                     
                             </article>
                         )
