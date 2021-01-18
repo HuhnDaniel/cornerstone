@@ -251,6 +251,7 @@ module.exports = {
     },
     flex: {
       '1': '1 1 0%',
+      '2': '2 2 0%',
       auto: '1 1 auto',
       initial: '0 1 auto',
       none: 'none',
@@ -369,11 +370,12 @@ module.exports = {
       full: '100%',
       ...breakpoints(theme('screens')),
     }),
-    minHeight: {
+    minHeight: theme => ({
       '0': '0',
+      ...theme('spacing'),
       full: '100%',
       screen: '100vh',
-    },
+    }),
     minWidth: {
       '0': '0',
       full: '100%',

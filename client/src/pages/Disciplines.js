@@ -1,22 +1,35 @@
 import React, { useEffect, useState } from 'react';
 
 import Header from '../components/Header';
+import DisciplineOverlay from '../components/DisciplineOverlay';
 import Footer from '../components/Footer';
 
 import API from '../utils/API';
 
 function Disciplines({ menuStatus, menuToggle }) {
     const [disciplineList, setDisciplineList] = useState([]);
+    const [overlayVisibility, setOverlayVisibility] = useState(false);
+    const [currentDiscipline, setCurrentDiscipline] = useState('');
 
     useEffect(() => {
-        async function getDisciplines() {
-            const { data } = await API.getDisciplines();
-
-            setDisciplineList(data)
-        }
-
         getDisciplines();
     }, []);
+    
+    async function getDisciplines() {
+        const { data } = await API.getDisciplines();
+
+        setDisciplineList(data)
+    }
+
+    function openOverlay(e) {
+        setOverlayVisibility(true);
+        setCurrentDiscipline(e.target.id);
+    }
+
+    function closeOverlay(e) {
+        setOverlayVisibility(false);
+        setCurrentDiscipline('');
+    }
 
     return (
         <main onClick={menuToggle} className="absolute min-h-full min-w-full">
@@ -26,7 +39,7 @@ function Disciplines({ menuStatus, menuToggle }) {
                 {
                     disciplineList.map((discipline, i) => {
                         return (
-                            <article className={`bg-${discipline.image} bg-cover rounded-md text-white cursor-pointer mx-auto my-4 h-72 w-72 hover:shadow-md transition transition-transform duration-200 transform hover:scale-105`} key={i}>
+                            <article id={discipline.id} className={`bg-${discipline.image} bg-cover rounded-md text-white cursor-pointer mx-auto my-4 h-72 w-72 hover:shadow-md transition transition-transform duration-200 transform hover:scale-105`} onClick={openOverlay.bind(this)} key={i}>
                                 <div className="bg-black p-4 rounded-t bg-opacity-30">
                                     <h3 className="text-2xl">{discipline.field}</h3>
                                 </div>
@@ -42,6 +55,8 @@ function Disciplines({ menuStatus, menuToggle }) {
                     })
                 }
             </section>
+
+            <DisciplineOverlay overlayVisibility={overlayVisibility} currentDiscipline={currentDiscipline} closeOverlay={closeOverlay} />
 
 			<Footer />
         </main>

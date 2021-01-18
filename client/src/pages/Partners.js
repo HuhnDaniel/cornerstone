@@ -15,7 +15,7 @@ function Partners({ menuStatus, menuToggle }) {
 
             data.partnerList.map((partner) => {
                 partner.discipline = data.partnerDisciplines.find(discipline => discipline.id === partner.id).field;
-                console.log(partner);
+                return null;
             });
 
             console.log(data.partnerList);
@@ -39,7 +39,7 @@ function Partners({ menuStatus, menuToggle }) {
                                     <h3 className="text-2xl">{partner.name}</h3>
                                 </div>
                                 
-                                <span className="absolute bottom-0 right-0 p-2 text-sm rounded-tl bg-black bg-opacity-30">Specializes in {partner.discipline}</span>
+                                <span className="absolute bottom-0 right-0 p-2 text-sm text-right rounded-tl bg-black bg-opacity-30">Specializes in {partner.discipline}</span>
                                     
                             </article>
                         )

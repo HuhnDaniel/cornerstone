@@ -8,6 +8,21 @@ apiRoutes.get('/getAllDisciplines', async (req, res) => {
     res.send(disciplineList);
 });
 
+apiRoutes.get('/getDisciplineById/:disciplineId', async (req, res) => {
+    const discipline = await db.Discipline.findAll({
+        where: {
+            id: req.params.disciplineId
+        },
+        include : [
+            {
+                model: db.Project
+            }
+        ]
+    });
+
+    res.json(discipline);
+})
+
 apiRoutes.post('/addDiscipline', async (req, res) => {
     const dbDiscipline = await db.Discipline.create(req.body);
 
@@ -16,20 +31,9 @@ apiRoutes.post('/addDiscipline', async (req, res) => {
 
 apiRoutes.get('/getAllPartners', async (req, res) => {
     const partnerList = await db.Partner.findAll({});
-    // const partnerDisciplines = await db.Partner.findAll({
-    //     attributes: [[
-    //         db.sequelize.literal('DISTINCT `Projects->Discipline`.`field` AS `Projects.Discipline.field` FROM `Partners` AS `Partner` LEFT OUTER JOIN `Projects` AS `Projects` ON `Partner`.`id` = `Projects`.`PartnerId` LEFT OUTER JOIN `Disciplines` AS `Projects->Discipline` ON `Projects`.`DisciplineId` = `Projects->Discipline`.`id`'),
-    //         'field'
-    //     ]]
-    // })
 
     const [partnerDisciplines, metadata] = await db.sequelize.query('SELECT DISTINCT `Partner`.`id`, `Projects->Discipline`.`field` AS `field` FROM `Partners` AS `Partner` LEFT OUTER JOIN `Projects` AS `Projects` ON `Partner`.`id` = `Projects`.`PartnerId` LEFT OUTER JOIN `Disciplines` AS `Projects->Discipline` ON `Projects`.`DisciplineId` = `Projects->Discipline`.`id`')
 
-    // partnerList.map((partner) => {
-    //     console.log("partner", partner);
-    // })
-
-    // console.log(partnerDisciplines);
     res.send({partnerList, partnerDisciplines});
 });
 
