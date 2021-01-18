@@ -7,7 +7,10 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         image: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
+        },
+        description: {
+            type: DataTypes.STRING(2048)
         },
         artistName: {
             type: DataTypes.STRING
@@ -24,10 +27,6 @@ module.exports = function (sequelize, DataTypes) {
         Discipline.hasMany(models.Project, {
             onDelete: 'cascade'
 		});
-		
-		// Discipline.belongsToMany(models.Partner, {
-		// 	through: models.Project
-		// });
     };
 
     return Discipline;

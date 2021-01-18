@@ -5,6 +5,10 @@ export default {
         return await axios.get('/api/getAllDisciplines');
     },
 
+    getDisciplineById: async function (disciplineId) {
+        return await axios.get(`/api/getDisciplineById/${disciplineId}`);
+    },
+
     getPartners: async function () {
         return await axios.get('/api/getAllPartners');
     }
