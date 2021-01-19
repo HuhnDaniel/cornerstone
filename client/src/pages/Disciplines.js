@@ -22,8 +22,16 @@ function Disciplines({ menuStatus, menuToggle }) {
     }
 
     function openOverlay(e) {
+        let targetId;
+        if (e.target.tagName === "ARTICLE") {
+            targetId = e.target.id;
+        } else if (e.target.tagName === "DIV") {
+            targetId = e.target.parentElement.id;
+        } else if (e.target.tagName === "H3") {
+            targetId = e.target.parentElement.parentElement.id;
+        }
         setOverlayVisibility(true);
-        setCurrentDiscipline(e.target.id);
+        setCurrentDiscipline(targetId);
     }
 
     function closeOverlay(e) {
