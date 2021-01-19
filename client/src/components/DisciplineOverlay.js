@@ -2,9 +2,18 @@ import React, { Component } from 'react';
 
 import API from '../utils/API';
 
+const initialState = {
+    Projects: [],
+    artistCredit: '',
+    artistName: '',
+    description: '',
+    field: '',
+    id: '',
+    image: ''
+}
+
 class DisciplineOverlay extends Component {
-    // const [discipline, setDiscipline] = useState();
-    state = {};
+    state = initialState;
 
     async componentDidUpdate(prevProps) {
         async function getDiscipline(currentDiscipline) {
@@ -12,11 +21,18 @@ class DisciplineOverlay extends Component {
             return data[0];
         }
 
-        const discipline = await getDiscipline(this.props.currentDiscipline);
-        console.log(discipline);
-
+        
         if (this.props !== prevProps) {
-            this.setState(discipline);
+            const discipline = await getDiscipline(this.props.currentDiscipline);
+            console.log(discipline);
+            console.log(Boolean(discipline));
+
+            if (Boolean(discipline)) {
+                this.setState(discipline);
+            } else {
+                this.setState(initialState);
+            }
+            console.log(this.state);
         }
     }
 
