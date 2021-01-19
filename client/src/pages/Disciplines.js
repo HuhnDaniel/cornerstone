@@ -30,8 +30,8 @@ function Disciplines({ menuStatus, menuToggle }) {
         } else if (e.target.tagName === "H3") {
             targetId = e.target.parentElement.parentElement.id;
         }
-        setOverlayVisibility(true);
         setCurrentDiscipline(targetId);
+        setOverlayVisibility(true);
     }
 
     function closeOverlay(e) {
