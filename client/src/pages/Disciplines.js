@@ -35,8 +35,15 @@ function Disciplines({ menuStatus, menuToggle }) {
     }
 
     function closeOverlay(e) {
-        setOverlayVisibility(false);
-        setCurrentDiscipline('');
+        switch (e.target.id) {
+            case "margin":
+            case "close":
+                setOverlayVisibility(false);
+                setCurrentDiscipline('');
+                break;
+            default:
+                break;
+        }
     }
 
     return (
