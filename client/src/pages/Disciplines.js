@@ -43,7 +43,7 @@ function Disciplines({ menuStatus, menuToggle }) {
         <main onClick={menuToggle} className="absolute min-h-full min-w-full">
             <Header menuStatus={menuStatus} />
 
-            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-8 pb-24">
+            <section className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-8 pb-24">
                 {
                     disciplineList.map((discipline, i) => {
                         return (
@@ -62,9 +62,10 @@ function Disciplines({ menuStatus, menuToggle }) {
                         )
                     })
                 }
+
+                <DisciplineOverlay overlayVisibility={overlayVisibility} currentDiscipline={currentDiscipline} closeOverlay={closeOverlay} />
             </section>
 
-            <DisciplineOverlay overlayVisibility={overlayVisibility} currentDiscipline={currentDiscipline} closeOverlay={closeOverlay} />
 
 			<Footer />
         </main>
