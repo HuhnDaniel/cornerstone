@@ -38,13 +38,14 @@ class DisciplineOverlay extends Component {
             return (
                 <section id="margin" className={'absolute flex items-center justify-center top-0 left-0 h-full w-full'} onClick={this.props.closeOverlay}>
                     <div className="flex flex-row h-11/12 w-full sm:rounded sm:w-11/12 bg-gray-400 opacity-100 overflow-y-auto">
-                        <div className={`flex-1 bg-${this.state.image} bg-cover text-white min-h-72`}>
-                            <h1>{this.state.field}</h1>
-                            <p>{this.state.description}</p>
+                        <div className="flex-1 p-4">
+                            <h1 className="text-2xl mb-4">{this.state.field}</h1>
+                            <figure className={`bg-${this.state.image} bg-cover text-white h-72 w-72 mx-auto mb-4`}></figure>
+                            <p className="text-xl">{this.state.description}</p>
                         </div>
-                        <div className="flex flex-col flex-2">
-                            <h2 id="close" className="self-end text-xl mx-2 cursor-pointer">⨯</h2>
-                            hi
+                        <div className="flex flex-col flex-2 p-4">
+                            <h2 id="close" className="self-end text-xl mx-2 cursor-pointer mb-4">⨯</h2>
+                            <h1>Hi</h1>
                         </div>
                     </div>
                 </section>
