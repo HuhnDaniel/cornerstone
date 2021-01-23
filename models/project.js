@@ -29,9 +29,6 @@ module.exports = function (sequelize, DataTypes) {
         },
         role: {
             type: DataTypes.STRING
-        },
-        subDiscipline: {
-            type: DataTypes.STRING
         }
     }, {
         timestamps: false
@@ -40,7 +37,7 @@ module.exports = function (sequelize, DataTypes) {
     Project.associate = function (models) {
         Project.belongsTo(models.Partner, {});
 
-        Project.belongsTo(models.Discipline, {});
+        Project.belongsTo(models.SubDiscipline, {});
     };
 
     return Project;
