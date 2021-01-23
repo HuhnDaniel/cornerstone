@@ -11,9 +11,8 @@ module.exports = {
                 timeframe: 'CUP – June 2021; Blue VCB – Dec. 2021; Dock/Police &amp; Maint. – TBD 2022; Red VCB - TBD 2023.',
                 company: 'HNTB',
                 role: 'Design-Build Prime - Hensel Phelps',
-                subDiscipline: 'Aviation',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 1
             },
             {
                 name: 'Francis Allen Gymnastics Training Facility',
@@ -23,9 +22,8 @@ module.exports = {
                 timeframe: 'March 2020.',
                 company: 'HNTB',
                 role: 'Prime Arch. – The Clark Enersen Partners',
-                subDiscipline: 'Collegiate Sports',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 2
             },
             {
                 name: 'Kinnick Stadium North Endzone',
@@ -35,9 +33,8 @@ module.exports = {
                 timeframe: 'Phase 1 seating bowl completed in August 2018; Phase 2 Club space and Concourses completed in August 2019',
                 company: 'HNTB',
                 role: 'Prime Arch. – Neumann Monson Architects',
-                subDiscipline: 'Collegiate Sports',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 2
             },
             {
                 name: 'Schembechler Hall Football Performance Center',
@@ -47,9 +44,8 @@ module.exports = {
                 timeframe: 'Phase 1 weight room renovation completed in 2018; Phase 2 sports medicine and training renovations completed in 2019.',
                 company: 'HNTB',
                 role: 'Prime Arch. – Kohn Pedersen Fox Associates',
-                subDiscipline: 'Collegiate Sports',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 2
             },
             {
                 name: 'VSU Multipurpose Center',
@@ -59,9 +55,8 @@ module.exports = {
                 timeframe: 'January 2016',
                 company: 'AECOM',
                 role: 'Prime Arch. - Clark Nexsen',
-                subDiscipline: 'Collegiate Sports',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 2
             },
             {
                 name: 'Centennial Stadium Expansion, Johnny Allison Pressbox Tower',
@@ -71,9 +66,8 @@ module.exports = {
                 timeframe: 'September 2015. Worked closely with the Construction Manager to complete construction in less than 11 months.',
                 company: 'AECOM',
                 role: 'Associate Arch',
-                subDiscipline: 'Collegiate Sports',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 2
             },
             {
                 name: 'Hae Song Plaza Mixed-Use Development',
@@ -82,9 +76,8 @@ module.exports = {
                 overview: 'Hae Song Plaza (Golden Harbor Plaza) is a planned 2.85 million SF mixed use complex located in a prominent site next to Inch’on Harbor and the new Inch’on International Airport. The complex includes a 40-story office building, a five-star 550-room hotel, a shopping center with a major department store anchor, and underground parking. Topping the office tower is a magnificent restaurant and lounge commanding breathtaking views to the city and harbor.',
                 timeframe: 'Unbuilt. Design Development completed August 1997.',
                 company: 'Ellerbe Becket',
-                subDiscipline: 'Commercial / Mixed Use',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 3
             },
             {
                 name: 'Roanoke Downtown North Redevelopment Plan',
@@ -93,9 +86,8 @@ module.exports = {
                 overview: 'This urban redevelopment plan focused on revitalization of the northeast sector of downtown Roanoke, VA. Primary elements of the plan were to connect the Market Center district to the historic Hotel Roanoke in a pedestrian-friendly manner across the Norfolk Southern rail lines, and to make way for new office and urban open space development by removal of an underused viaduct roadway.',
                 timeframe: 'Urban design study 1988. Subsequent buildings by others.',
                 company: 'RTKL Associates',
-                subDiscipline: 'Commercial / Mixed Use',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 3
             },
             {
                 name: 'Church Street Station Expansion Plan',
@@ -104,9 +96,8 @@ module.exports = {
                 overview: 'Urban Development study to enhance and expand the Church Street Station entertainment district in downtown Orlando, FL. Plan included expansion of restaurant and themed entertainment clubs, addition of a 200-room boutique hotel, and increased parking.',
                 timeframe: 'Urban design study 1990.',
                 company: 'RTKL Associates',
-                subDiscipline: 'Commercial / Mixed Use',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 3
             },
             {
                 name: 'Twin Bridges Office / Hotel Development',
@@ -115,9 +106,8 @@ module.exports = {
                 overview: 'Schematic Design study for a new twin-building office/hotel complex. Attention was paid to the site composition in order to create a defined urban space, as well as building massing to fit into the historic character of Alexandria, VA. Special attention was also paid to flight-zone height restrictions for adjacent Reagan National airport.',
                 timeframe: 'Schematic design – June 1994.',
                 company: 'Keys Condon Florance Architects',
-                subDiscipline: 'Commercial / Mixed Use',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 3
             },
             {
                 name: 'Federal Reserve Bank of Kansas City Office and Operations Center',
@@ -128,9 +118,8 @@ module.exports = {
                 awards: 'Capstone Award, Kansas City Business Journal, 2009',
                 company: 'Ellerbe Becket',
                 role: 'Associate Arch. - Pei Cobb Freed and Partners',
-                subDiscipline: 'Government / Institutional',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 4
             },
             {
                 name: 'East Village Transit Center',
@@ -140,9 +129,8 @@ module.exports = {
                 timeframe: 'August 2020.',
                 company: 'HNTB',
                 role: 'Prime Cons. – Taliaferro &amp; Browne',
-                subDiscipline: 'Government / Institutional',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 4
             },
             {
                 name: 'FBI Tucson Resident Office',
@@ -152,9 +140,8 @@ module.exports = {
                 timeframe: 'March 2012.',
                 awards: 'LEED Platinum certification',
                 company: 'Ellerbe Becket',
-                subDiscipline: 'Government / Institutional',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 4
             },
             {
                 name: 'Discovery Court, National Museum of Natural History',
@@ -164,9 +151,8 @@ module.exports = {
                 timeframe: 'Spring 1997.',
                 company: 'Keys Condon Florance Architects',
                 role: 'Prime Arch. – Hammel Green and Abrahamson',
-                subDiscipline: '',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 4
             },
             {
                 name: 'Guangdong Olympic Stadium',
@@ -176,9 +162,8 @@ module.exports = {
                 timeframe: 'November 2001. Design through construction completed in 32 months. Awards: People’s Republic of China, Excellent Design Award, 2001',
                 company: 'Ellerbe Becket',
                 role: 'Prime Arch. – Nixon &amp; Nixon',
-                subDiscipline: 'International Sports',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 5
             },
             {
                 name: 'Perth Convention + Exhibition Center Competition',
@@ -189,9 +174,8 @@ module.exports = {
                 awards: 'KC AIA Special Commendation in Urban Design, 2001',
                 company: 'Ellerbe Becket',
                 role: 'Associate Arch. – Crawford Architects',
-                subDiscipline: 'International Sports',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 5
             },
             {
                 name: 'Buenos Aires Atlanta Arena Feasibility Study',
@@ -200,9 +184,8 @@ module.exports = {
                 overview: 'Phase I study conducted for AEG Facilities to analyze existing design for partially constructed concert venue in Buenos Aires as an investment opportunity. Study included analysis of program, plans, sight lines, structural systems, MEP systems, and an estimate of probable cost to complete the project with improvements to the design. A Phase II study was then conducted for Banco Ciudad to analyze a revised design.',
                 timeframe: 'Study Completed in 2017. Design subsequently completed by others.',
                 company: 'AECOM',
-                subDiscipline: 'International Sports',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 5
             },
             {
                 name: 'Camden Yards Sports Complex Urban Design and Master Plan',
@@ -213,9 +196,8 @@ module.exports = {
                 awards: 'National AIA Urban Design Honor Award; Baltimore AIA – Grand Design Award (for Urban Design Study); ASLA Urban Design Citation; ULI Public Award',
                 company: 'RTKL Associates',
                 role: 'Prime Arch. – HOK Sport',
-                subDiscipline: 'Master Planning / Urban Design',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 6
             },
             {
                 name: 'Parkville Campus Master Plan Update 2013, Park University',
@@ -224,9 +206,8 @@ module.exports = {
                 overview: 'Led the process for an update to the previous 2006 Parkville Campus Master Plan. The process included re-evaluating or confirming previous master plan principles and strategies, and making strategic updates based on new administration priorities. After the completion of the Master Plan update, completed a building evaluation for upgrades to the Alumni Hall theater.',
                 timeframe: 'Master Plan - October 2013. Alumni Hall Programming Assessment – Spring 2014.',
                 company: 'AECOM',
-                subDiscipline: 'Master Planning / Urban Design',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 6
             },
             {
                 name: 'Recreation &amp; Athletics Facilities Master Plan, Rice University',
@@ -236,9 +217,8 @@ module.exports = {
                 timeframe: 'March 2010.',
                 company: 'AECOM',
                 role: 'Prime Arch. – Michael Graves Architecture',
-                subDiscipline: 'Master Planning / Urban Design',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 6
             },
             {
                 name: 'Southeast Federal Center Design Guidelines',
@@ -248,9 +228,8 @@ module.exports = {
                 timeframe: '1994.',
                 company: 'Keys Condon Florance Architects',
                 role: 'Associate Cons. – WRT Associates.',
-                subDiscipline: 'Master Planning / Urban Design',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 6
             },
             {
                 name: 'National Institutes of Health Master Plan',
@@ -261,9 +240,8 @@ module.exports = {
                 awards: 'APA – NCPC Chapter Outstanding Merit Award, 1996',
                 company: 'Keys Condon Florance Architects',
                 role: 'Associate Cons. – Oudens + Knoop Architects.',
-                subDiscipline: 'Master Planning / Urban Design',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 6
             },
             {
                 name: 'Mission Grande Axe Urban Design Competition',
@@ -272,9 +250,8 @@ module.exports = {
                 timeframe: 'Competition design - December 1991.',
                 company: 'RTKL',
                 role: 'Associate Cons. – Peter Walker, Pierre LeSage Assoc.',
-                subDiscipline: 'Master Planning / Urban Design',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 6
             },
             {
                 name: 'Lambeau Field Redevelopment (2003)',
@@ -284,9 +261,8 @@ module.exports = {
                 timeframe: 'Phase 1 – September 2002. Phase II – September 2003. Worked closely with Turner Construction to achieve project completion is 2 off-seasons.',
                 awards: '2003 Project Leadership Award, Construction Owners Association of America',
                 company: 'Ellerbe Becket',
-                subDiscipline: 'Professional Sports / Civic',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 7
             },
             {
                 name: 'The Alerus Center',
@@ -296,9 +272,8 @@ module.exports = {
                 timeframe: 'February 2001.',
                 company: 'Ellerbe Becket',
                 role: 'Prime Arch. – Schoen Associates, Johnson Laffen Architects',
-                subDiscipline: 'Professional Sports / Civic',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 7
             },
             {
                 name: 'Providence Park (JELD-WEN Field), Portland Trailblazers MLS',
@@ -308,9 +283,8 @@ module.exports = {
                 timeframe: 'April 2011.',
                 awards: 'AIA San Francisco Merit Award for Excellence in Architecture, 2012',
                 company: 'AECOM',
-                subDiscipline: 'Professional Sports / Civic',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 7
             },
             {
                 name: 'Time Warner (Spectrum) Arena Urban Design Study',
@@ -320,9 +294,8 @@ module.exports = {
                 timeframe: 'Urban Design Study - 2002.',
                 company: 'Ellerbe Becket',
                 role: 'Associate Arch. – Odell Architects',
-                subDiscipline: 'Professional Sports / Civic',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 7
             },
             {
                 name: 'Copley Quad Student Housing',
@@ -332,9 +305,8 @@ module.exports = {
                 timeframe: 'August 2008. Ellerbe Becket was the Design-Builder and completed design and construction in 16 months.',
                 company: 'Ellerbe Becket',
                 role: 'Associate Arch. – Sinclair Hille Architects.',
-                subDiscipline: 'Residential',
                 PartnerId: 1,
-                DisciplineId: 1
+                SubDisciplineId: 8
             },
             {
                 name: 'Cornerstone Arts and Crafts LLC',
@@ -342,9 +314,8 @@ module.exports = {
                 overview: 'Cornerstone Art and Craft LLC is a company that strives to connect people who create with those who need things created.  Partners of the company have personal profiles to which their projects and disciplines can be added, and potential employers can search to find the perfect candidate for the project they need completed. ',
                 timeframe: 'Start: November 2020. Estimated Launch: January 2021.',
                 role: 'Full Stack Website Developer',
-                subDiscipline: 'Company Website',
                 PartnerId: 2,
-                DisciplineId: 5
+                SubDisciplineId: 9
             },
             {
                 name: 'InQuire',
@@ -352,9 +323,8 @@ module.exports = {
                 timeframe: 'Two week speed build, August 2020.',
                 link: 'https://inquiresurveys.herokuapp.com/',
                 role: 'Front end development, website design',
-                subDiscipline: 'Personal Website',
                 PartnerId: 2,
-                DisciplineId: 5
+                SubDisciplineId: 10
             }
         ])
     },

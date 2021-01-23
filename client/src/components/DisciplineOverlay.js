@@ -36,7 +36,7 @@ class DisciplineOverlay extends Component {
     render() {
         if (this.props.overlayVisibility) {
             return (
-                <section id="margin" className={'absolute flex items-center justify-center top-0 left-0 h-full w-full'} onClick={this.props.closeOverlay}>
+                <section id="margin" className="absolute flex items-center justify-center top-0 left-0 h-full w-full pb-24" onClick={this.props.closeOverlay}>
                     <div className="flex flex-row h-11/12 w-full sm:rounded sm:w-11/12 bg-gray-400 opacity-100 overflow-y-auto">
                         <div className="flex-1 p-4">
                             <h1 className="text-2xl mb-4">{this.state.field}</h1>
