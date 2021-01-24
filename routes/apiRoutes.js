@@ -26,7 +26,7 @@ apiRoutes.get('/getDisciplineById/:disciplineId', async (req, res) => {
     });
 
     res.json(discipline);
-})
+});
 
 apiRoutes.post('/addDiscipline', async (req, res) => {
     const dbDiscipline = await db.Discipline.create(req.body);
@@ -46,6 +46,16 @@ apiRoutes.post('/addPartner', async (req, res) => {
     const dbPartner = await db.Partner.create(req.body);
 
     res.json(dbPartner);
+});
+
+apiRoutes.get('/getProjectById/:projId', async (req, res) => {
+    const project = await db.Project.findAll({
+        where: {
+            id: req.params.projId
+        }
+    });
+
+    res.json(project);
 });
 
 module.exports = apiRoutes;

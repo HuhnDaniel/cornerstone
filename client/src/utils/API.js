@@ -11,5 +11,9 @@ export default {
 
     getPartners: async function () {
         return await axios.get('/api/getAllPartners');
+    },
+
+    getProjectById: async function (projId) {
+        return await axios.get(`/api/getProjectById/${projId}`);
     }
 }
