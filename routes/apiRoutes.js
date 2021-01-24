@@ -15,7 +15,12 @@ apiRoutes.get('/getDisciplineById/:disciplineId', async (req, res) => {
         },
         include : [
             {
-                model: db.Project
+                model: db.SubDiscipline,
+                include : [
+                    {
+                        model: db.Project
+                    }
+                ]
             }
         ]
     });
