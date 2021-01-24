@@ -5,6 +5,7 @@ import Homepage from './pages/Homepage';
 import Partners from './pages/Partners';
 import Disciplines from './pages/Disciplines';
 import Contact from './pages/Contact';
+import Project from './pages/Project';
 
 function App() {
     const [menuStatus, setMenuStatus] = useState(false)
@@ -23,6 +24,7 @@ function App() {
 				<Route exact path="/partners/" children={ <Partners menuStatus={menuStatus} menuToggle={menuToggle} /> } />
 				<Route exact path="/disciplines/" children={ <Disciplines menuStatus={menuStatus} menuToggle={menuToggle} /> } />
 				<Route exact path="/contact/" children={ <Contact menuStatus={menuStatus} menuToggle={menuToggle} /> } />
+                <Route exact path="/project/:projId" children={ <Project menuStatus={menuStatus} menuToggle={menuToggle} />} />
 				<Route path="/" children={ <Homepage menuStatus={menuStatus} menuToggle={menuToggle} /> } />
 			</Switch>
 		</Router>
