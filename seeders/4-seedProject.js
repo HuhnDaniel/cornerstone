@@ -11,7 +11,7 @@ module.exports = {
                 timeframe: 'CUP – June 2021; Blue VCB – Dec. 2021; Dock/Police &amp; Maint. – TBD 2022; Red VCB - TBD 2023.',
                 company: 'HNTB',
                 role: 'Design-Build Prime - Hensel Phelps',
-                image: 'tampaAirport',
+                image: 'tampa-airport',
                 PartnerId: 1,
                 SubDisciplineId: 1
             },
@@ -23,7 +23,7 @@ module.exports = {
                 timeframe: 'March 2020.',
                 company: 'HNTB',
                 role: 'Prime Arch. – The Clark Enersen Partners',
-                image: 'nebraskaGym',
+                image: 'nebraska-gym',
                 PartnerId: 1,
                 SubDisciplineId: 2
             },
@@ -35,7 +35,7 @@ module.exports = {
                 timeframe: 'Phase 1 seating bowl completed in August 2018; Phase 2 Club space and Concourses completed in August 2019',
                 company: 'HNTB',
                 role: 'Prime Arch. – Neumann Monson Architects',
-                image: 'iowaKinnick',
+                image: 'iowa-kinnick',
                 PartnerId: 1,
                 SubDisciplineId: 2
             },
@@ -47,7 +47,7 @@ module.exports = {
                 timeframe: 'Phase 1 weight room renovation completed in 2018; Phase 2 sports medicine and training renovations completed in 2019.',
                 company: 'HNTB',
                 role: 'Prime Arch. – Kohn Pedersen Fox Associates',
-                image: 'michiganSchembechler',
+                image: 'michigan-schembechler',
                 PartnerId: 1,
                 SubDisciplineId: 2
             },
@@ -71,7 +71,7 @@ module.exports = {
                 timeframe: 'September 2015. Worked closely with the Construction Manager to complete construction in less than 11 months.',
                 company: 'AECOM',
                 role: 'Associate Arch',
-                image: 'centennialAState',
+                image: 'centennial-aState',
                 PartnerId: 1,
                 SubDisciplineId: 2
             },
@@ -82,7 +82,7 @@ module.exports = {
                 overview: 'Hae Song Plaza (Golden Harbor Plaza) is a planned 2.85 million SF mixed use complex located in a prominent site next to Inch’on Harbor and the new Inch’on International Airport. The complex includes a 40-story office building, a five-star 550-room hotel, a shopping center with a major department store anchor, and underground parking. Topping the office tower is a magnificent restaurant and lounge commanding breathtaking views to the city and harbor.',
                 timeframe: 'Unbuilt. Design Development completed August 1997.',
                 company: 'Ellerbe Becket',
-                image: 'haeSong',
+                image: 'hae-song',
                 PartnerId: 1,
                 SubDisciplineId: 3
             },
@@ -152,7 +152,7 @@ module.exports = {
                 timeframe: 'March 2012.',
                 awards: 'LEED Platinum certification',
                 company: 'Ellerbe Becket',
-                image: 'fbiTuscon',
+                image: 'fbi-tuscon',
                 PartnerId: 1,
                 SubDisciplineId: 4
             },
@@ -164,7 +164,7 @@ module.exports = {
                 timeframe: 'Spring 1997.',
                 company: 'Keys Condon Florance Architects',
                 role: 'Prime Arch. – Hammel Green and Abrahamson',
-                image: 'discoveryCourt',
+                image: 'discovery-court',
                 PartnerId: 1,
                 SubDisciplineId: 4
             },
@@ -176,7 +176,7 @@ module.exports = {
                 timeframe: 'November 2001. Design through construction completed in 32 months. Awards: People’s Republic of China, Excellent Design Award, 2001',
                 company: 'Ellerbe Becket',
                 role: 'Prime Arch. – Nixon &amp; Nixon',
-                image: 'guangdongStadium',
+                image: 'guangdong-stadium',
                 PartnerId: 1,
                 SubDisciplineId: 5
             },
@@ -189,7 +189,7 @@ module.exports = {
                 awards: 'KC AIA Special Commendation in Urban Design, 2001',
                 company: 'Ellerbe Becket',
                 role: 'Associate Arch. – Crawford Architects',
-                image: 'perthConvention',
+                image: 'perth-convention',
                 PartnerId: 1,
                 SubDisciplineId: 5
             },
@@ -213,7 +213,7 @@ module.exports = {
                 awards: 'National AIA Urban Design Honor Award; Baltimore AIA – Grand Design Award (for Urban Design Study); ASLA Urban Design Citation; ULI Public Award',
                 company: 'RTKL Associates',
                 role: 'Prime Arch. – HOK Sport',
-                image: 'camdenYards',
+                image: 'camden-yards',
                 PartnerId: 1,
                 SubDisciplineId: 6
             },
@@ -224,7 +224,7 @@ module.exports = {
                 overview: 'Led the process for an update to the previous 2006 Parkville Campus Master Plan. The process included re-evaluating or confirming previous master plan principles and strategies, and making strategic updates based on new administration priorities. After the completion of the Master Plan update, completed a building evaluation for upgrades to the Alumni Hall theater.',
                 timeframe: 'Master Plan - October 2013. Alumni Hall Programming Assessment – Spring 2014.',
                 company: 'AECOM',
-                image: 'parkUMasterPlan',
+                image: 'parkU-masterPlan',
                 PartnerId: 1,
                 SubDisciplineId: 6
             },
@@ -284,7 +284,7 @@ module.exports = {
                 timeframe: 'Phase 1 – September 2002. Phase II – September 2003. Worked closely with Turner Construction to achieve project completion is 2 off-seasons.',
                 awards: '2003 Project Leadership Award, Construction Owners Association of America',
                 company: 'Ellerbe Becket',
-                image: 'lambeauField',
+                image: 'lambeau-field',
                 PartnerId: 1,
                 SubDisciplineId: 7
             },
@@ -296,7 +296,7 @@ module.exports = {
                 timeframe: 'February 2001.',
                 company: 'Ellerbe Becket',
                 role: 'Prime Arch. – Schoen Associates, Johnson Laffen Architects',
-                image: 'alerusCenter',
+                image: 'alerus-center',
                 PartnerId: 1,
                 SubDisciplineId: 7
             },
@@ -308,7 +308,7 @@ module.exports = {
                 timeframe: 'April 2011.',
                 awards: 'AIA San Francisco Merit Award for Excellence in Architecture, 2012',
                 company: 'AECOM',
-                image: 'providencePark',
+                image: 'providence-park',
                 PartnerId: 1,
                 SubDisciplineId: 7
             },
@@ -332,7 +332,7 @@ module.exports = {
                 timeframe: 'August 2008. Ellerbe Becket was the Design-Builder and completed design and construction in 16 months.',
                 company: 'Ellerbe Becket',
                 role: 'Associate Arch. – Sinclair Hille Architects.',
-                image: 'copelyQuad',
+                image: 'copley-quad',
                 PartnerId: 1,
                 SubDisciplineId: 8
             },

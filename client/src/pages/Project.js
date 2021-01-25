@@ -17,6 +17,7 @@ function Project({ menuStatus, menuToggle }) {
 
     async function getProject() {
         const { data } = await API.getProjectById(projId);
+        console.log(data);
 
         setProject(data[0]);
     }
@@ -27,7 +28,14 @@ function Project({ menuStatus, menuToggle }) {
 
             {
                 project ? (
-                    <h1>{project.name}</h1>
+                    <section className="pb-24">
+                        <article>
+                            <h1>{project.name}</h1>
+                        </article>
+                        <article>
+                            <img src={`/images/${project.image}-rect.jpg`} alt={`${project.name}`}/>
+                        </article>
+                    </section>
                 ) : (
                     null
                 )
