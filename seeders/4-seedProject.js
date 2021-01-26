@@ -8,7 +8,7 @@ module.exports = {
                 location: 'Tampa, FL',
                 client: 'Hillcrest County Aviation Authority',
                 overview: 'This project is a compilation of several smaller projects, to be implemented over a multi-year timeframe. The centerpiece of the airport enhancements is the addition of 2 new curbside vertical circulation buildings (VCB’s) allowing more drop-off/pick-up lanes to reduce traffic congestion. Supporting these improvements are projects that also include: a new Central Utility Plan (CUP) and Electrical Services Building (ESB); a relocated Loading Dock; relocated Police and Maintenance offices; and a new shuttle train station that will serve a future new international arrivals terminal.',
-                timeframe: 'CUP – June 2021; Blue VCB – Dec. 2021; Dock/Police &amp; Maint. – TBD 2022; Red VCB - TBD 2023.',
+                timeframe: 'CUP – June 2021; Blue VCB – Dec. 2021; Dock/Police & Maint. – TBD 2022; Red VCB - TBD 2023.',
                 company: 'HNTB',
                 role: 'Design-Build Prime - Hensel Phelps',
                 image: 'tampa-airport',
@@ -123,7 +123,7 @@ module.exports = {
                 name: 'Federal Reserve Bank of Kansas City Office and Operations Center',
                 location: 'Kansas City, MO',
                 client: 'Federal Reserve Bank of Kansas City',
-                overview: 'Worked with FRB starting with programming of the 620,000 SF facility, design team co-ordination, contract documents for all non-public spaces in the building, space planning and FF&amp;E for all office floors. The project includes a 2-story operations base, a 14-story office tower, a 900-space parking garage, and a highly secure cash processing area. Site security is carefully integrated into the landscape architecture, and the building exterior is clad in native Kansas limestone.',
+                overview: 'Worked with FRB starting with programming of the 620,000 SF facility, design team co-ordination, contract documents for all non-public spaces in the building, space planning and FF&E for all office floors. The project includes a 2-story operations base, a 14-story office tower, a 900-space parking garage, and a highly secure cash processing area. Site security is carefully integrated into the landscape architecture, and the building exterior is clad in native Kansas limestone.',
                 timeframe: 'Spring 2008.',
                 awards: 'Capstone Award, Kansas City Business Journal, 2009',
                 company: 'Ellerbe Becket',
@@ -139,7 +139,7 @@ module.exports = {
             //     overview: 'This project has multiple components, including design of individual bus shelters, as well as three transit centers (3 Trails, Alphapointe, and East Village). The largest project is the East Village Transit Center near downtown Kansas City, MO which will act as a hub for intermodal bus service. The architectural components include approximately 2,000 SF of enclosed waiting area, 1,500 SF of office and ticketing space, and a series of exterior canopies and wide roof overhangs to shelter passengers waiting for buses. Future expansion is planned for, including transit-oriented retail space.',
             //     timeframe: 'August 2020.',
             //     company: 'HNTB',
-            //     role: 'Prime Cons. – Taliaferro &amp; Browne',
+            //     role: 'Prime Cons. – Taliaferro & Browne',
             //     image: '',
             //     PartnerId: 1,
             //     SubDisciplineId: 4
@@ -172,10 +172,10 @@ module.exports = {
                 name: 'Guangdong Olympic Stadium',
                 location: 'Guangzhou, PRC',
                 client: '2001 National Games Organizing Committee',
-                overview: 'This new 80,000 seat stadium was designed to Olympic standards, and was host to the 2001 Chinese National Games. The project was a joint-venture between Ellerbe Becket as design architect, Nixon &amp; Nixon as executive architect, and the South China Institute of Technology as Architect of Record. The complex includes facilities for soccer, international track and field, a 200-room hotel, retail and exhibition space, an athletic club, and VIP facilities. The design concept embodies a ribbon of metal as the roof structure, waving above a seating bowl that opens like the petals of a flower (Guangzhou means “southern flower”).',
+                overview: 'This new 80,000 seat stadium was designed to Olympic standards, and was host to the 2001 Chinese National Games. The project was a joint-venture between Ellerbe Becket as design architect, Nixon & Nixon as executive architect, and the South China Institute of Technology as Architect of Record. The complex includes facilities for soccer, international track and field, a 200-room hotel, retail and exhibition space, an athletic club, and VIP facilities. The design concept embodies a ribbon of metal as the roof structure, waving above a seating bowl that opens like the petals of a flower (Guangzhou means “southern flower”).',
                 timeframe: 'November 2001. Design through construction completed in 32 months. Awards: People’s Republic of China, Excellent Design Award, 2001',
                 company: 'Ellerbe Becket',
-                role: 'Prime Arch. – Nixon &amp; Nixon',
+                role: 'Prime Arch. – Nixon & Nixon',
                 image: 'guangdong-stadium',
                 PartnerId: 1,
                 SubDisciplineId: 5
@@ -229,7 +229,7 @@ module.exports = {
                 SubDisciplineId: 6
             },
             // {
-            //     name: 'Recreation &amp; Athletics Facilities Master Plan, Rice University',
+            //     name: 'Recreation & Athletics Facilities Master Plan, Rice University',
             //     location: 'Houston, TX',
             //     client: 'William Marsh Rice University',
             //     overview: 'As part of the campus master plan update prepared by the office of Michael Graves, helped create an athletics master plan to fit within the overall campus plan framework. Facilities programmed for athletics included a new convocation center. Upgraded track and soccer facilities, new athletic and intramural tennis courts, and construction of a new 30,000 seat (right-sized) football stadium.',
@@ -304,7 +304,7 @@ module.exports = {
                 name: 'Providence Park (JELD-WEN Field), Portland Trailblazers MLS',
                 location: 'Portland, OR',
                 client: 'Peregrine Sports LLC',
-                overview: 'This project involved a re-purposing of the minor-league PG&amp;E Park to be the new home of the MLS Portland Timbers. The project was designed to integrate into the existing urban context of the Goose Hollow neighborhood. Along the east sideline is an addition of 3,600 seats to increase total seating to 20,000, including 1,400 club seats. Other new facilities include a team store, new club spaces, new concessions/toilets, and renovation of team locker areas.',
+                overview: 'This project involved a re-purposing of the minor-league PG&E Park to be the new home of the MLS Portland Timbers. The project was designed to integrate into the existing urban context of the Goose Hollow neighborhood. Along the east sideline is an addition of 3,600 seats to increase total seating to 20,000, including 1,400 club seats. Other new facilities include a team store, new club spaces, new concessions/toilets, and renovation of team locker areas.',
                 timeframe: 'April 2011.',
                 awards: 'AIA San Francisco Merit Award for Excellence in Architecture, 2012',
                 company: 'AECOM',
@@ -337,8 +337,8 @@ module.exports = {
                 SubDisciplineId: 8
             },
             {
-                name: 'Cornerstone Arts and Crafts LLC',
-                client: 'Cornerstone A&amp;C LLC',
+                name: 'Cornerstone Art & Craft Collective',
+                client: 'Cornerstone A&C LLC',
                 overview: 'Cornerstone Art and Craft LLC is a company that strives to connect people who create with those who need things created.  Partners of the company have personal profiles to which their projects and disciplines can be added, and potential employers can search to find the perfect candidate for the project they need completed. ',
                 timeframe: 'Start: November 2020. Estimated Launch: January 2021.',
                 role: 'Full Stack Website Developer',

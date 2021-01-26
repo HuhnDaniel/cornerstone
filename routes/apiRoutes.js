@@ -13,10 +13,10 @@ apiRoutes.get('/getDisciplineById/:disciplineId', async (req, res) => {
         where: {
             id: req.params.disciplineId
         },
-        include : [
+        include: [
             {
                 model: db.SubDiscipline,
-                include : [
+                include: [
                     {
                         model: db.Project
                     }
@@ -37,9 +37,10 @@ apiRoutes.post('/addDiscipline', async (req, res) => {
 apiRoutes.get('/getAllPartners', async (req, res) => {
     const partnerList = await db.Partner.findAll({});
 
-    const [partnerDisciplines, metadata] = await db.sequelize.query('SELECT DISTINCT `Partner`.`id`, `Projects->Discipline`.`field` AS `field` FROM `Partners` AS `Partner` LEFT OUTER JOIN `Projects` AS `Projects` ON `Partner`.`id` = `Projects`.`PartnerId` LEFT OUTER JOIN `Disciplines` AS `Projects->Discipline` ON `Projects`.`DisciplineId` = `Projects->Discipline`.`id`')
+    // const [partnerDisciplines, metadata] = await db.sequelize.query('SELECT DISTINCT `Partner`.`id`, `Projects->Discipline`.`field` AS `field` FROM `Partners` AS `Partner` LEFT OUTER JOIN `Projects` AS `Projects` ON `Partner`.`id` = `Projects`.`PartnerId` LEFT OUTER JOIN `Disciplines` AS `Projects->Discipline` ON `Projects`.`DisciplineId` = `Projects->Discipline`.`id`')
 
-    res.send({partnerList, partnerDisciplines});
+    // res.send({partnerList, partnerDisciplines});
+    res.json(partnerList);
 });
 
 apiRoutes.post('/addPartner', async (req, res) => {
@@ -52,7 +53,15 @@ apiRoutes.get('/getProjectById/:projId', async (req, res) => {
     const project = await db.Project.findAll({
         where: {
             id: req.params.projId
-        }
+        },
+        include: [
+            {
+                model: db.Partner,
+                attributes: [
+                    'name'
+                ]
+            }
+        ]
     });
 
     res.json(project);
