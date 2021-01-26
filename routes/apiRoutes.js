@@ -80,6 +80,7 @@ apiRoutes.get('/getProjectById/:projId', async (req, res) => {
             {
                 model: db.Partner,
                 attributes: [
+                    'id',
                     'name'
                 ]
             }

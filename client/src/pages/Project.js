@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Header from '../components/Header';
+import PartnerOverlay from '../components/PartnerOverlay';
 import Footer from '../components/Footer';
 
 import API from '../utils/API';
@@ -10,6 +11,8 @@ function Project({ menuStatus, menuToggle }) {
     const { projId } = useParams();
 
     const [project, setProject] = useState({});
+    const [overlayVisibility, setOverlayVisibility] = useState(false);    
+    const [currentPartner, setCurrentPartner] = useState('');
 
     useEffect(() => {
         getProject();
@@ -21,17 +24,36 @@ function Project({ menuStatus, menuToggle }) {
         setProject(data[0]);
     }
 
+    function openOverlay(e) {
+        const targetId = e.target.getAttribute('data-id');
+
+        setCurrentPartner(targetId);
+        setOverlayVisibility(true);
+    }
+
+    function closeOverlay(e) {
+        switch (e.target.id) {
+            case "margin":
+            case "close":
+                setOverlayVisibility(false);
+                setCurrentPartner('');
+                break;
+            default:
+                break;
+        }
+    }
+
     return (
         <main onClick={menuToggle} className="absolute min-h-full min-w-full">
             <Header menuStatus={menuStatus} />
 
             {
                 project ? (
-                    <section className="flex flex-row m-8 md:m-16 pb-24">
+                    <section className="relative flex flex-row p-8 md:p-16 pb-24">
                         <article className="flex-1 m-4">
                             <h1 className="text-3xl mb-8">{project.name}</h1>
                             {
-                                project.Partner ? ( <h2 className="text-2xl mb-8"><span className="font-semibold">Project Partner(s): </span><span className="cursor-pointer">{project.Partner.name}</span></h2> ) : ( null )
+                                project.Partner ? ( <h2 className="text-2xl mb-8"><span className="font-semibold">Project Partner(s): </span><span data-id={project.Partner.id} className="cursor-pointer" onClick={openOverlay.bind(this)}>{project.Partner.name}</span></h2> ) : ( null )
                             }
                             {
                                 project.image ? ( <img src={`/images/${project.image}-rect.jpg`} alt={`${project.name}`}/> ) : ( null )
@@ -63,6 +85,8 @@ function Project({ menuStatus, menuToggle }) {
                                 }
                             </div>
                         </article>
+
+                        <PartnerOverlay overlayVisibility={overlayVisibility} currentPartner={currentPartner} closeOverlay={closeOverlay} />
                     </section>
                 ) : (
                     null
