@@ -18,7 +18,12 @@ apiRoutes.get('/getDisciplineById/:disciplineId', async (req, res) => {
                 model: db.SubDiscipline,
                 include: [
                     {
-                        model: db.Project
+                        model: db.Project,
+                        attributes: [
+                            'id',
+                            'image',
+                            'name'
+                        ]
                     }
                 ]
             }
@@ -37,10 +42,27 @@ apiRoutes.post('/addDiscipline', async (req, res) => {
 apiRoutes.get('/getAllPartners', async (req, res) => {
     const partnerList = await db.Partner.findAll({});
 
-    // const [partnerDisciplines, metadata] = await db.sequelize.query('SELECT DISTINCT `Partner`.`id`, `Projects->Discipline`.`field` AS `field` FROM `Partners` AS `Partner` LEFT OUTER JOIN `Projects` AS `Projects` ON `Partner`.`id` = `Projects`.`PartnerId` LEFT OUTER JOIN `Disciplines` AS `Projects->Discipline` ON `Projects`.`DisciplineId` = `Projects->Discipline`.`id`')
-
-    // res.send({partnerList, partnerDisciplines});
     res.json(partnerList);
+});
+
+apiRoutes.get('/getPartnerById/:partnerId', async (req, res) => {
+    const partner = await db.Partner.findAll({
+        where: {
+            id: req.params.partnerId
+        },
+        include: [
+            {
+                model: db.Project,
+                attributes: [
+                    'id',
+                    'image',
+                    'name'
+                ]
+            }
+        ]
+    });
+
+    res.json(partner);
 });
 
 apiRoutes.post('/addPartner', async (req, res) => {

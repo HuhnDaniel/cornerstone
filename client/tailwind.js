@@ -402,6 +402,7 @@ module.exports = {
     minHeight: theme => ({
       '0': '0',
       ...theme('spacing'),
+      ...theme('percentile'),
       full: '100%',
       screen: '100vh',
     }),
