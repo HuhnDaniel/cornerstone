@@ -13,6 +13,10 @@ export default {
         return await axios.get('/api/getAllPartners');
     },
 
+    getPartnerById: async function (partnerId) {
+        return await axios.get(`/api/getPartnerById/${partnerId}`);
+    },
+
     getProjectById: async function (projId) {
         return await axios.get(`/api/getProjectById/${projId}`);
     }
