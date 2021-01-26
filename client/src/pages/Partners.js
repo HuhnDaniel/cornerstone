@@ -13,14 +13,14 @@ function Partners({ menuStatus, menuToggle }) {
             const { data } = await API.getPartners();
             console.log(data);
 
-            data.partnerList.map((partner) => {
-                partner.discipline = data.partnerDisciplines.find(discipline => discipline.id === partner.id).field;
-                return null;
-            });
+            // data.partnerList.map((partner) => {
+            //     partner.discipline = data.partnerDisciplines.find(discipline => discipline.id === partner.id).field;
+            //     return null;
+            // });
 
-            console.log(data.partnerList);
+            // console.log(data.partnerList);
 
-            setPartnerList(data.partnerList);
+            setPartnerList(data);
         }
 
         getPartners();
@@ -39,7 +39,7 @@ function Partners({ menuStatus, menuToggle }) {
                                     <h3 className="text-2xl">{partner.name}</h3>
                                 </div>
                                 
-                                <span className="absolute bottom-0 right-0 p-2 text-sm text-right rounded-tl bg-black bg-opacity-30">Specializes in {partner.discipline}</span>
+                                {/* <span className="absolute bottom-0 right-0 p-2 text-sm text-right rounded-tl bg-black bg-opacity-30">Specializes in {partner.discipline}</span> */}
                                     
                             </article>
                         )
