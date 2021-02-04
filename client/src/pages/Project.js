@@ -16,7 +16,7 @@ function Project({ menuStatus, menuToggle }) {
 
     useEffect(() => {
         getProject();
-    }, []);
+    }, [projId]);
 
     async function getProject() {
         const { data } = await API.getProjectById(projId);
@@ -35,6 +35,9 @@ function Project({ menuStatus, menuToggle }) {
         switch (e.target.id) {
             case "margin":
             case "close":
+            case "projectCard":
+            case "cardHeader":
+            case "projectName":
                 setOverlayVisibility(false);
                 setCurrentPartner('');
                 break;
