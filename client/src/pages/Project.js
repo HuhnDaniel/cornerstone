@@ -79,12 +79,12 @@ function Project({ menuStatus, menuToggle }) {
                             }
                             <p className="text-xl m-4"><span className="font-semibold">Completion Information: </span>{project.timeframe}</p>
 
-                            <div className="flex flex-row m-4">
+                            <div className="flex flex-row m-4 text-md text-gray-600">
                                 {
-                                    project.company ? ( <h3 className="flex-1 text-lg text-center">Project experience while at {project.company}</h3> ) : ( null )
+                                    project.company ? ( <h3 className="flex-1">Project experience while at {project.company}</h3> ) : ( null )
                                 }
                                 {
-                                    project.role ? ( <h3 className="flex-1 text-lg text-center"><span className="font-semibold">Role: </span>{project.role}</h3> ) : ( null )
+                                    project.role ? ( <h3 className="flex-1"><span className="font-semibold">Role: </span>{project.role}</h3> ) : ( null )
                                 }
                             </div>
                         </article>
