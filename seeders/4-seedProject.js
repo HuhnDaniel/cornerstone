@@ -10,7 +10,7 @@ module.exports = {
                 overview: 'This project is a compilation of several smaller projects, to be implemented over a multi-year timeframe. The centerpiece of the airport enhancements is the addition of 2 new curbside vertical circulation buildings (VCB’s) allowing more drop-off/pick-up lanes to reduce traffic congestion. Supporting these improvements are projects that also include: a new Central Utility Plan (CUP) and Electrical Services Building (ESB); a relocated Loading Dock; relocated Police and Maintenance offices; and a new shuttle train station that will serve a future new international arrivals terminal.',
                 timeframe: 'CUP – June 2021; Blue VCB – Dec. 2021; Dock/Police & Maint. – TBD 2022; Red VCB - TBD 2023.',
                 company: 'HNTB',
-                role: 'Design-Build Prime - Hensel Phelps',
+                // role: 'Design-Build Prime - Hensel Phelps',
                 image: 'tampa-airport',
                 PartnerId: 1,
                 SubDisciplineId: 1
@@ -22,7 +22,7 @@ module.exports = {
                 overview: 'The new Nebraska Gymnastics training facility is a 46,000 SF addition to the Devaney Sports Complex, and will house new spaces for both men’s and women’s gymnastics. Project components include a new public lobby connecting to the Devaney Center, as well as new coaches’ offices on an upper level. The main feature of the facility is new state-of-the-art training gyms for both men and women, as well as new locker and lounge spaces for each team. Design role through Design Development with CD reviews.',
                 timeframe: 'March 2020.',
                 company: 'HNTB',
-                role: 'Prime Arch. – The Clark Enersen Partners',
+                // role: 'Prime Arch. – The Clark Enersen Partners',
                 image: 'nebraska-gym',
                 PartnerId: 1,
                 SubDisciplineId: 2
@@ -34,7 +34,7 @@ module.exports = {
                 overview: 'The project includes a complete re-build of the north endzone stadium seating and the addition of premium Club spaces at an upper level. The project includes 2 concourse levels to accommodate approximately 10,000 patrons. Worked with local architect Nuemann Monson, accomplishing the design and documentation of the lower bowl, Club level, and upper outdoor seating bowls, along with the 2 public concourses.',
                 timeframe: 'Phase 1 seating bowl completed in August 2018; Phase 2 Club space and Concourses completed in August 2019',
                 company: 'HNTB',
-                role: 'Prime Arch. – Neumann Monson Architects',
+                // role: 'Prime Arch. – Neumann Monson Architects',
                 image: 'iowa-kinnick',
                 PartnerId: 1,
                 SubDisciplineId: 2
@@ -46,7 +46,7 @@ module.exports = {
                 overview: 'Worked with KPF as a sports consultant over two phases of renovations to the existing Schembechler Hall. Accomplished interior design and documentation of sports performance center renovations. Improvements include a new 30,000 SF weight room constructed inside the existing Oosterbaan field house. New and renovated spaces within existing Schembechler Hall include new hydrotherapy and cryotherapy pools, upgraded sports medicine space, and an expansion of the equipment storage areas. Also included are relocated coaches and staff lockers.',
                 timeframe: 'Phase 1 weight room renovation completed in 2018; Phase 2 sports medicine and training renovations completed in 2019.',
                 company: 'HNTB',
-                role: 'Prime Arch. – Kohn Pedersen Fox Associates',
+                // role: 'Prime Arch. – Kohn Pedersen Fox Associates',
                 image: 'michigan-schembechler',
                 PartnerId: 1,
                 SubDisciplineId: 2
@@ -58,7 +58,7 @@ module.exports = {
                 overview: 'New multi-use event center, seating 5,100 for basketball and 6,500 for convocation. The facility includes the main arena, 2 practice courts, and locker/support areas. Seating includes suites, club seats, and bleacher seats. The facility also includes academic spaces.',
                 timeframe: 'January 2016',
                 company: 'AECOM',
-                role: 'Prime Arch. - Clark Nexsen',
+                // role: 'Prime Arch. - Clark Nexsen',
                 image: 'vsu',
                 PartnerId: 1,
                 SubDisciplineId: 2
@@ -70,7 +70,7 @@ module.exports = {
                 overview: 'Expansion of Centennial Stadium facilities including new 38,000 SF press box tower and Concourse improvements. Press tower components included 20 suites, 300 indoor and outdoor club seats, 40 loge boxes, club lounge spaces, new press and broadcast facilities, coaches booths, and support spaces. Concourse improvements included 4,000 SF commissary/kitchen, ticketing, team store, new toilets, TV truck paddock, and new concourse entry experience.',
                 timeframe: 'September 2015. Worked closely with the Construction Manager to complete construction in less than 11 months.',
                 company: 'AECOM',
-                role: 'Associate Arch',
+                // role: 'Associate Arch',
                 image: 'centennial-aState',
                 PartnerId: 1,
                 SubDisciplineId: 2
@@ -97,28 +97,6 @@ module.exports = {
                 PartnerId: 1,
                 SubDisciplineId: 3
             },
-            // {
-            //     name: 'Church Street Station Expansion Plan',
-            //     location: 'Orlando, FL',
-            //     client: 'Church Street Station Partners',
-            //     overview: 'Urban Development study to enhance and expand the Church Street Station entertainment district in downtown Orlando, FL. Plan included expansion of restaurant and themed entertainment clubs, addition of a 200-room boutique hotel, and increased parking.',
-            //     timeframe: 'Urban design study 1990.',
-            //     company: 'RTKL Associates',
-            //     image: '',
-            //     PartnerId: 1,
-            //     SubDisciplineId: 3
-            // },
-            // {
-            //     name: 'Twin Bridges Office / Hotel Development',
-            //     location: 'Alexandria, VA',
-            //     client: 'Marriott Hotels',
-            //     overview: 'Schematic Design study for a new twin-building office/hotel complex. Attention was paid to the site composition in order to create a defined urban space, as well as building massing to fit into the historic character of Alexandria, VA. Special attention was also paid to flight-zone height restrictions for adjacent Reagan National airport.',
-            //     timeframe: 'Schematic design – June 1994.',
-            //     company: 'Keys Condon Florance Architects',
-            //     image: '',
-            //     PartnerId: 1,
-            //     SubDisciplineId: 3
-            // },
             {
                 name: 'Federal Reserve Bank of Kansas City Office and Operations Center',
                 location: 'Kansas City, MO',
@@ -127,23 +105,11 @@ module.exports = {
                 timeframe: 'Spring 2008.',
                 awards: 'Capstone Award, Kansas City Business Journal, 2009',
                 company: 'Ellerbe Becket',
-                role: 'Associate Arch. - Pei Cobb Freed and Partners',
+                // role: 'Associate Arch. - Pei Cobb Freed and Partners',
                 image: 'frb',
                 PartnerId: 1,
                 SubDisciplineId: 4
             },
-            // {
-            //     name: 'East Village Transit Center',
-            //     location: 'Kansas City, MO',
-            //     client: 'Kansas City Area Transportation Authority',
-            //     overview: 'This project has multiple components, including design of individual bus shelters, as well as three transit centers (3 Trails, Alphapointe, and East Village). The largest project is the East Village Transit Center near downtown Kansas City, MO which will act as a hub for intermodal bus service. The architectural components include approximately 2,000 SF of enclosed waiting area, 1,500 SF of office and ticketing space, and a series of exterior canopies and wide roof overhangs to shelter passengers waiting for buses. Future expansion is planned for, including transit-oriented retail space.',
-            //     timeframe: 'August 2020.',
-            //     company: 'HNTB',
-            //     role: 'Prime Cons. – Taliaferro & Browne',
-            //     image: '',
-            //     PartnerId: 1,
-            //     SubDisciplineId: 4
-            // },
             {
                 name: 'FBI Tucson Resident Office',
                 location: 'Tucson, AZ',
@@ -163,7 +129,7 @@ module.exports = {
                 overview: 'The design concept was to infill one of the two original open-air courtyards of the Smithsonian National Museum of Natural History with new visitor amenities. The project included basement storage space, a new food-court dining facility at the ground level, a hands-on children’s learning center, and a 450-seat IMAX theater at the top level. Attention had to be paid to use of materials and integration with the historic museum structure.',
                 timeframe: 'Spring 1997.',
                 company: 'Keys Condon Florance Architects',
-                role: 'Prime Arch. – Hammel Green and Abrahamson',
+                // role: 'Prime Arch. – Hammel Green and Abrahamson',
                 image: 'discovery-court',
                 PartnerId: 1,
                 SubDisciplineId: 4
@@ -175,7 +141,7 @@ module.exports = {
                 overview: 'This new 80,000 seat stadium was designed to Olympic standards, and was host to the 2001 Chinese National Games. The project was a joint-venture between Ellerbe Becket as design architect, Nixon & Nixon as executive architect, and the South China Institute of Technology as Architect of Record. The complex includes facilities for soccer, international track and field, a 200-room hotel, retail and exhibition space, an athletic club, and VIP facilities. The design concept embodies a ribbon of metal as the roof structure, waving above a seating bowl that opens like the petals of a flower (Guangzhou means “southern flower”).',
                 timeframe: 'November 2001. Design through construction completed in 32 months. Awards: People’s Republic of China, Excellent Design Award, 2001',
                 company: 'Ellerbe Becket',
-                role: 'Prime Arch. – Nixon & Nixon',
+                // role: 'Prime Arch. – Nixon & Nixon',
                 image: 'guangdong-stadium',
                 PartnerId: 1,
                 SubDisciplineId: 5
@@ -188,22 +154,11 @@ module.exports = {
                 timeframe: 'Unbuilt. Design complete 2000.',
                 awards: 'KC AIA Special Commendation in Urban Design, 2001',
                 company: 'Ellerbe Becket',
-                role: 'Associate Arch. – Crawford Architects',
+                // role: 'Associate Arch. – Crawford Architects',
                 image: 'perth-convention',
                 PartnerId: 1,
                 SubDisciplineId: 5
             },
-            // {
-            //     name: 'Buenos Aires Atlanta Arena Feasibility Study',
-            //     location: 'Buenos Aires, ARG',
-            //     client: 'Anschutz Entertainment Group',
-            //     overview: 'Phase I study conducted for AEG Facilities to analyze existing design for partially constructed concert venue in Buenos Aires as an investment opportunity. Study included analysis of program, plans, sight lines, structural systems, MEP systems, and an estimate of probable cost to complete the project with improvements to the design. A Phase II study was then conducted for Banco Ciudad to analyze a revised design.',
-            //     timeframe: 'Study Completed in 2017. Design subsequently completed by others.',
-            //     company: 'AECOM',
-            //     image: '',
-            //     PartnerId: 1,
-            //     SubDisciplineId: 5
-            // },
             {
                 name: 'Camden Yards Sports Complex Urban Design and Master Plan',
                 location: 'Baltimore, MD',
@@ -212,7 +167,7 @@ module.exports = {
                 timeframe: 'Urban Design study – Draft Master Plan November 1989.',
                 awards: 'National AIA Urban Design Honor Award; Baltimore AIA – Grand Design Award (for Urban Design Study); ASLA Urban Design Citation; ULI Public Award',
                 company: 'RTKL Associates',
-                role: 'Prime Arch. – HOK Sport',
+                // role: 'Prime Arch. – HOK Sport',
                 image: 'camden-yards',
                 PartnerId: 1,
                 SubDisciplineId: 6
@@ -228,30 +183,6 @@ module.exports = {
                 PartnerId: 1,
                 SubDisciplineId: 6
             },
-            // {
-            //     name: 'Recreation & Athletics Facilities Master Plan, Rice University',
-            //     location: 'Houston, TX',
-            //     client: 'William Marsh Rice University',
-            //     overview: 'As part of the campus master plan update prepared by the office of Michael Graves, helped create an athletics master plan to fit within the overall campus plan framework. Facilities programmed for athletics included a new convocation center. Upgraded track and soccer facilities, new athletic and intramural tennis courts, and construction of a new 30,000 seat (right-sized) football stadium.',
-            //     timeframe: 'March 2010.',
-            //     company: 'AECOM',
-            //     role: 'Prime Arch. – Michael Graves Architecture',
-            //     image: '',
-            //     PartnerId: 1,
-            //     SubDisciplineId: 6
-            // },
-            // {
-            //     name: 'Southeast Federal Center Design Guidelines',
-            //     location: 'Washington, DC',
-            //     client: 'General Services Administration',
-            //     overview: 'Developed urban design guidelines for implementation of the Southeast Federal Center Master Plan, a federal government property in Washington, DC administered by the GSA. Developed architectural and site controls for building bulk, massing, and architectural features in keeping with the surrounding context.',
-            //     timeframe: '1994.',
-            //     company: 'Keys Condon Florance Architects',
-            //     role: 'Associate Cons. – WRT Associates.',
-            //     image: '',
-            //     PartnerId: 1,
-            //     SubDisciplineId: 6
-            // },
             {
                 name: 'National Institutes of Health Master Plan',
                 location: 'Bethesda, MD and Poolesville, MD',
@@ -260,22 +191,11 @@ module.exports = {
                 timeframe: 'December 1995.',
                 awards: 'APA – NCPC Chapter Outstanding Merit Award, 1996',
                 company: 'Keys Condon Florance Architects',
-                role: 'Associate Cons. – Oudens + Knoop Architects.',
+                // role: 'Associate Cons. – Oudens + Knoop Architects.',
                 image: 'nih',
                 PartnerId: 1,
                 SubDisciplineId: 6
             },
-            // {
-            //     name: 'Mission Grande Axe Urban Design Competition',
-            //     location: 'Paris, FRA',
-            //     overview: 'Invited competition to master plan a 5.4 –km long area of suburban Paris, at the western end of the La Defense office district. The “Grande Axe” is the historic axis that begins at the Louvre, passes through the Arc de Triomphe, and currently terminates at “the Cube” of la Defense. Led a team including noted landscape architect Peter Walker and French architect Pierre LeSage Associes to develop a series of new educational “institutes” along an urban “meadow-boulevard” which brings nature into the city.',
-            //     timeframe: 'Competition design - December 1991.',
-            //     company: 'RTKL',
-            //     role: 'Associate Cons. – Peter Walker, Pierre LeSage Assoc.',
-            //     image: '',
-            //     PartnerId: 1,
-            //     SubDisciplineId: 6
-            // },
             {
                 name: 'Lambeau Field Redevelopment (2003)',
                 location: 'Green Bay, WI',
@@ -295,7 +215,7 @@ module.exports = {
                 overview: 'The Alerus Center is a 447,000 SF multipurpose civic center for the city of Grand Forks, ND, and home of the University of North Dakota football team. The facility can be arranged to seat between 9,500 for basketball, 13,500 for football and 21,300 for an end stage concert configuration. The facility also contains a 25,000 SF ballroom and 12 breakout meeting rooms. The flat-floor area can also be configured to approximately 425 booths in a trade show set-up.',
                 timeframe: 'February 2001.',
                 company: 'Ellerbe Becket',
-                role: 'Prime Arch. – Schoen Associates, Johnson Laffen Architects',
+                // role: 'Prime Arch. – Schoen Associates, Johnson Laffen Architects',
                 image: 'alerus-center',
                 PartnerId: 1,
                 SubDisciplineId: 7
@@ -312,18 +232,6 @@ module.exports = {
                 PartnerId: 1,
                 SubDisciplineId: 7
             },
-            // {
-            //     name: 'Time Warner (Spectrum) Arena Urban Design Study',
-            //     location: 'Charlotte, NC',
-            //     client: 'City of Charlotte',
-            //     overview: 'Prior to architectural design of the TWC Arena, worked with Odell Associates and Cole Jenest Stone to develop an Urban Design plan for the new arena site. Study components included gathering of public input, recommendations for street- facing building facades and retail, preferred traffic patterns, and recommendations for separation of public vs. service entrances.',
-            //     timeframe: 'Urban Design Study - 2002.',
-            //     company: 'Ellerbe Becket',
-            //     role: 'Associate Arch. – Odell Architects',
-            //     image: '',
-            //     PartnerId: 1,
-            //     SubDisciplineId: 7
-            // },
             {
                 name: 'Copley Quad Student Housing',
                 location: 'Parkville, MO',
@@ -331,7 +239,7 @@ module.exports = {
                 overview: 'As the first project to be built from the 2006 campus master plan, the Copley Quad Student Housing project was a 250-bed new student residence, including lounge, laundry, and administrative office facilities. The design vocabulary relates to the adjacent original Copley Hall building.',
                 timeframe: 'August 2008. Ellerbe Becket was the Design-Builder and completed design and construction in 16 months.',
                 company: 'Ellerbe Becket',
-                role: 'Associate Arch. – Sinclair Hille Architects.',
+                // role: 'Associate Arch. – Sinclair Hille Architects.',
                 image: 'copley-quad',
                 PartnerId: 1,
                 SubDisciplineId: 8
