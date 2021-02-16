@@ -34,7 +34,7 @@ module.exports = {
             {
                 field: 'Web Development',
                 image: 'webDevelopment',
-                description: 'Web Development description',
+                description: 'Our web development partners specialize on projects from small personal websites to scalable enterprise projects.  Please view the examples on this page to find what level of development you require.',
                 artistName: 'clemhlrdt',
                 artistCredit: 'https://unsplash.com/@clemhlrdt?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText'
             },
