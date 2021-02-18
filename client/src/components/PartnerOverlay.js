@@ -17,7 +17,6 @@ class PartnerOverlay extends Component {
 
         if (this.props !== prevProps) {
             const partner = await getPartner(this.props.currentPartner);
-            console.log(partner);
 
             if (Boolean(partner)) {
                 this.setState(partner);

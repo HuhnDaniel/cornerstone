@@ -1,9 +1,9 @@
 {
     "development": {
-      "username": "z8iqfqs4w103sk5i",
-      "password": "dqel8dst7muc5gc7",
-      "database": "mh64el8lqwbgz5h9",
-      "host": "qz8si2yulh3i7gl3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+      "username": "root",
+      "password": "password",
+      "database": "cornerstone_db",
+      "host": "127.0.0.1",
       "dialect": "mysql"
     },
     "production": {
