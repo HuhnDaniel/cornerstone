@@ -17,7 +17,6 @@ function Partners({ menuStatus, menuToggle }) {
     
     async function getPartners() {
         const { data } = await API.getPartners();
-        console.log(data);
 
         setPartnerList(data)
     }
@@ -43,7 +42,6 @@ function Partners({ menuStatus, menuToggle }) {
 
 	return (
         <main onClick={menuToggle} className="fixed top-0 left-0 h-full w-full">
-            {console.log(partnerList)}
             <Header menuStatus={menuStatus} />
             
             <section className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 pb-24">
