@@ -8,6 +8,9 @@ apiRoutes.get('/getAllDisciplines', async (req, res) => {
     res.send(disciplineList);
 });
 
+apiRoutes.get('/getDisciplineById/', (req, res) => {
+    res.end();
+});
 apiRoutes.get('/getDisciplineById/:disciplineId', async (req, res) => {
     const discipline = await db.Discipline.findAll({
         where: {
