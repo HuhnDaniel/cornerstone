@@ -14,6 +14,8 @@ app.use(expressSession({ secret: process.env.sessionSecret, resave: false, saveU
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(routes);
+
 if (process.env.NODE_ENV === 'production') {
     app.use('/', express.static(path.join(__dirname, '/client/build')));
     app.get("/favicon.ico", (req, res) => {
@@ -23,9 +25,6 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.join(__dirname, "/client/build/index.html"));
     });
 };
-
-
-app.use(routes);
 
 const syncOptions = { force: false };
 if (process.env.NODE_ENV === 'development') {
