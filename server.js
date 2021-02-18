@@ -19,12 +19,11 @@ if (process.env.NODE_ENV === 'production') {
     app.get("/favicon.ico", (req, res) => {
         res.sendFile(path.resolve(__dirname, "/favicon.ico"));
     });
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, "/client/build/index.html"));
+    });
 };
 
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "/client/build/index.html"));
-    // res.json({});
-});
 
 app.use(routes);
 
