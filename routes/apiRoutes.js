@@ -45,6 +45,9 @@ apiRoutes.get('/getAllPartners', async (req, res) => {
     res.json(partnerList);
 });
 
+apiRoutes.get('/getPartnerById/', (req, res) => {
+    res.end();
+});
 apiRoutes.get('/getPartnerById/:partnerId', async (req, res) => {
     const partner = await db.Partner.findAll({
         where: {
