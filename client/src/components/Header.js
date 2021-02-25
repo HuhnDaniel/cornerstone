@@ -6,7 +6,7 @@ function Header({ menuStatus, aboutUsToggle, isHome }) {
         <header className={"flex flex-col md:flex-row my-4 md:mx-8 text-2.5xl md:text-2xl lg:text-2.5xl items-center"}>
 			<Link to={"/"} className="flex-1">
             	<h1 className="text-5xl">CORNERSTONE</h1>
-            	<h2 className="text-2.5xl -mt-4">ART &amp; CRAFT COLLECTIVE</h2>
+            	<h2 className="text-2.5xl -mt-4">ART &amp; CRAFT COLLABORATIVE</h2>
 			</Link>
             {
                 menuStatus ? (
