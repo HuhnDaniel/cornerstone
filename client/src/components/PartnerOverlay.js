@@ -37,7 +37,10 @@ class PartnerOverlay extends Component {
                         <div className="flex flex-col flex-1 px-4 pb-4 md:pt-4 overflow-y-auto">
                             <h2 id="close" className="self-end text-xl cursor-pointer p-4 md:hidden">⨯</h2>
                             <h2 className="text-2xl mb-4">{this.state.name}</h2>
-                            <figure className={`bg-${this.state.profilePic} bg-cover rounded-md h-40 w-40 mx-auto mb-4`}></figure>
+                            <div>
+                                <figure className={`bg-${this.state.profilePic} bg-cover rounded-md h-40 w-40 mx-auto md:mx-4 mb-4`}></figure>
+                                <p className="text-lg mb-4">{this.state.about}</p>
+                            </div>
                             <a href={`mailto:${this.state.email}`} className="text-lg">{this.state.email}</a>
                         </div>
                         <div className="flex flex-col flex-2 p-4 md:pt-0 overflow-y-auto overflow-x-hidden">
