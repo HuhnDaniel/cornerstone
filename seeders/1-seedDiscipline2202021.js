@@ -39,9 +39,9 @@ module.exports = {
                 artistCredit: 'https://unsplash.com/@clemhlrdt?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText'
             },
             {
-                field: 'Real Estate Development',
+                field: 'Real Estate Development Analysis',
                 image: 'realEstate',
-                description: 'Real Estate Development description',
+                description: 'Real Estate Development Analysis description',
                 artistName: 'Nicholas Gonzalez',
                 artistCredit: 'https://unsplash.com/@mrngonzalez?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText'
             }

@@ -245,17 +245,17 @@ module.exports = {
                 SubDisciplineId: 8
             },
             {
-                name: 'Cornerstone Art & Craft Collective',
-                client: 'Cornerstone A&C LLC',
+                name: 'Cornerstone Art & Craft Collaborative',
+                client: 'Cornerstone ACC LLC',
                 overview: 'Cornerstone Art and Craft LLC is a company that strives to connect people who create with those who need things created.  Partners of the company have personal profiles to which their projects and disciplines can be added, and potential employers can search to find the perfect candidate for the project they need completed. ',
-                timeframe: 'Start: November 2020. Estimated Launch: January 2021.',
+                timeframe: 'Start: November 2020. Launch: February 2021.',
                 role: 'Full Stack Website Developer',
                 image: 'cornerstone',
                 PartnerId: 2,
                 SubDisciplineId: 9
             },
             {
-                name: 'InQuire',
+                name: 'InQuery',
                 overview: 'This is an app built with React that allows users to create and share surveys. The survey results are displayed in charts for the user.',
                 timeframe: 'Two week speed build, August 2020.',
                 link: 'https://inquiresurveys.herokuapp.com/',
