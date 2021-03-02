@@ -29,9 +29,10 @@ function Disciplines({ menuStatus, menuToggle }) {
     }
 
     function closeOverlay(e) {
-        switch (e.target.id) {
+        switch (e.target.getAttribute('data-id')) {
             case "margin":
             case "close":
+            case "disciplines":
                 setOverlayVisibility(false);
                 setCurrentDiscipline('');
                 break;
@@ -41,7 +42,7 @@ function Disciplines({ menuStatus, menuToggle }) {
     }
 
     return (
-        <main onClick={menuToggle} className="absolute min-h-full min-w-full">
+        <main onClick={menuToggle} className="absolute min-h-full min-w-full" onClick={closeOverlay} >
             <Header menuStatus={menuStatus} />
 
             <section className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 pb-24">
@@ -64,7 +65,7 @@ function Disciplines({ menuStatus, menuToggle }) {
                     })
                 }
 
-                <DisciplineOverlay overlayVisibility={overlayVisibility} currentDiscipline={currentDiscipline} closeOverlay={closeOverlay} />
+                <DisciplineOverlay overlayVisibility={overlayVisibility} currentDiscipline={currentDiscipline} />
             </section>
 
 

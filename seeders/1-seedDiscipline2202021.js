@@ -6,7 +6,7 @@ module.exports = {
             {
                 field: 'Architectural Design and Planning',
                 image: 'architecture',
-                description: 'With a wide range of project type experience, our architecture partners can assist clients with multiple consulting services on a variety of building types. Please explore past project examples shown on this page to find out more about the scope and scale of projects we could assist you with, from large commercial work to single-family residential projects.',
+                description: 'With a wide range of project type experience, our architecture partners can assist clients with multiple consulting services on a variety of building types. Please explore past project &#013;&#010; examples shown on this page to find out more about the scope and scale of projects we could assist you with, from large commercial work to single-family residential projects.',
                 artistName: null,
                 artistCredit: null
             },
