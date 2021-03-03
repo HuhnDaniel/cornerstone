@@ -19,11 +19,11 @@ class DisciplineOverlay extends Component {
 
     async componentDidUpdate(prevProps) {
         async function getDiscipline(currentDiscipline) {
-			const { data } = await API.getDisciplineById(currentDiscipline);
+            const { data } = await API.getDisciplineById(currentDiscipline);
             return data[0];
         }
 
-        
+
         if (this.props !== prevProps) {
             const discipline = await getDiscipline(this.props.currentDiscipline);
 
@@ -44,18 +44,17 @@ class DisciplineOverlay extends Component {
                             <h2 data-id="close" className="self-end text-xl cursor-pointer p-4 md:hidden">⨯</h2>
                             <h1 className="text-2xl mb-4">{this.state.field}</h1>
                             <figure className={`bg-${this.state.image} bg-cover rounded-md h-72 w-72 mx-auto mb-4`}></figure>
-                            {/* <p className="text-lg">{this.state.description}</p> */}
-                            {this.state.description}
+                            <p>{this.state.description}</p>
                         </div>
                         <div className="flex flex-col flex-2 p-4 md:pt-0 overflow-y-auto overflow-x-hidden">
                             <h2 data-id="close" className="self-end text-xl cursor-pointer p-4 hidden md:block">⨯</h2>
-							{
-								this.state.SubDisciplines[0] ? (
-									null
-								) : (
-									<div className="text-center text-3xl m-8">Under Development</div>
-								)
-							}
+                            {
+                                this.state.SubDisciplines[0] ? (
+                                    null
+                                ) : (
+                                        <div className="text-center text-3xl m-8">Under Development</div>
+                                    )
+                            }
                             {
                                 this.state.SubDisciplines.map((subDiscipline, i) => {
                                     return (
