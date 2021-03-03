@@ -29,9 +29,10 @@ function Partners({ menuStatus, menuToggle }) {
     }
 
     function closeOverlay(e) {
-        switch (e.target.id) {
+        switch (e.target.getAttribute('data-id')) {
             case "margin":
             case "close":
+            case "partners":
                 setOverlayVisibility(false);
                 setCurrentPartner('');
                 break;
@@ -41,7 +42,7 @@ function Partners({ menuStatus, menuToggle }) {
     }
 
 	return (
-		<main onClick={menuToggle} className="fixed top-0 left-0 h-full w-full">
+        <main onClick={menuToggle} className="fixed top-0 left-0 h-full w-full" onClick={closeOverlay}>
             <Header menuStatus={menuStatus} />
             
             <section className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 pb-24">
@@ -57,7 +58,7 @@ function Partners({ menuStatus, menuToggle }) {
                     })
                 }
 
-                <PartnerOverlay overlayVisibility={overlayVisibility} currentPartner={currentPartner} closeOverlay={closeOverlay} />
+                <PartnerOverlay overlayVisibility={overlayVisibility} currentPartner={currentPartner} />
             </section>
             
 			<Footer />

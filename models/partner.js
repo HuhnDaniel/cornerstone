@@ -13,13 +13,8 @@ module.exports = function (sequelize, DataTypes) {
                 len: [6]
             }
         },
-        phone: {
-            type: DataTypes.BIGINT,
-            unique: true,
-            validate: {
-                isNumeric: true,
-                len: [10, 11]
-            }
+        about: {
+            type: DataTypes.STRING(1024)
         },
         profilePic: {
             type: DataTypes.STRING,
@@ -33,10 +28,6 @@ module.exports = function (sequelize, DataTypes) {
         Partner.hasMany(models.Project, {
             onDelete: 'cascade'
 		});
-		
-		// Partner.belongsToMany(models.Discipline, {
-		// 	through: models.Project
-		// });
     };
 
     return Partner;
