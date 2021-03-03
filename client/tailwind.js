@@ -4,8 +4,8 @@ module.exports = {
     // purgeLayersByDefault: true,
   },
   purge: [
-      './src/**/*.html',
-      './src/**/*.js'
+  //    './src/**/*.html',
+  //    './src/**/*.js'
   ],
   target: 'relaxed',
   prefix: '',
