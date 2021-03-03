@@ -7,11 +7,11 @@ function Footer() {
             <div className="flex flex-col md:flex-row">
                 <div className="flex-1 grid grid-cols-4">
                     <Link to={"/"} className="text-center">Home</Link>
-                    <Link to={"/partners/"} className="text-center">Partners</Link>
-                    <Link to={"/disciplines/"} className="text-center">Disciplines</Link>
+                    <Link to={"/partners/"} data-id="partners" className="text-center">Partners</Link>
+                    <Link to={"/disciplines/"} data-id="disciplines" className="text-center">Disciplines</Link>
                     <Link to={"/contact/"} className="text-center">Contact</Link>
                 </div>
-                <h2 className="flex-1 text-center md:text-right md:pr-8">&#169; 2020 Cornerstone A&amp;C LLC</h2>
+                <h2 className="flex-1 text-center md:text-right md:pr-8">&#169; 2020 Cornerstone ACC LLC</h2>
             </div>
 		</footer>
 	);

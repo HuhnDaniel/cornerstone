@@ -3,7 +3,10 @@ module.exports = {
     // removeDeprecatedGapUtilities: true,
     // purgeLayersByDefault: true,
   },
-  purge: [],
+  purge: [
+      './src/**/*.html',
+      './src/**/*.js'
+  ],
   target: 'relaxed',
   prefix: '',
   important: false,
@@ -380,11 +383,13 @@ module.exports = {
       ...theme('spacing'),
       ...negative(theme('spacing')),
     }),
-    maxHeight: {
+    maxHeight: (theme) => ({
+      ...theme('percentile'),
       full: '100%',
       screen: '100vh',
-    },
+    }),
     maxWidth: (theme, { breakpoints }) => ({
+      ...theme('percentile'),
       none: 'none',
       xs: '20rem',
       sm: '24rem',
@@ -425,6 +430,7 @@ module.exports = {
       '0': '0',
       '25': '0.25',
       '30': '0.3',
+      '40': '0.4',
       '50': '0.5',
       '75': '0.75',
       '100': '1',

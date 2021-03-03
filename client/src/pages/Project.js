@@ -32,7 +32,7 @@ function Project({ menuStatus, menuToggle }) {
     }
 
     function closeOverlay(e) {
-        switch (e.target.id) {
+        switch (e.target.getAttribute('data-id')) {
             case "margin":
             case "close":
             case "projectCard":
@@ -52,39 +52,40 @@ function Project({ menuStatus, menuToggle }) {
 
             {
                 project ? (
-                    <section className="relative flex flex-row p-8 md:p-16 pb-24">
-                        <article className="flex-1 m-4">
+                    <section className="relative flex flex-col md:flex-row px-8 pt-2 md:px-16 pb-24">
+                        <article className="flex-2 m-4">
                             <h1 className="text-3xl mb-8">{project.name}</h1>
                             {
-                                project.Partner ? ( <h2 className="text-2xl mb-8"><span className="font-semibold">Project Partner(s): </span><span data-id={project.Partner.id} className="cursor-pointer" onClick={openOverlay.bind(this)}>{project.Partner.name}</span></h2> ) : ( null )
+                                project.Partner ? ( <h2 className="text-xl mb-8"><span className="font-semibold">Project Partner(s): </span><span data-id={project.Partner.id} className="cursor-pointer" onClick={openOverlay.bind(this)}>{project.Partner.name}</span></h2> ) : ( null )
                             }
                             {
-                                project.image ? ( <img src={`/images/${project.image}-rect.jpg`} alt={`${project.name}`}/> ) : ( null )
+                                project.image ? ( <img src={`/images/${project.image}-rect.jpg`} className="pr-8 max-h-screen" alt={`${project.name}`}/> ) : ( null )
                             }
                             
                         </article>
-                        <article className="flex flex-col flex-2 m-4">
-                            <div className="flex flex-row m-4">
-                                {
-                                    project.client ? ( <h3 className="flex-1 text-xl text-center"><span className="font-semibold">Client: </span>{project.client}</h3> ) : ( null )
-                                }
-                                {
-                                    project.location ? ( <h3 className="flex-1 text-xl text-center"><span className="font-semibold">Location: </span>{project.location}</h3> ) : ( null )
-                                }
-                            </div>
-
-                            <p className="text-xl m-4">{project.overview}</p>
+                        <article className="flex flex-col flex-1 m-4">
                             {
-                                project.awards ? ( <p className="text-xl m-4"><span className="font-semibold">Awards: </span>{project.awards}</p> ) : ( null )
+                                project.client ? ( <h3 className="m-4 mb-0 text-lg"><span className="font-semibold">Client: </span>{project.client}</h3> ) : ( null )
                             }
-                            <p className="text-xl m-4"><span className="font-semibold">Completion Information: </span>{project.timeframe}</p>
+                            {
+                                project.location ? ( <h3 className="m-4 text-lg"><span className="font-semibold">Location: </span>{project.location}</h3> ) : ( null )
+                            }
 
-                            <div className="flex flex-row m-4 text-md text-gray-600">
+                            <p className="m-4 text-lg">{project.overview}</p>
+                            <p className="m-4 text-lg"><span className="font-semibold">Completion: </span>{project.timeframe}</p>
+                            {
+                                project.awards ? ( <p className="m-4 text-lg"><span className="font-semibold">Awards: </span>{project.awards}</p> ) : ( null )
+                            }
+
+                            <div className="flex flex-row m-4 text-md">
                                 {
-                                    project.company ? ( <h3 className="flex-1">Project experience while at {project.company}</h3> ) : ( null )
+                                    project.company && project.role ? ( <h3 className="flex-1 text-gray-600">Project experience while at {project.company}, {project.role}</h3> ) : ( null )
                                 }
                                 {
-                                    project.role ? ( <h3 className="flex-1"><span className="font-semibold">Role: </span>{project.role}</h3> ) : ( null )
+                                    project.company && !project.role ? ( <h3 className="flex-1 text-gray-600">Project experience while at {project.company}</h3> ) : ( null )
+                                }
+                                {
+                                    !project.company && project.role ? ( <h3 className="flex-1"><span className="font-semibold">Role: </span>{project.role}</h3> ) : ( null )
                                 }
                             </div>
                         </article>

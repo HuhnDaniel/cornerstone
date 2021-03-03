@@ -14,16 +14,17 @@ app.use(expressSession({ secret: process.env.sessionSecret, resave: false, saveU
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('/client/build'));
-};
-
 app.use(routes);
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
-    // res.json({});
-});
+if (process.env.NODE_ENV === 'production') {
+    app.use('/', express.static(path.join(__dirname, '/client/build')));
+    app.get("/favicon.ico", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "/favicon.ico"));
+    });
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, "/client/build/index.html"));
+    });
+};
 
 const syncOptions = { force: false };
 if (process.env.NODE_ENV === 'development') {
