@@ -6,28 +6,29 @@ module.exports = {
             {
                 field: 'Architectural Design and Planning',
                 image: 'architecture',
-                description: 'With a wide range of project type experience, our architecture partners can assist clients with multiple consulting services on a variety of building types. Please explore past project &#013;&#010; examples shown on this page to find out more about the scope and scale of projects we could assist you with, from large commercial work to single-family residential projects.',
+                description: `With a wide range of project type experience, our architecture partners can assist clients with multiple consulting services on a variety of building types.  Please explore past project examples shown on this page to find out more about the scope and scale of projects we could assist you with, from large commercial work to single-family residential projects.`,
                 artistName: null,
                 artistCredit: null
             },
             {
                 field: 'Creative Writing',
                 image: 'creativeWriting',
-                description: 'Creative Writing description',
+                description: 
+                    ``,
                 artistName: 'aaronburden',
                 artistCredit: 'https://unsplash.com/@aaronburden?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText'
             },
             {
                 field: 'Graphic Design',
                 image: 'graphicDesign',
-                description: 'Graphic Design description',
+                description: '',
                 artistName: 'themephotos',
                 artistCredit: 'https://unsplash.com/@themephotos?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText'
             },
             {
                 field: 'Illustration',
                 image: 'illustration',
-                description: 'Illustration description',
+                description: '',
                 artistName: 'kellysikkema',
                 artistCredit: 'https://unsplash.com/@kellysikkema?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText'
             },
@@ -41,7 +42,7 @@ module.exports = {
             {
                 field: 'Real Estate Development Analysis',
                 image: 'realEstate',
-                description: 'Real Estate Development Analysis description',
+                description: '',
                 artistName: 'Nicholas Gonzalez',
                 artistCredit: 'https://unsplash.com/@mrngonzalez?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText'
             }
