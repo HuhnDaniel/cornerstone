@@ -15,7 +15,10 @@ const initialState = {
 }
 
 class DisciplineOverlay extends Component {
-    state = initialState;
+    constructor(props) {
+        super(props);
+        this.state = initialState;
+    }
 
     async componentDidUpdate(prevProps) {
         async function getDiscipline(currentDiscipline) {
