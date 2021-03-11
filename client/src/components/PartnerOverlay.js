@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 import ProjectCard from './ProjectCard';
 
@@ -8,7 +7,10 @@ import API from '../utils/API';
 const initialState = {};
 
 class PartnerOverlay extends Component {
-    state = initialState;
+    constructor(props) {
+        super(props);
+        this.state = initialState;
+    }
 
     async componentDidUpdate(prevProps) {
         async function getPartner(currentPartner) {
