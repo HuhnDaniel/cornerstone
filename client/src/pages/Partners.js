@@ -13,6 +13,8 @@ function Partners({ menuStatus, menuToggle }) {
 
     useEffect(() => {
         getPartners();
+
+        return () => {};
     }, []);
     
     async function getPartners() {

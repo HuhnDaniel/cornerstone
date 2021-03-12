@@ -15,10 +15,13 @@ function Project({ menuStatus, menuToggle }) {
     const [currentPartner, setCurrentPartner] = useState('');
 
     useEffect(() => {
-        getProject();
+        getProject(projId);
     }, [projId]);
+    useEffect(() => {
+        return () => {};
+    }, []);
 
-    async function getProject() {
+    async function getProject(projId) {
         const { data } = await API.getProjectById(projId);
 
         setProject(data[0]);
