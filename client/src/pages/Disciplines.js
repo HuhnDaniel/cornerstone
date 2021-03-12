@@ -13,6 +13,8 @@ function Disciplines({ menuStatus, menuToggle }) {
 
     useEffect(() => {
         getDisciplines();
+
+        return () => {};
     }, []);
     
     async function getDisciplines() {
