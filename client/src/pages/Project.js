@@ -39,8 +39,6 @@ function Project({ menuStatus, menuToggle }) {
             case "margin":
             case "close":
             case "projectCard":
-            case "cardHeader":
-            case "projectName":
                 setOverlayVisibility(false);
                 setCurrentPartner('');
                 break;
