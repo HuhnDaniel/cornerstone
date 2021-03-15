@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import $ from 'jquery';
 
 import Header from '../components/Header';
 import PartnerOverlay from '../components/PartnerOverlay';
@@ -13,14 +14,23 @@ function Partners({ menuStatus, menuToggle }) {
 
     useEffect(() => {
         getPartners();
+        $(window).on('scroll', handleScroll);
 
-        return () => {};
+        return () => {
+            $(window).off('scroll', handleScroll);
+            console.log('Unloaded');
+        };
     }, []);
     
     async function getPartners() {
         const { data } = await API.getPartners();
 
         setPartnerList(data)
+    }
+
+    function handleScroll(e) {
+        const distance = $('[data-id="partnerBlock"]').offset().top - $(window).scrollTop();
+        console.log(distance);         
     }
 
     function openOverlay(e) {
@@ -48,7 +58,7 @@ function Partners({ menuStatus, menuToggle }) {
             <div onClick={closeOverlay}>
                 <Header menuStatus={menuStatus} />
                 
-                <section className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 pb-24">
+                <section data-id="partnerBlock" className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 pb-24">
                     {
                         partnerList.map((partner, i) => {
                             return (

@@ -7,14 +7,31 @@ import Footer from '../components/Footer';
 
 import API from '../utils/API';
 
+const emptyProject = {
+    Partner: {},
+    PartnerId: null,
+    subDisciplineId: null,
+    awards: "",
+    client: "",
+    id: null,
+    image: "",
+    link: "",
+    location: "",
+    name: "",
+    overview: "",
+    role: "",
+    timeframe: ""
+}
+
 function Project({ menuStatus, menuToggle }) {
     const { projId } = useParams();
 
-    const [project, setProject] = useState({});
+    const [project, setProject] = useState(emptyProject);
     const [overlayVisibility, setOverlayVisibility] = useState(false);    
     const [currentPartner, setCurrentPartner] = useState('');
 
     useEffect(() => {
+        setProject(emptyProject);
         getProject(projId);
     }, [projId]);
     useEffect(() => {
@@ -23,6 +40,7 @@ function Project({ menuStatus, menuToggle }) {
 
     async function getProject(projId) {
         const { data } = await API.getProjectById(projId);
+        console.log(data[0]);
 
         setProject(data[0]);
     }
