@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import $ from 'jquery';
 
 import Header from '../components/Header';
 import DisciplineOverlay from '../components/DisciplineOverlay';
@@ -13,14 +14,23 @@ function Disciplines({ menuStatus, menuToggle }) {
 
     useEffect(() => {
         getDisciplines();
+        $(window).on('scroll', handleScroll);
 
-        return () => {};
+        return () => {
+            $(window).off('scroll', handleScroll);
+            console.log('Unloaded');
+        };
     }, []);
     
     async function getDisciplines() {
         const { data } = await API.getDisciplines();
 
         setDisciplineList(data)
+    }
+
+    function handleScroll(e) {
+        const distance = $('[data-id="disciplineBlock"]').offset().top - $(window).scrollTop();
+        console.log(distance);        
     }
 
     function openOverlay(e) {
@@ -48,7 +58,7 @@ function Disciplines({ menuStatus, menuToggle }) {
             <div onClick={closeOverlay}>
                 <Header menuStatus={menuStatus} />
 
-                <section className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 pb-24">
+                <section data-id="disciplineBlock" className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 pb-24">
                     {
                         disciplineList.map((discipline, i) => {
                             return (
