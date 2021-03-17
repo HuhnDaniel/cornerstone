@@ -12,7 +12,7 @@ module.exports = {
             },
             {
                 field: 'Creative Writing',
-                image: 'creativeWriting',
+                image: 'creative-writing',
                 description: 
                     ``,
                 artistName: 'aaronburden',
@@ -20,7 +20,7 @@ module.exports = {
             },
             {
                 field: 'Graphic Design',
-                image: 'graphicDesign',
+                image: 'graphic-design',
                 description: '',
                 artistName: 'themephotos',
                 artistCredit: 'https://unsplash.com/@themephotos?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText'
@@ -34,14 +34,14 @@ module.exports = {
             },
             {
                 field: 'Web Development',
-                image: 'webDevelopment',
+                image: 'web-development',
                 description: 'Our web development partners specialize on projects from small personal websites to scalable enterprise projects.  Please view the examples on this page to find what level of development you require.',
                 artistName: 'clemhlrdt',
                 artistCredit: 'https://unsplash.com/@clemhlrdt?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText'
             },
             {
                 field: 'Real Estate Development Analysis',
-                image: 'realEstate',
+                image: 'real-estate',
                 description: '',
                 artistName: 'Nicholas Gonzalez',
                 artistCredit: 'https://unsplash.com/@mrngonzalez?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText'

@@ -10,7 +10,11 @@ import API from '../utils/API';
 function Disciplines({ menuStatus, menuToggle }) {
     const [disciplineList, setDisciplineList] = useState([]);
     const [overlayVisibility, setOverlayVisibility] = useState(false);
-    const [currentDiscipline, setCurrentDiscipline] = useState('');
+	const [overlayPositioning, setOverlayPositioning] = useState('absolute');
+	const [currentDiscipline, setCurrentDiscipline] = useState('');
+
+	let prevTopDistance = 0;
+	let prevBottomDistance = 0;
 
     useEffect(() => {
         getDisciplines();
@@ -29,8 +33,17 @@ function Disciplines({ menuStatus, menuToggle }) {
     }
 
     function handleScroll(e) {
-        const distance = $('[data-id="disciplineBlock"]').offset().top - $(window).scrollTop();
-        console.log(distance);        
+		const topDistance = $('[data-id="disciplineBlock"]').offset().top - $(window).scrollTop();
+		const bottomDistance = $('[data-id="footer"]').offset().top - ($(window).scrollTop() + $(window).height());
+
+		if (prevTopDistance >= 0 && topDistance < 0) {
+			setOverlayPositioning('fixed');
+		} else if (prevTopDistance < 0 && topDistance >=0) {
+			setOverlayPositioning('absolute');
+		}
+
+		prevTopDistance = topDistance;
+		prevBottomDistance = bottomDistance;
     }
 
     function openOverlay(e) {
@@ -62,8 +75,9 @@ function Disciplines({ menuStatus, menuToggle }) {
                     {
                         disciplineList.map((discipline, i) => {
                             return (
-                                <article data-id={discipline.id} className={`bg-${discipline.image} bg-cover rounded-md text-white cursor-pointer mx-auto my-4 h-72 w-72 hover:shadow-md transition transition-transform duration-200 transform hover:scale-105`} onClick={openOverlay.bind(this)} key={i}>
-                                    <div data-id={discipline.id} className="bg-black p-4 rounded-t-md bg-opacity-30">
+                                <article className="rounded-md text-white cursor-pointer mx-auto my-4 h-72 w-72 hover:shadow-md transition transition-transform duration-200 transform hover:scale-105" onClick={openOverlay.bind(this)} key={i}>
+									<img data-id={discipline.id} className="rounded-md h-72 w-72" src={`/images/${discipline.image}.jpg`} alt={discipline.field} />
+                                    <div data-id={discipline.id} className="absolute top-0 bg-black p-4 rounded-t-md bg-opacity-30 w-72">
                                         <h3 data-id={discipline.id} className="text-2xl">{discipline.field}</h3>
                                     </div>
                                     {
@@ -78,7 +92,7 @@ function Disciplines({ menuStatus, menuToggle }) {
                         })
                     }
 
-                    <DisciplineOverlay overlayVisibility={overlayVisibility} currentDiscipline={currentDiscipline} />
+                    <DisciplineOverlay overlayVisibility={overlayVisibility} overlayPositioning={overlayPositioning} currentDiscipline={currentDiscipline} />
                 </section>
 
 
