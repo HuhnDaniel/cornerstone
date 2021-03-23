@@ -43,7 +43,7 @@ class DisciplineOverlay extends Component {
             return (
                 <section data-id="margin" className={`${this.props.overlayPositioning} flex items-center justify-center top-0 left-0 h-full w-full pb-16`}>
                     <div className="flex flex-col md:flex-row h-11/12 w-full sm:rounded sm:w-11/12 bg-gray-400 opacity-100">
-                        <div className="flex flex-col flex-1 px-4 pb-4 md:pt-4 overflow-y-auto">
+                        <div className="flex flex-col flex-initial md:flex-1 px-4 pb-4 md:pt-4 overflow-y-auto">
                             <h2 data-id="close" className="self-end text-xl cursor-pointer p-4 md:hidden">⨯</h2>
                             <h1 className="text-2xl mb-4">{this.state.field}</h1>
 							<img className="rounded-md h-60 w-60 mx-auto mb-4" src={this.state.image ? `/images/${this.state.image}.jpg` : null} alt={this.state.field} />

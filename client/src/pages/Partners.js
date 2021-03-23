@@ -11,6 +11,8 @@ function Partners({ menuStatus, menuToggle }) {
 	const [partnerList, setPartnerList] = useState([]);
 	const [overlayVisibility, setOverlayVisibility] = useState(false);
 	const [overlayPositioning, setOverlayPositioning] = useState('absolute');
+    const [bottomSpace, setBottomSpace] = useState(0);
+    const [topMargin, setTopMargin] = useState(0);
 	const [currentPartner, setCurrentPartner] = useState('');
 	
 	let prevTopDistance = 0;
@@ -22,7 +24,6 @@ function Partners({ menuStatus, menuToggle }) {
 
         return () => {
             $(window).off('scroll', handleScroll);
-            console.log('Unloaded');
         };
     }, []);
     
@@ -32,18 +33,16 @@ function Partners({ menuStatus, menuToggle }) {
         setPartnerList(data)
     }
 
-    function handleScroll(e) {
+    function handleScroll() {
 		const topDistance = $('[data-id="partnerBlock"]').offset().top - $(window).scrollTop();
-		const bottomDistance = $('[data-id="footer"]').offset().top - ($(window).scrollTop() + $(window).height());
-console.log(topDistance);
-		if (prevTopDistance >= 0 && topDistance < 0) {
-			setOverlayPositioning('fixed');
-		} else if (prevTopDistance < 0 && topDistance >=0) {
+
+		if (prevTopDistance >= -44 && topDistance < -44) {
+            setOverlayPositioning('fixed top-0');
+		} else if (prevTopDistance < -44 && topDistance >= -44) {
 			setOverlayPositioning('absolute');
 		}
 
-		prevTopDistance = topDistance;
-		prevBottomDistance = bottomDistance;         
+		prevTopDistance = topDistance;     
     }
 
     function openOverlay(e) {
@@ -64,32 +63,32 @@ console.log(topDistance);
             default:
                 break;
         }
+        
+        menuToggle(e);
     }
 
 	return (
-        <main onClick={menuToggle} className="absolute min-h-full min-w-full">
-            <div onClick={closeOverlay}>
-                <Header menuStatus={menuStatus} />
+        <main className="absolute min-h-full min-w-full" onClick={closeOverlay}>
+            <Header menuStatus={menuStatus} />
                 
-                <section data-id="partnerBlock" className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 pb-24">
-                    {
-                        partnerList.map((partner, i) => {
-                            return (
-                                <article data-id={partner.id} className="rounded-md text-white cursor-pointer mx-auto my-4 h-72 w-72 hover:shadow-md transition transition-transform duration-200 transform hover:scale-105" onClick={openOverlay.bind(this)} key={i}>
-									<img data-id={partner.id} className="rounded-md h-72 w-72" src={partner.profilePic ? `/images/${partner.profilePic}.jpg` : "/images/default-user.svg"} alt={partner.name} />
-                                    <div data-id={partner.id} className="absolute top-0 bg-black p-4 rounded-t bg-opacity-30 w-72">
-                                        <h3 data-id={partner.id} className="text-2xl">{partner.name}</h3>
-                                    </div>
-                                </article>
-                            )
-                        })
-                    }
+            <section data-id="partnerBlock" className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 pb-24">
+                {
+                    partnerList.map((partner, i) => {
+                        return (
+                            <article data-id={partner.id} className="rounded-md text-white cursor-pointer mx-auto my-4 h-72 w-72 hover:shadow-md transition transition-transform duration-200 transform hover:scale-105" onClick={openOverlay.bind(this)} key={i}>
+								<img data-id={partner.id} className="rounded-md h-72 w-72" src={partner.profilePic ? `/images/${partner.profilePic}.jpg` : "/images/default-user.svg"} alt={partner.name} />
+                                <div data-id={partner.id} className="absolute top-0 bg-black p-4 rounded-t bg-opacity-30 w-72">
+                                    <h3 data-id={partner.id} className="text-2xl">{partner.name}</h3>
+                                </div>
+                            </article>
+                        )
+                    })
+                }
 
-                    <PartnerOverlay overlayVisibility={overlayVisibility} overlayPositioning={overlayPositioning} currentPartner={currentPartner} />
-                </section>
+                <PartnerOverlay overlayVisibility={overlayVisibility} overlayPositioning={overlayPositioning} bottomSpace={bottomSpace} topMargin={topMargin} currentPartner={currentPartner} />
+            </section>
                 
-                <Footer />
-            </div>
+            <Footer />
 		</main>
 	);
 }
