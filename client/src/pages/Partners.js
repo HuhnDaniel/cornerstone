@@ -11,19 +11,16 @@ function Partners({ menuStatus, menuToggle }) {
 	const [partnerList, setPartnerList] = useState([]);
 	const [overlayVisibility, setOverlayVisibility] = useState(false);
 	const [overlayPositioning, setOverlayPositioning] = useState('absolute');
-    const [bottomSpace, setBottomSpace] = useState(0);
-    const [topMargin, setTopMargin] = useState(0);
 	const [currentPartner, setCurrentPartner] = useState('');
 	
 	let prevTopDistance = 0;
-	let prevBottomDistance = 0;
 
     useEffect(() => {
         getPartners();
-        $(window).on('scroll', handleScroll);
+        // $(window).on('scroll', handleScroll);
 
         return () => {
-            $(window).off('scroll', handleScroll);
+            // $(window).off('scroll', handleScroll);
         };
     }, []);
     
@@ -33,17 +30,17 @@ function Partners({ menuStatus, menuToggle }) {
         setPartnerList(data)
     }
 
-    function handleScroll() {
-		const topDistance = $('[data-id="partnerBlock"]').offset().top - $(window).scrollTop();
+    // function handleScroll() {
+	// 	const topDistance = $('[data-id="partnerBlock"]').offset().top - $(window).scrollTop();
 
-		if (prevTopDistance >= -44 && topDistance < -44) {
-            setOverlayPositioning('fixed top-0');
-		} else if (prevTopDistance < -44 && topDistance >= -44) {
-			setOverlayPositioning('absolute');
-		}
+	// 	if (prevTopDistance >= -44 && topDistance < -44) {
+    //         setOverlayPositioning('fixed top-0');
+	// 	} else if (prevTopDistance < -44 && topDistance >= -44) {
+	// 		setOverlayPositioning('absolute');
+	// 	}
 
-		prevTopDistance = topDistance;     
-    }
+	// 	prevTopDistance = topDistance;     
+    // }
 
     function openOverlay(e) {
         const targetId = e.target.getAttribute('data-id');
@@ -85,7 +82,7 @@ function Partners({ menuStatus, menuToggle }) {
                     })
                 }
 
-                <PartnerOverlay overlayVisibility={overlayVisibility} overlayPositioning={overlayPositioning} bottomSpace={bottomSpace} topMargin={topMargin} currentPartner={currentPartner} />
+                <PartnerOverlay overlayVisibility={overlayVisibility} overlayPositioning={overlayPositioning} currentPartner={currentPartner} />
             </section>
                 
             <Footer />
