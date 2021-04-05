@@ -1,77 +1,99 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
+import $ from 'jquery';
 
 import ProjectCard from './ProjectCard';
 
 import API from '../utils/API';
 
-const initialState = {};
+const initialInfo = {};
 
-class PartnerOverlay extends Component {
-    constructor(props) {
-        super(props);
-        this.state = initialState;
-    }
+function PartnerOverlay({ overlayVisibility, currentPartner, closeOverlay }) {
+    const [partnerInfo, setPartnerInfo] = useState(initialInfo);
+	const [overlayPositioning, setOverlayPositioning] = useState('absolute');
+    const [prevTopDistance, setPrevTopDistance] = useState(0);
+    
+    // let prevTopDistance = 0;
 
-    async componentDidUpdate(prevProps) {
-        async function getPartner(currentPartner) {
-            const { data } = await API.getPartnerById(currentPartner);
-            return data[0];
-        }
-
-        if (this.props !== prevProps && this.state.id != this.props.currentPartner) {
-            const partner = await getPartner(this.props.currentPartner);
-
+    useEffect(async () => {
+        console.log("aaaah");
+        if (partnerInfo.id != currentPartner) {
+            const partner = await getPartner(currentPartner);
+            
             if (Boolean(partner)) {
-                this.setState(partner);
+                setPartnerInfo(partner);
             } else {
-                this.setState(initialState);
+                setPartnerInfo(initialInfo);
             }
         }
+
+        $(window).on('scroll', handleScroll);
+    }, [currentPartner]);
+    useEffect(() => {
+        return () => {
+            $(window).off('scroll', handleScroll);
+        };
+    }, []);
+
+    async function getPartner(currentPartner) {
+        const { data } = await API.getPartnerById(currentPartner);
+        return data[0];
     }
 
-    render() {
-        if (this.props.overlayVisibility) {
-            return (
-                <section data-id="margin" className={`absolute flex items-center justify-center top-0 left-0 pb-24 h-full w-full`} onClick={this.props.closeOverlay}>
-                    <div className={`${this.props.overlayPositioning} flex flex-col md:flex-row p-4 h-3/4 w-full sm:rounded sm:w-11/12 bg-gray-400 opacity-100 overflow-y-auto md:overflow-y-hidden`}>
-                        <div className="hidden md:flex flex-col flex-initial md:flex-1 p-4 overflow-y-auto">
-                            <h1 className="text-2xl mb-4">{this.state.name}</h1>
-							<img className="rounded-md h-60 w-60 mx-auto mb-4" src={this.state.profilePic ? `/images/${this.state.profilePic}.jpg` : "/images/default-user.svg"} alt={this.state.name} />
-                            <p className="text-lg mb-4">{this.state.about}</p>
-                            <a href={`mailto:${this.state.email}`} className="text-lg">{this.state.email}</a>
-                        </div>
+    function handleScroll() {
+        // let prevTopDistance = 0;
+		const topDistance = $('[data-id="overlayBlock"]').offset().top - $(window).scrollTop();
+        
+		if (prevTopDistance >= 0 && topDistance < 0) {
+            setOverlayPositioning('fixed top-0');
+		} else if (prevTopDistance < 0 && topDistance >= 0) {
+            setOverlayPositioning('absolute');
+		}
+        
+		setPrevTopDistance(topDistance);    
+        console.log(prevTopDistance, topDistance);
+    }
 
-                        <h2 data-id="close" className="absolute self-end z-50 text-xl cursor-pointer px-4 md:hidden">⨯</h2>
-                        <h1 className="text-2xl mb-4 md:hidden">{this.state.name}</h1>
-						<img className="rounded-md h-60 w-60 mx-auto mb-4 md:hidden" src={this.state.profilePic ? `/images/${this.state.profilePic}.jpg` : "/images/default-user.svg"} alt={this.state.name} />
-                        <p className="text-lg mb-4 md:hidden">{this.state.about}</p>
-                        <a href={`mailto:${this.state.email}`} className="text-lg md:hidden">{this.state.email}</a>
+    if (overlayVisibility) {
+        return (
+            <section data-id="margin" className={`absolute flex items-center justify-center top-0 left-0 pb-24 h-full w-full`} onClick={closeOverlay}>
+                <div data-id="overlayBlock" className={`${overlayPositioning} flex flex-col md:flex-row p-4 h-3/4 w-full sm:rounded sm:w-11/12 bg-gray-400 opacity-100 overflow-y-auto md:overflow-y-hidden`}>
+                    <div className="hidden md:flex flex-col flex-initial md:flex-1 p-4 overflow-y-auto">
+                        <h1 className="text-2xl mb-4">{partnerInfo.name}</h1>
+						<img className="rounded-md h-60 w-60 mx-auto mb-4" src={partnerInfo.profilePic ? `/images/${partnerInfo.profilePic}.jpg` : "/images/default-user.svg"} alt={partnerInfo.name} />
+                        <p className="text-lg mb-4">{partnerInfo.about}</p>
+                        <a href={`mailto:${partnerInfo.email}`} className="text-lg">{partnerInfo.email}</a>
+                    </div>
 
-                        <div className="flex flex-col flex-2 p-4 md:pt-0 md:overflow-y-auto">
-                            <h2 data-id="close" className="self-end text-xl cursor-pointer p-4 hidden md:block">⨯</h2>
-                            <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center px-8 pb-4">
-                                {
-                                    this.state.Projects ? (
-                                        this.state.Projects.map((project, i) => {
-                                            return (
-                                                <ProjectCard project={project} key={i} />
-                                            )
-                                        })
-                                    ) : (
-                                        null
-                                    )
-                                }
-                            </div>
+                    <h2 data-id="close" className="absolute self-end text-xl cursor-pointer px-4 md:hidden">⨯</h2>
+                    <h1 className="text-2xl mb-4 md:hidden">{partnerInfo.name}</h1>
+					<img className="rounded-md h-60 w-60 mx-auto mb-4 md:hidden" src={partnerInfo.profilePic ? `/images/${partnerInfo.profilePic}.jpg` : "/images/default-user.svg"} alt={partnerInfo.name} />
+                    <p className="text-lg mb-4 md:hidden">{partnerInfo.about}</p>
+                    <a href={`mailto:${partnerInfo.email}`} className="text-lg md:hidden">{partnerInfo.email}</a>
+
+                    <div className="flex flex-col flex-2 p-4 md:pt-0 md:overflow-y-auto">
+                        <h2 data-id="close" className="self-end text-xl cursor-pointer p-4 hidden md:block">⨯</h2>
+                        <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center px-8 pb-4">
+                            {
+                                partnerInfo.Projects ? (
+                                    partnerInfo.Projects.map((project, i) => {
+                                        return (
+                                            <ProjectCard project={project} key={i} />
+                                        )
+                                    })
+                                ) : (
+                                    null
+                                )
+                            }
                         </div>
                     </div>
-                </section>
-            );
-        } else {
-            return (
-                null
-            );
-        }
-    };
-}
+                </div>
+            </section>
+        );
+    } else {
+        return (
+            null
+        );
+    }
+};
 
 export default PartnerOverlay;

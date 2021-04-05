@@ -20,7 +20,7 @@ function Partners({ menuStatus, menuToggle }) {
         $(window).on('scroll', handleScroll);
 
         return () => {
-            $(window).off();
+            $(window).off('scroll', handleScroll);
         };
     }, []);
     

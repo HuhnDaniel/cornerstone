@@ -31,8 +31,8 @@ function Project({ menuStatus, menuToggle }) {
     const [overlayVisibility, setOverlayVisibility] = useState(false);
 	const [overlayPositioning, setOverlayPositioning] = useState('absolute');  
     const [currentPartner, setCurrentPartner] = useState('');
-	
-	let prevTopDistance = 0;
+
+    let prevTopDistance = 0;
 
     useEffect(() => {
         setProject(emptyProject);
@@ -42,7 +42,7 @@ function Project({ menuStatus, menuToggle }) {
     }, [projId]);
     useEffect(() => {
         return () => {
-            $(window).off();
+            $(window).off('scroll', handleScroll);
         };
     }, []);
 
