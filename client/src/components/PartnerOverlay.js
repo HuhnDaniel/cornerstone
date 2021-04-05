@@ -7,15 +7,10 @@ import API from '../utils/API';
 
 const initialInfo = {};
 
-function PartnerOverlay({ overlayVisibility, currentPartner, closeOverlay }) {
+function PartnerOverlay({ overlayVisibility, overlayPositioning, currentPartner }) {
     const [partnerInfo, setPartnerInfo] = useState(initialInfo);
-	const [overlayPositioning, setOverlayPositioning] = useState('absolute');
-    const [prevTopDistance, setPrevTopDistance] = useState(0);
-    
-    // let prevTopDistance = 0;
 
     useEffect(async () => {
-        console.log("aaaah");
         if (partnerInfo.id != currentPartner) {
             const partner = await getPartner(currentPartner);
             
@@ -25,13 +20,9 @@ function PartnerOverlay({ overlayVisibility, currentPartner, closeOverlay }) {
                 setPartnerInfo(initialInfo);
             }
         }
-
-        $(window).on('scroll', handleScroll);
     }, [currentPartner]);
     useEffect(() => {
-        return () => {
-            $(window).off('scroll', handleScroll);
-        };
+        return () => {};
     }, []);
 
     async function getPartner(currentPartner) {
@@ -39,24 +30,10 @@ function PartnerOverlay({ overlayVisibility, currentPartner, closeOverlay }) {
         return data[0];
     }
 
-    function handleScroll() {
-        // let prevTopDistance = 0;
-		const topDistance = $('[data-id="overlayBlock"]').offset().top - $(window).scrollTop();
-        
-		if (prevTopDistance >= 0 && topDistance < 0) {
-            setOverlayPositioning('fixed top-0');
-		} else if (prevTopDistance < 0 && topDistance >= 0) {
-            setOverlayPositioning('absolute');
-		}
-        
-		setPrevTopDistance(topDistance);    
-        console.log(prevTopDistance, topDistance);
-    }
-
     if (overlayVisibility) {
         return (
-            <section data-id="margin" className={`absolute flex items-center justify-center top-0 left-0 pb-24 h-full w-full`} onClick={closeOverlay}>
-                <div data-id="overlayBlock" className={`${overlayPositioning} flex flex-col md:flex-row p-4 h-3/4 w-full sm:rounded sm:w-11/12 bg-gray-400 opacity-100 overflow-y-auto md:overflow-y-hidden`}>
+            <section data-id="margin" className={`absolute flex items-center justify-center top-0 left-0 pb-24 h-full w-full`}>
+                <div className={`${overlayPositioning} flex flex-col md:flex-row p-4 w-full sm:rounded sm:w-11/12 bg-gray-400 opacity-100 overflow-y-auto md:overflow-y-hidden`}>
                     <div className="hidden md:flex flex-col flex-initial md:flex-1 p-4 overflow-y-auto">
                         <h1 className="text-2xl mb-4">{partnerInfo.name}</h1>
 						<img className="rounded-md h-60 w-60 mx-auto mb-4" src={partnerInfo.profilePic ? `/images/${partnerInfo.profilePic}.jpg` : "/images/default-user.svg"} alt={partnerInfo.name} />
@@ -64,11 +41,13 @@ function PartnerOverlay({ overlayVisibility, currentPartner, closeOverlay }) {
                         <a href={`mailto:${partnerInfo.email}`} className="text-lg">{partnerInfo.email}</a>
                     </div>
 
-                    <h2 data-id="close" className="absolute self-end text-xl cursor-pointer px-4 md:hidden">⨯</h2>
+                    <h2 data-id="close" className="absolute self-end text-xl cursor-pointer px-2 md:hidden">⨯</h2>
                     <h1 className="text-2xl mb-4 md:hidden">{partnerInfo.name}</h1>
 					<img className="rounded-md h-60 w-60 mx-auto mb-4 md:hidden" src={partnerInfo.profilePic ? `/images/${partnerInfo.profilePic}.jpg` : "/images/default-user.svg"} alt={partnerInfo.name} />
                     <p className="text-lg mb-4 md:hidden">{partnerInfo.about}</p>
                     <a href={`mailto:${partnerInfo.email}`} className="text-lg md:hidden">{partnerInfo.email}</a>
+
+                    <hr className="border-black mt-6 md:hidden" />
 
                     <div className="flex flex-col flex-2 p-4 md:pt-0 md:overflow-y-auto">
                         <h2 data-id="close" className="self-end text-xl cursor-pointer p-4 hidden md:block">⨯</h2>
