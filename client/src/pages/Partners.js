@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import $ from 'jquery';
 
 import Header from '../components/Header';
@@ -11,19 +11,16 @@ function Partners({ menuStatus, menuToggle }) {
 	const [partnerList, setPartnerList] = useState([]);
 	const [overlayVisibility, setOverlayVisibility] = useState(false);
 	const [overlayPositioning, setOverlayPositioning] = useState('absolute');
-    const [bottomSpace, setBottomSpace] = useState(0);
-    const [topMargin, setTopMargin] = useState(0);
 	const [currentPartner, setCurrentPartner] = useState('');
 	
 	let prevTopDistance = 0;
-	let prevBottomDistance = 0;
 
     useEffect(() => {
         getPartners();
         $(window).on('scroll', handleScroll);
 
         return () => {
-            $(window).off('scroll', handleScroll);
+            $(window).off();
         };
     }, []);
     
@@ -34,7 +31,7 @@ function Partners({ menuStatus, menuToggle }) {
     }
 
     function handleScroll() {
-		const topDistance = $('[data-id="partnerBlock"]').offset().top - $(window).scrollTop();
+		const topDistance = $('[data-id="block"]').offset().top - $(window).scrollTop();
 
 		if (prevTopDistance >= -44 && topDistance < -44) {
             setOverlayPositioning('fixed top-0');
@@ -71,7 +68,7 @@ function Partners({ menuStatus, menuToggle }) {
         <main className="absolute min-h-full min-w-full" onClick={closeOverlay}>
             <Header menuStatus={menuStatus} />
                 
-            <section data-id="partnerBlock" className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 pb-24">
+            <section data-id="block" className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 pb-24">
                 {
                     partnerList.map((partner, i) => {
                         return (
@@ -85,7 +82,7 @@ function Partners({ menuStatus, menuToggle }) {
                     })
                 }
 
-                <PartnerOverlay overlayVisibility={overlayVisibility} overlayPositioning={overlayPositioning} bottomSpace={bottomSpace} topMargin={topMargin} currentPartner={currentPartner} />
+                <PartnerOverlay overlayVisibility={overlayVisibility} overlayPositioning={overlayPositioning} currentPartner={currentPartner} />
             </section>
                 
             <Footer />
