@@ -14,7 +14,6 @@ function Disciplines({ menuStatus, menuToggle }) {
 	const [currentDiscipline, setCurrentDiscipline] = useState('');
 
 	let prevTopDistance = 0;
-	let prevBottomDistance = 0;
 
     useEffect(() => {
         getDisciplines();
@@ -22,7 +21,6 @@ function Disciplines({ menuStatus, menuToggle }) {
 
         return () => {
             $(window).off('scroll', handleScroll);
-            console.log('Unloaded');
         };
     }, []);
     
@@ -33,17 +31,15 @@ function Disciplines({ menuStatus, menuToggle }) {
     }
 
     function handleScroll(e) {
-		const topDistance = $('[data-id="disciplineBlock"]').offset().top - $(window).scrollTop();
-		const bottomDistance = $('[data-id="footer"]').offset().top - ($(window).scrollTop() + $(window).height());
+		const topDistance = $('[data-id="block"]').offset().top - $(window).scrollTop();
 
-		if (prevTopDistance >= 0 && topDistance < 0) {
-			setOverlayPositioning('fixed');
-		} else if (prevTopDistance < 0 && topDistance >=0) {
+		if (prevTopDistance >= -44 && topDistance < -44) {
+			setOverlayPositioning('fixed top-0');
+		} else if (prevTopDistance < -44 && topDistance >=-44) {
 			setOverlayPositioning('absolute');
 		}
 
 		prevTopDistance = topDistance;
-		prevBottomDistance = bottomDistance;
     }
 
     function openOverlay(e) {
@@ -71,7 +67,7 @@ function Disciplines({ menuStatus, menuToggle }) {
             <div onClick={closeOverlay}>
                 <Header menuStatus={menuStatus} />
 
-                <section data-id="disciplineBlock" className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 pb-24">
+                <section data-id="block" className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 pb-24">
                     {
                         disciplineList.map((discipline, i) => {
                             return (

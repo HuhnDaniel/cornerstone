@@ -41,7 +41,7 @@ class PartnerOverlay extends Component {
                             <a href={`mailto:${this.state.email}`} className="text-lg">{this.state.email}</a>
                         </div>
 
-                        <h2 data-id="close" className="absolute self-end text-xl cursor-pointer px-4 md:hidden">⨯</h2>
+                        <h2 data-id="close" className="absolute self-end z-50 text-xl cursor-pointer px-4 md:hidden">⨯</h2>
                         <h1 className="text-2xl mb-4 md:hidden">{this.state.name}</h1>
 						<img className="rounded-md h-60 w-60 mx-auto mb-4 md:hidden" src={this.state.profilePic ? `/images/${this.state.profilePic}.jpg` : "/images/default-user.svg"} alt={this.state.name} />
                         <p className="text-lg mb-4 md:hidden">{this.state.about}</p>
