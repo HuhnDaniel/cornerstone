@@ -10,7 +10,7 @@ import API from '../utils/API';
 function Partners({ menuStatus, menuToggle }) {
 	const [partnerList, setPartnerList] = useState([]);
 	const [overlayVisibility, setOverlayVisibility] = useState(false);
-	const [overlayPositioning, setOverlayPositioning] = useState('absolute');
+	const [overlayPositioning, setOverlayPositioning] = useState('absolute h-11/12');
 	const [currentPartner, setCurrentPartner] = useState('');
 	
 	let prevTopDistance = 0;
@@ -33,10 +33,10 @@ function Partners({ menuStatus, menuToggle }) {
     function handleScroll() {
 		const topDistance = $('[data-id="block"]').offset().top - $(window).scrollTop();
 
-		if (prevTopDistance >= -44 && topDistance < -44) {
-            setOverlayPositioning('fixed top-0');
-		} else if (prevTopDistance < -44 && topDistance >= -44) {
-			setOverlayPositioning('absolute');
+		if (prevTopDistance >= -16 && topDistance < -16) {
+            setOverlayPositioning('fixed top-0 h-4/5');
+		} else if (prevTopDistance < -16 && topDistance >= -16) {
+			setOverlayPositioning('absolute h-11/12');
 		}
 
 		prevTopDistance = topDistance;     
