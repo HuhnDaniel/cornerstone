@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import $ from 'jquery';
 
 import Header from '../components/Header';
 import DisciplineOverlay from '../components/DisciplineOverlay';
@@ -9,16 +10,36 @@ import API from '../utils/API';
 function Disciplines({ menuStatus, menuToggle }) {
     const [disciplineList, setDisciplineList] = useState([]);
     const [overlayVisibility, setOverlayVisibility] = useState(false);
-    const [currentDiscipline, setCurrentDiscipline] = useState('');
+	const [overlayPositioning, setOverlayPositioning] = useState('absolute h-11/12');
+	const [currentDiscipline, setCurrentDiscipline] = useState('');
+
+	let prevTopDistance = 0;
 
     useEffect(() => {
         getDisciplines();
+        $(window).on('scroll', handleScroll);
+
+        return () => {
+            $(window).off('scroll', handleScroll);
+        };
     }, []);
     
     async function getDisciplines() {
         const { data } = await API.getDisciplines();
 
         setDisciplineList(data)
+    }
+
+    function handleScroll(e) {
+		const topDistance = $('[data-id="block"]').offset().top - $(window).scrollTop();
+
+		if (prevTopDistance >= -16 && topDistance < -16) {
+			setOverlayPositioning('fixed top-0 h-4/5');
+		} else if (prevTopDistance < -16 && topDistance >=-16) {
+			setOverlayPositioning('absolute h-11/12');
+		}
+
+		prevTopDistance = topDistance;
     }
 
     function openOverlay(e) {
@@ -46,12 +67,13 @@ function Disciplines({ menuStatus, menuToggle }) {
             <div onClick={closeOverlay}>
                 <Header menuStatus={menuStatus} />
 
-                <section className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 pb-24">
+                <section data-id="block" className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 pb-24">
                     {
                         disciplineList.map((discipline, i) => {
                             return (
-                                <article data-id={discipline.id} className={`bg-${discipline.image} bg-cover rounded-md text-white cursor-pointer mx-auto my-4 h-72 w-72 hover:shadow-md transition transition-transform duration-200 transform hover:scale-105`} onClick={openOverlay.bind(this)} key={i}>
-                                    <div data-id={discipline.id} className="bg-black p-4 rounded-t-md bg-opacity-30">
+                                <article className="rounded-md text-white cursor-pointer mx-auto my-4 h-72 w-72 hover:shadow-md transition transition-transform duration-200 transform hover:scale-105" onClick={openOverlay.bind(this)} key={i}>
+									<img data-id={discipline.id} className="rounded-md h-72 w-72" src={`/images/${discipline.image}.jpg`} alt={discipline.field} />
+                                    <div data-id={discipline.id} className="absolute top-0 bg-black p-4 rounded-t-md bg-opacity-30 w-72">
                                         <h3 data-id={discipline.id} className="text-2xl">{discipline.field}</h3>
                                     </div>
                                     {
@@ -66,7 +88,7 @@ function Disciplines({ menuStatus, menuToggle }) {
                         })
                     }
 
-                    <DisciplineOverlay overlayVisibility={overlayVisibility} currentDiscipline={currentDiscipline} />
+                    <DisciplineOverlay overlayVisibility={overlayVisibility} overlayPositioning={overlayPositioning} currentDiscipline={currentDiscipline} />
                 </section>
 
 

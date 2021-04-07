@@ -15,7 +15,10 @@ const initialState = {
 }
 
 class DisciplineOverlay extends Component {
-    state = initialState;
+    constructor(props) {
+        super(props);
+        this.state = initialState;
+    }
 
     async componentDidUpdate(prevProps) {
         async function getDiscipline(currentDiscipline) {
@@ -38,22 +41,29 @@ class DisciplineOverlay extends Component {
     render() {
         if (this.props.overlayVisibility) {
             return (
-                <section data-id="margin" className="absolute flex items-center justify-center top-0 left-0 h-full w-full pb-24">
-                    <div className="flex flex-col md:flex-row h-11/12 w-full sm:rounded sm:w-11/12 bg-gray-400 opacity-100">
-                        <div className="flex flex-col flex-1 px-4 pb-4 md:pt-4 overflow-y-auto">
-                            <h2 data-id="close" className="self-end text-xl cursor-pointer p-4 md:hidden">⨯</h2>
+                <section data-id="margin" className={`absolute flex items-center justify-center top-0 left-0 pb-24 h-full w-full`}>
+                    <div className={`${this.props.overlayPositioning} flex flex-col md:flex-row p-4 w-full sm:rounded sm:w-11/12 bg-gray-400 opacity-100 overflow-y-auto md:overflow-y-hidden`}>
+                        <div className="hidden md:flex flex-col flex-initial md:flex-1 p-4 overflow-y-auto">
                             <h1 className="text-2xl mb-4">{this.state.field}</h1>
-                            <figure className={`bg-${this.state.image} bg-cover rounded-md h-72 w-72 mx-auto mb-4`}></figure>
+							<img className="rounded-md h-60 w-60 mx-auto mb-4" src={this.state.image ? `/images/${this.state.image}.jpg` : null} alt={this.state.field} />
                             <p>{this.state.description}</p>
                         </div>
-                        <div className="flex flex-col flex-2 p-4 md:pt-0 overflow-y-auto overflow-x-hidden">
+
+                        <h2 data-id="close" className="absolute self-end text-xl cursor-pointer px-2 md:hidden">⨯</h2>
+                        <h1 className="text-2xl mb-4 md:hidden">{this.state.field}</h1>
+						<img className="rounded-md h-60 w-60 mx-auto mb-4 md:hidden" src={this.state.image ? `/images/${this.state.image}.jpg` : null} alt={this.state.field} />
+                        <p className="text-lg md:hidden">{this.state.description}</p>
+
+                        <hr className="border-black mt-6 md:hidden" />
+
+                        <div className="flex flex-col flex-2 p-4 md:pt-0 md:overflow-y-auto">
                             <h2 data-id="close" className="self-end text-xl cursor-pointer p-4 hidden md:block">⨯</h2>
                             {
                                 this.state.SubDisciplines[0] ? (
                                     null
                                 ) : (
-                                        <div className="text-center text-3xl m-8">Under Development</div>
-                                    )
+                                    <div className="text-center text-3xl m-8">Under Development</div>
+                                )
                             }
                             {
                                 this.state.SubDisciplines.map((subDiscipline, i) => {
