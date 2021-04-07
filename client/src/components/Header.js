@@ -5,8 +5,8 @@ function Header({ menuStatus, aboutUsToggle, isHome }) {
     return (
         <header className={"flex flex-col md:flex-row my-4 md:mx-8 text-2.5xl md:text-2xl lg:text-2.5xl items-center"}>
 			<Link to={"/"} className="flex-1">
-            	<h1 className="text-5xl">CORNERSTONE</h1>
-            	<h2 className="text-2xl -mt-4">ART &amp; CRAFT COLLABORATIVE</h2>
+                <img className="hidden sm:block pt-2 h-24" src={ isHome ? "/images/cornerstone-white.svg" : "/images/cornerstone-fullColor.svg" } />
+                <img className="sm:hidden py-2 h-24" src={ isHome ? "/images/cornerstone-white-icon.svg" : "/images/cornerstone-fullColor-icon.svg" } />
 			</Link>
             {
                 menuStatus ? (
