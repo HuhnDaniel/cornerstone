@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
-let sslRedirect = require('heroku-ssl-redirect');
+import sslRedirect from 'heroku-ssl-redirect';
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
