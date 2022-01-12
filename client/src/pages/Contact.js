@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 function Contact({ menuStatus, menuToggle }) {
 	return (
 		<main onClick={menuToggle} className="absolute top-0 left-0 bg-contact bg-fixed min-h-full min-w-full bg-cover text-white text-2xl">
-            <Header menuStatus={menuStatus} />
+            <Header menuStatus={menuStatus} isHomeOrContact={true} />
 
 			<section data-id="block" className="flex flex-col space-y-4 text-lg m-8 md:m-16 items-start justify-items-center bg-black p-4 rounded-lg bg-opacity-30 mb-24">
 				<article>
