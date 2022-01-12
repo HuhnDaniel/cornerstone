@@ -24,6 +24,7 @@
     "homepage": "https://cornerstoneac.herokuapp.com/",
     "devDependencies": {
         "concurrently": "^6.5.1",
+        "jest": "^27.4.6",
         "nodemon": "^2.0.15",
         "sequelize-cli": "^6.3.0"
     },
