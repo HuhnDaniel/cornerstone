@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Homepage from './pages/Homepage';
 import Partners from './pages/Partners';
@@ -20,13 +20,13 @@ function App() {
 
 	return (
 		<Router>
-			<Switch>
-				<Route exact path="/partners/" children={ <Partners menuStatus={menuStatus} menuToggle={menuToggle} /> } />
-				<Route exact path="/disciplines/" children={ <Disciplines menuStatus={menuStatus} menuToggle={menuToggle} /> } />
-				<Route exact path="/contact/" children={ <Contact menuStatus={menuStatus} menuToggle={menuToggle} /> } />
-                <Route exact path="/project/:projId" children={ <Project menuStatus={menuStatus} menuToggle={menuToggle} />} />
-				<Route path="/" children={ <Homepage menuStatus={menuStatus} menuToggle={menuToggle} /> } />
-			</Switch>
+			<Routes>
+				<Route exact path="/partners/" element={ <Partners menuStatus={menuStatus} menuToggle={menuToggle} /> } />
+				<Route exact path="/disciplines/" element={ <Disciplines menuStatus={menuStatus} menuToggle={menuToggle} /> } />
+				<Route exact path="/contact/" element={ <Contact menuStatus={menuStatus} menuToggle={menuToggle} /> } />
+                <Route exact path="/project/:projId" element={ <Project menuStatus={menuStatus} menuToggle={menuToggle} />} />
+				<Route path="/" element={ <Homepage menuStatus={menuStatus} menuToggle={menuToggle} /> } />
+			</Routes>
 		</Router>
 	);
 }

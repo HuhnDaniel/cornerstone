@@ -15,8 +15,8 @@ function Homepage({ menuStatus, menuToggle }) {
     };
 
 	return (
-        <main onClick={menuToggle} className="absolute top-0 left-0 bg-homepage bg-fixed min-h-full min-w-full bg-cover text-white">
-            <Header menuStatus={menuStatus} aboutUsToggle={aboutUsToggle} isHome={true} />
+        <main onClick={menuToggle} className="absolute top-0 left-0 bg-homepage bg-fixed min-h-full text-white min-w-full bg-cover">
+            <Header menuStatus={menuStatus} aboutUsToggle={aboutUsToggle} isHomeOrContact={true} />
             
             {
                 aboutUsStatus ? (
