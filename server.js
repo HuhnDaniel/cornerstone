@@ -15,7 +15,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(routes);
-console.log(process.env.NODE_ENV, "-blah-");
 if (process.env.NODE_ENV === 'production') {
     app.use('/', express.static(path.join(__dirname, '/client/build')));
     app.get("/favicon.ico", (req, res) => {
