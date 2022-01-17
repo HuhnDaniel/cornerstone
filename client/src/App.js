@@ -25,7 +25,7 @@ function App() {
     // }
 
     console.log(window.location.host.split('.')[0]);
-    if (window.location.host.split('.')[0] === 'www' || window.location.host === 'localhost:3000') {
+    if (window.location.host.split('.')[0] === 'www' || window.location.host.split('.')[1] === 'herokuapp' || window.location.host === 'localhost:3000') {
         console.log('stuff');
         return (
             <Router>
@@ -35,7 +35,7 @@ function App() {
                     <Route exact path="/contact/" element={ <Contact menuStatus={menuStatus} menuToggle={menuToggle} /> } />
                     <Route exact path="/project/:projId" element={ <Project menuStatus={menuStatus} menuToggle={menuToggle} />} />
                     {
-                        window.location.host === 'localhost:3000' ? (<Route exact path="/admin" element={ <AdminHome /> } />) : null
+                        window.location.host.split('.')[1] === 'herokuapp' || window.location.host === 'localhost:3000' ? (<Route exact path="/admin" element={ <AdminHome /> } />) : null
                     }
                     <Route path="/" element={ <Homepage menuStatus={menuStatus} menuToggle={menuToggle} /> } />
                 </Routes>
