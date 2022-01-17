@@ -20,9 +20,9 @@ function App() {
         }
     };
 
-    if (window.location.host != 'localhost:3000' && window.location.host.split.length === 2) {
-        window.location.replace('www.' + window.location.host);
-    }
+    // if (window.location.host != 'localhost:3000' && window.location.host.split.length === 2) {
+    //     window.location.replace('www.' + window.location.host);
+    // }
 
     console.log(window.location.host.split('.')[0]);
     if (window.location.host.split('.')[0] === 'www' || window.location.host === 'localhost:3000') {
