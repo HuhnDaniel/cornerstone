@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Homepage from '../pages/Homepage';
-import Partners from '../pages/Partners';
-import Disciplines from '../pages/Disciplines';
-import Contact from '../pages/Contact';
-import Project from '../pages/Project';
+import Homepage from '../pages/main_pages/Homepage';
+import Partners from '../pages/main_pages/Partners';
+import Disciplines from '../pages/main_pages/Disciplines';
+import Contact from '../pages/main_pages/Contact';
+import Project from '../pages/main_pages/Project';
 
-import AdminHome from '../pages/AdminHome';
+import AdminHome from '../pages/admin_pages/AdminHome';
 
 function Www() {
     const [menuStatus, setMenuStatus] = useState(false)

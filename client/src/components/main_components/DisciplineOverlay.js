@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import SubDiscipline from './SubDiscipline';
 
-import API from '../utils/API';
+import API from '../../utils/API';
 
 const initialState = {
     SubDisciplines: [],

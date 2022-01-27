@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import $ from 'jquery';
 
-import Header from '../components/Header';
-import DisciplineOverlay from '../components/DisciplineOverlay';
-import Footer from '../components/Footer';
+import Header from '../../components/main_components/Header';
+import DisciplineOverlay from '../../components/main_components/DisciplineOverlay';
+import Footer from '../../components/main_components/Footer';
 
-import API from '../utils/API';
+import API from '../../utils/API';
 
 function Disciplines({ menuStatus, menuToggle }) {
     const [disciplineList, setDisciplineList] = useState([]);

@@ -3,7 +3,7 @@ import $ from 'jquery';
 
 import ProjectCard from './ProjectCard';
 
-import API from '../utils/API';
+import API from '../../utils/API';
 
 const initialInfo = {};
 
