@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Homepage from '../pages/main_pages/Homepage';
-import Partners from '../pages/main_pages/Partners';
-import Disciplines from '../pages/main_pages/Disciplines';
-import Contact from '../pages/main_pages/Contact';
-import Project from '../pages/main_pages/Project';
+import Homepage from '../pages/public_pages/Homepage';
+import Partners from '../pages/public_pages/Partners';
+import Disciplines from '../pages/public_pages/Disciplines';
+import Contact from '../pages/public_pages/Contact';
+import Project from '../pages/public_pages/Project';
 
 import AdminHome from '../pages/admin_pages/AdminHome';
 
-function Www() {
+function Public() {
     const [menuStatus, setMenuStatus] = useState(false)
 
     function menuToggle(e) {
@@ -36,4 +36,4 @@ function Www() {
     );
 }
 
-export default Www;
+export default Public;

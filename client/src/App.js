@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Www from './subdomains/Www';
+import Public from './subdomains/Public';
 import Admin from './subdomains/Admin';
 
 function App() {
     if (window.location.host.split('.')[0] === 'www' || window.location.host.split('.')[1] === 'herokuapp' || window.location.host === 'localhost:3000') {
         return (
-            <Www />
+            <Public />
         );
     } else if (window.location.host.split('.')[0] === 'admin') {
         console.log('hi');

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import AdminHeader from '../../components/admin_components/AdminHeader';
 
 function AdminHome() {
     return (
         <main>
-            <h1 className="text-center m-8 text-3xl text-red-600">Admin Page In Development</h1>
+            <AdminHeader />
         </main>
     );
 }
