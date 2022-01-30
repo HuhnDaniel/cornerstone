@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../../components/main_components/Header';
+import Footer from '../../components/main_components/Footer';
 
 function Homepage({ menuStatus, menuToggle }) {
     const [aboutUsStatus, setAboutUsStatus] = useState(false);
@@ -16,7 +16,7 @@ function Homepage({ menuStatus, menuToggle }) {
 
 	return (
         <main onClick={menuToggle} className="absolute top-0 left-0 bg-homepage bg-fixed min-h-full text-white min-w-full bg-cover">
-            <Header menuStatus={menuStatus} aboutUsToggle={aboutUsToggle} isHomeOrContact={true} />
+            <Header menuStatus={menuStatus} aboutUsToggle={aboutUsToggle} isHome={true} />
             
             {
                 aboutUsStatus ? (
