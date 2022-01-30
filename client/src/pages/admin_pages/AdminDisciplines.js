@@ -1,20 +1,20 @@
-import React from 'react';
+import React from "react";
+import AdminHeader from "../../components/admin_components/AdminHeader";
 
-import AdminHeader from '../../components/admin_components/AdminHeader';
-import OptionsNav from '../../components/admin_components/OptionsNav';
+import OptionsNav from "../../components/admin_components/OptionsNav";
 
-function AdminHome() {
+function AdminDisciplines() {
     return (
         <div>
             <AdminHeader />
             <div className="flex flex-col md:flex-row">
                 <OptionsNav />
                 <main className="flex-1 m-8 text-2xl">
-                    Content
+                    Disciplines
                 </main>
             </div>
         </div>
     );
 }
 
-export default AdminHome;
+export default AdminDisciplines;
