@@ -1,12 +1,9 @@
 import React from 'react';
-import AdminHeader from '../../components/admin_components/AdminHeader';
-import OptionsNav from '../../components/admin_components/OptionsNav';
 
 function AdminHome() {
     return (
-        <main>
-            <AdminHeader />
-            <OptionsNav />
+        <main className="flex-1 m-8 text-2xl">
+            Content
         </main>
     );
 }
