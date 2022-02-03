@@ -1,6 +1,10 @@
 import axios from "axios";
 
 export default {
+    getDisciplineNames: async function () {
+        return await axios.get('/api/getDisciplineNames');
+    },
+
     getDisciplines: async function () {
         return await axios.get('/api/getAllDisciplines');
     },

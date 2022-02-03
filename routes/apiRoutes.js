@@ -2,6 +2,16 @@ const Router = require('express').Router;
 const db = require('../models');
 const apiRoutes = Router();
 
+apiRoutes.get('/getDisciplineNames', async (req,res) => {
+    const disciplineList = await db.Discipline.findAll({
+        attributes: [
+            'field'
+        ]
+    });
+
+    res.json(disciplineList);
+})
+
 apiRoutes.get('/getAllDisciplines', async (req, res) => {
     const disciplineList = await db.Discipline.findAll({});
 

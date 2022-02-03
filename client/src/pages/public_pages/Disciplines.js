@@ -27,7 +27,7 @@ function Disciplines({ menuStatus, menuToggle }) {
     async function getDisciplines() {
         const { data } = await API.getDisciplines();
 
-        setDisciplineList(data)
+        setDisciplineList(data);
     }
 
     function handleScroll(e) {
