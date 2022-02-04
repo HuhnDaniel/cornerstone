@@ -17,6 +17,10 @@ export default {
         return await axios.get('/api/getSubDisciplineNames');
     },
 
+    getPartnerNames: async function () {
+        return await axios.get('/api/getPartnerNames');
+    },
+
     getPartners: async function () {
         return await axios.get('/api/getAllPartners');
     },

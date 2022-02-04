@@ -18,6 +18,7 @@ function AdminSubDisciplines() {
 
         setSubDisciplineNames(data);
     }
+    
     return (
         <div>
             <AdminHeader />

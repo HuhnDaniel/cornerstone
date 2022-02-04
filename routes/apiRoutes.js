@@ -62,6 +62,16 @@ apiRoutes.get('/getSubDisciplineNames', async (req, res) => {
     res.json(subDisciplineList);
 });
 
+apiRoutes.get('/getPartnerNames', async (req, res) => {
+    const partnerList = await db.Partner.findAll({
+        attributes: [
+            'name'
+        ]
+    });
+
+    res.json(partnerList);
+});
+
 apiRoutes.get('/getAllPartners', async (req, res) => {
     const partnerList = await db.Partner.findAll({});
 
