@@ -107,6 +107,16 @@ apiRoutes.post('/addPartner', async (req, res) => {
     res.json(dbPartner);
 });
 
+apiRoutes.get('/getProjectNames', async (req, res) => {
+    const projectList = await db.Project.findAll({
+        attributes: [
+            'name'
+        ]
+    });
+
+    res.json(projectList);
+});
+
 apiRoutes.get('/getProjectById/:projId', async (req, res) => {
     const project = await db.Project.findAll({
         where: {

@@ -29,6 +29,10 @@ export default {
         return await axios.get(`/api/getPartnerById/${partnerId}`);
     },
 
+    getProjectNames: async function () {
+        return await axios.get('/api/getProjectNames');
+    },
+
     getProjectById: async function (projId) {
         return await axios.get(`/api/getProjectById/${projId}`);
     }
