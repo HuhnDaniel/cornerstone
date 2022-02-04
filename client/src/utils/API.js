@@ -13,6 +13,10 @@ export default {
         return await axios.get(`/api/getDisciplineById/${disciplineId}`);
     },
 
+    getSubDisciplineNames: async function () {
+        return await axios.get('/api/getSubDisciplineNames');
+    },
+
     getPartners: async function () {
         return await axios.get('/api/getAllPartners');
     },
