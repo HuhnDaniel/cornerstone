@@ -15,8 +15,8 @@ function Header({ menuStatus, aboutUsToggle, isHome, isContact }) {
                         {
                             isHome ? ( <button onClick={aboutUsToggle} className="focus:outline-none">About Us</button> ) : ( <Link to={"/"}>Home</Link> )
                         }
-                        <Link to={"/partners/"} data-id="partners">Partners</Link>
-                        <Link to={"/disciplines/"} data-id="disciplines">Disciplines</Link>
+                        <Link to={"/partners"} data-id="partners">Partners</Link>
+                        <Link to={"/disciplines"} data-id="disciplines">Disciplines</Link>
                     </nav>
                 ) : (
                     <button className="md:hidden">☰</button>
@@ -26,8 +26,8 @@ function Header({ menuStatus, aboutUsToggle, isHome, isContact }) {
                 {
                     isHome ? ( <button onClick={aboutUsToggle} className="focus:outline-none">About Us</button> ) : ( <Link to={"/"}>Home</Link> )
                 }
-                <Link to={"/partners/"} data-id="partners">Partners</Link>
-                <Link to={"/disciplines/"} data-id="disciplines">Disciplines</Link>
+                <Link to={"/partners"} data-id="partners">Partners</Link>
+                <Link to={"/disciplines"} data-id="disciplines">Disciplines</Link>
             </nav>
         </header>
     );

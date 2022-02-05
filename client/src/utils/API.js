@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default {
-    getDisciplineNames: async function () {
-        return await axios.get('/api/getDisciplineNames');
+    getTopicNames: async function (topic) {
+        return await axios.get(`/api/get${topic}Names`);
     },
 
     getDisciplines: async function () {
@@ -13,24 +13,12 @@ export default {
         return await axios.get(`/api/getDisciplineById/${disciplineId}`);
     },
 
-    getSubDisciplineNames: async function () {
-        return await axios.get('/api/getSubDisciplineNames');
-    },
-
-    getPartnerNames: async function () {
-        return await axios.get('/api/getPartnerNames');
-    },
-
     getPartners: async function () {
         return await axios.get('/api/getAllPartners');
     },
 
     getPartnerById: async function (partnerId) {
         return await axios.get(`/api/getPartnerById/${partnerId}`);
-    },
-
-    getProjectNames: async function () {
-        return await axios.get('/api/getProjectNames');
     },
 
     getProjectById: async function (projId) {
