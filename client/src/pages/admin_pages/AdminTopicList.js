@@ -29,7 +29,11 @@ function AdminTopicList() {
             <div className="flex flex-col md:flex-row">
                 <OptionsNav />
                 <main className="flex-1 m-8 text-2xl">
-                    { topic }
+                    {
+                        topicNames.map((topic, i) => (
+                            <div key={ i }>{ topic.name }</div>
+                        ))
+                    }
                 </main>
             </div>
         </div>

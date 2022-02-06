@@ -2,7 +2,7 @@
 
 module.exports = function (sequelize, DataTypes) {
     const Discipline = sequelize.define('Discipline', {
-        field: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false
         },
