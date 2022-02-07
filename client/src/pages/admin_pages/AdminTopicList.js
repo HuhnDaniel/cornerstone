@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import AdminHeader from "../../components/admin_components/AdminHeader";
-import OptionsNav from "../../components/admin_components/OptionsNav";
+import AdminHeader from '../../components/admin_components/AdminHeader';
+import OptionsNav from '../../components/admin_components/OptionsNav';
 
 import API from '../../utils/API';
 
@@ -18,7 +18,7 @@ function AdminTopicList() {
     }, [topic]);
 
     async function getTopics() {
-        const { data } = await API.getTopicNames(topic.replace(/[ ]/, ''));
+        const { data } = await API.getTopicNames(topic.replace(/ /g, ''));
 
         setTopicNames(data);
     }
@@ -33,10 +33,11 @@ function AdminTopicList() {
                     <ul>
                     {
                         topicNames.map((topic, i) => {
-                            const bgGray = i % 2 == 0 ? "bg-gray-100 rounded" : "";
+                            const bgGray = i % 2 == 0 ? 'bg-gray-100 rounded' : '';
+                            let namePath = topic.name.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, '').replace(/ +(\/ )*/g, '-');
 
                             return (
-                            <Link to={ window.location.host.split(".")[0] === "admin" ? "/" : "/admin" } key={ i }>
+                            <Link to={ window.location.host.split('.')[0] === 'admin' ? '/' + location + '/' + namePath : '/admin/' + location + '/' + namePath } key={ i }>
                                 <li className={`text-xl py-1 px-4 ${bgGray} hover:bg-gray-200 hover:rounded`}>{ topic.name }</li>
                             </Link>
                             )
