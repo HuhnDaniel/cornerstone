@@ -9,6 +9,7 @@ import Project from '../pages/public_pages/Project';
 
 import AdminHome from '../pages/admin_pages/AdminHome';
 import AdminTopicList from '../pages/admin_pages/AdminTopicList';
+import AdminTopicItem from '../pages/admin_pages/AdminTopicItem';
 
 function Public() {
     const [menuStatus, setMenuStatus] = useState(false)
@@ -30,11 +31,9 @@ function Public() {
                     <Route exact path="/contact" element={ <Contact menuStatus={menuStatus} menuToggle={menuToggle} /> } />
                     <Route exact path="/project/:projId" element={ <Project menuStatus={menuStatus} menuToggle={menuToggle} />} />
 
-                    <Route exact path="/admin/disciplines" element={ <AdminTopicList /> } />
-                    <Route exact path="/admin/sub-disciplines" element={ <AdminTopicList /> } />
-                    <Route exact path="/admin/partners" element={ <AdminTopicList /> } />
-                    <Route exact path="/admin/projects" element={ <AdminTopicList /> } />
-                    <Route exact path="/admin" element={ <AdminHome /> } />
+                    <Route path="/admin/:topic" element={ <AdminTopicList /> } />
+                    <Route path="/admin/:topic/:item" element={ <AdminTopicItem /> } />
+                    <Route path="/admin" element={ <AdminHome /> } />
                         
                     <Route path="/*" element={ <Homepage menuStatus={menuStatus} menuToggle={menuToggle} /> } />
                 </Routes>
