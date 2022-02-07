@@ -10,7 +10,7 @@ function AdminHome() {
             <div className="flex flex-col md:flex-row">
                 <OptionsNav />
                 <main className="flex-1 m-8 text-2xl">
-                    Content
+                    Select a Topic
                 </main>
             </div>
         </div>
