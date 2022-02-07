@@ -8,7 +8,7 @@ function AdminHome() {
         <div>
             <AdminHeader />
             <div className="flex flex-col md:flex-row">
-                <OptionsNav />
+                <OptionsNav hidden={""} />
                 <main className="flex-1 m-8 text-2xl">
                     Select a Topic
                 </main>

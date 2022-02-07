@@ -8,7 +8,7 @@ import API from '../../utils/API';
 
 function AdminTopicList() {
     const location = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
-    let topicString = location.replace(/[^a-zA-Z0-9 ]/g, ' ').split(' ');
+    const topicString = location.replace(/[^a-zA-Z0-9 ]/g, ' ').split(' ');
     const topic = topicString.map(e => e[0].toUpperCase() + e.slice(1)).join(' ').slice(0, -1);
 
     const [topicNames, setTopicNames] = useState([]);
@@ -27,7 +27,7 @@ function AdminTopicList() {
         <div>
             <AdminHeader />
             <div className="flex flex-col md:flex-row">
-                <OptionsNav />
+                <OptionsNav hidden={"hidden md:block"} />
                 <main className="flex-1 m-8 text-2xl">
                     <h1 className="mb-4 mx-4">{ topic }</h1>
                     <ul>

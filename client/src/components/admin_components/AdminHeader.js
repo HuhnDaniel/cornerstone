@@ -9,7 +9,7 @@ function AdminHeader() {
 
     return (
         <header className="flex flex-col md:flex-row py-4 md:px-8 text-2xl md:text-xl lg:text-2.5xl items-center bg-blue-300">
-            <h1 className="flex-1">
+            <h1 className="flex-1 text-center">
                 <Link to={ window.location.host.split(".")[0] === "admin" ? "/" : "/admin" }>Cornerstone Collaborative Admin Page</Link>
             </h1>
             <nav className="flex-1 grid grid-cols-3 text-center text-xl">
