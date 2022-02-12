@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 
 import AdminHeader from '../../components/admin_components/AdminHeader';
 import OptionsNav from '../../components/admin_components/OptionsNav';
@@ -7,6 +7,8 @@ import OptionsNav from '../../components/admin_components/OptionsNav';
 import API from '../../utils/API';
 
 function AdminTopicItem() {
+    const location = useLocation();
+    console.log(location);
     const { topic, item } = useParams();
     const itemString = item.replace(/[^a-zA-Z0-9 ]/g, ' ').split(' ').map(e => e[0].toUpperCase() + e.slice(1)).join(' ');
 

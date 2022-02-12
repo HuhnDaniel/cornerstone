@@ -33,10 +33,11 @@ function AdminTopicList() {
                     {
                         topicItems.map((item, i) => {
                             const bgGray = i % 2 == 0 ? 'bg-gray-100 rounded' : '';
-                            let namePath = item.name.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, '').replace(/ +(\/ )*/g, '-');
+                            const namePath = item.name.toLowerCase().replace(/[^a-zA-Z0-9 \-]/g, '').replace(/ +(\/ )*/g, '-');
+                            const destination = window.location.host.split('.')[0] === 'admin' ? '/' + topic + '/' + namePath : '/admin/' + topic + '/' + namePath;
 
                             return (
-                            <Link to={ window.location.host.split('.')[0] === 'admin' ? '/' + topic + '/' + namePath : '/admin/' + topic + '/' + namePath } key={ i }>
+                            <Link to={ destination } state={{ fullName: item.name }} key={ i }>
                                 <li className={`text-xl py-1 px-4 ${bgGray} hover:bg-gray-200 hover:rounded`}>{ item.name }</li>
                             </Link>
                             )

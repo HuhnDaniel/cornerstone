@@ -73,7 +73,7 @@ function Partners({ menuStatus, menuToggle }) {
                     partnerList.map((partner, i) => {
                         return (
                             <article data-id={partner.id} className="rounded-md text-white cursor-pointer mx-auto my-4 h-72 w-72 hover:shadow-md transition transition-transform duration-200 transform hover:scale-105" onClick={openOverlay.bind(this)} key={i}>
-								<img data-id={partner.id} className="rounded-md h-72 w-72" src={partner.profilePic ? `/images/${partner.profilePic}.jpg` : "/images/default-user.svg"} alt={partner.name} />
+								<img data-id={partner.id} className="rounded-md h-72 w-72" src={partner.path ? `/images/${partner.path}.jpg` : "/images/default-user.svg"} alt={partner.name} />
                                 <div data-id={partner.id} className="absolute top-0 bg-black p-4 rounded-t bg-opacity-30 w-72">
                                     <h3 data-id={partner.id} className="text-2xl">{partner.name}</h3>
                                 </div>

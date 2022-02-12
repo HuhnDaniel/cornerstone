@@ -30,7 +30,7 @@ module.exports = function (sequelize, DataTypes) {
         role: {
             type: DataTypes.STRING
         },
-        image: {
+        path: {
             type: DataTypes.STRING
         }
     }, {

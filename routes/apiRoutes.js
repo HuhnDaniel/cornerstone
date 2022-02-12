@@ -34,7 +34,7 @@ apiRoutes.get('/getDisciplineById/:disciplineId', async (req, res) => {
                         model: db.Project,
                         attributes: [
                             'id',
-                            'image',
+                            'path',
                             'name'
                         ]
                     }
@@ -91,7 +91,7 @@ apiRoutes.get('/getPartnerById/:partnerId', async (req, res) => {
                 model: db.Project,
                 attributes: [
                     'id',
-                    'image',
+                    'path',
                     'name'
                 ]
             }

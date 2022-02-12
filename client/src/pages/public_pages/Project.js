@@ -15,7 +15,7 @@ const emptyProject = {
     awards: "",
     client: "",
     id: null,
-    image: "",
+    path: "",
     link: "",
     location: "",
     name: "",
@@ -99,7 +99,7 @@ function Project({ menuStatus, menuToggle }) {
                                 project.Partner ? ( <h2 className="text-xl mb-8"><span className="font-semibold">Project Partner(s): </span><span data-id={project.Partner.id} className="cursor-pointer" onClick={openOverlay.bind(this)}>{project.Partner.name}</span></h2> ) : ( null )
                             }
                             {
-                                project.image ? ( <img src={`/images/${project.image}-rect.jpg`} className="pr-8 max-h-screen" alt={`${project.name}`}/> ) : ( null )
+                                project.path ? ( <img src={`/images/${project.path}-rect.jpg`} className="pr-8 max-h-screen" alt={`${project.name}`}/> ) : ( null )
                             }
                             
                         </article>
