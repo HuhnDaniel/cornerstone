@@ -5,7 +5,8 @@ const apiRoutes = Router();
 apiRoutes.get('/getDisciplineNames', async (req,res) => {
     const disciplineList = await db.Discipline.findAll({
         attributes: [
-            'name'
+            'name',
+            'path'
         ]
     });
 
@@ -55,7 +56,8 @@ apiRoutes.post('/addDiscipline', async (req, res) => {
 apiRoutes.get('/getSubDisciplineNames', async (req, res) => {
     const subDisciplineList = await db.SubDiscipline.findAll({
         attributes: [
-            'name'
+            'name',
+            'path'
         ]
     });
 
@@ -65,7 +67,8 @@ apiRoutes.get('/getSubDisciplineNames', async (req, res) => {
 apiRoutes.get('/getPartnerNames', async (req, res) => {
     const partnerList = await db.Partner.findAll({
         attributes: [
-            'name'
+            'name',
+            'path'
         ]
     });
 
@@ -110,7 +113,8 @@ apiRoutes.post('/addPartner', async (req, res) => {
 apiRoutes.get('/getProjectNames', async (req, res) => {
     const projectList = await db.Project.findAll({
         attributes: [
-            'name'
+            'name',
+            'path'
         ]
     });
 
