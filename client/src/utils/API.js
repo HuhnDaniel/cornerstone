@@ -1,8 +1,12 @@
 import axios from "axios";
 
 export default {
-    getTopicNames: async function (topic) {
-        return await axios.get(`/api/get${topic}Names`);
+    getTopicItemNames: async function (topic) {
+        return await axios.get(`/api/get${topic}ItemNames`);
+    },
+
+    getItemByPath: async function (topic, item) {
+        return await axios.get(`/api/get${topic}ByPath/${item}`);
     },
 
     getDisciplines: async function () {

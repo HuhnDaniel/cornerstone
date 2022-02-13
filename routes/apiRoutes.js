@@ -2,7 +2,7 @@ const Router = require('express').Router;
 const db = require('../models');
 const apiRoutes = Router();
 
-apiRoutes.get('/getDisciplineNames', async (req,res) => {
+apiRoutes.get('/getDisciplineItemNames', async (req,res) => {
     const disciplineList = await db.Discipline.findAll({
         attributes: [
             'name',
@@ -17,6 +17,19 @@ apiRoutes.get('/getAllDisciplines', async (req, res) => {
     const disciplineList = await db.Discipline.findAll({});
 
     res.send(disciplineList);
+});
+
+apiRoutes.get('/getDisciplineByPath/', (req, res) => {
+    res.end();
+});
+apiRoutes.get('/getDisciplineByPath/:path', async (req, res) => {
+    const discipline = await db.Discipline.findAll({
+        where: {
+            path: req.params.path
+        }
+    });
+    
+    res.json(discipline);
 });
 
 apiRoutes.get('/getDisciplineById/', (req, res) => {
@@ -53,7 +66,7 @@ apiRoutes.post('/addDiscipline', async (req, res) => {
     res.json(dbDiscipline);
 });
 
-apiRoutes.get('/getSubDisciplineNames', async (req, res) => {
+apiRoutes.get('/getSubDisciplineItemNames', async (req, res) => {
     const subDisciplineList = await db.SubDiscipline.findAll({
         attributes: [
             'name',
@@ -64,7 +77,20 @@ apiRoutes.get('/getSubDisciplineNames', async (req, res) => {
     res.json(subDisciplineList);
 });
 
-apiRoutes.get('/getPartnerNames', async (req, res) => {
+apiRoutes.get('/getSubDisciplineByPath/', (req, res) => {
+    res.end();
+});
+apiRoutes.get('/getSubDisciplineByPath/:path', async (req, res) => {
+    const subDiscipline = await db.SubDiscipline.findAll({
+        where: {
+            path: req.params.path
+        }
+    });
+    
+    res.json(subDiscipline);
+});
+
+apiRoutes.get('/getPartnerItemNames', async (req, res) => {
     const partnerList = await db.Partner.findAll({
         attributes: [
             'name',
@@ -79,6 +105,19 @@ apiRoutes.get('/getAllPartners', async (req, res) => {
     const partnerList = await db.Partner.findAll({});
 
     res.json(partnerList);
+});
+
+apiRoutes.get('/getPartnerByPath/', (req, res) => {
+    res.end();
+});
+apiRoutes.get('/getPartnerByPath/:path', async (req, res) => {
+    const partner = await db.Partner.findAll({
+        where: {
+            path: req.params.path
+        }
+    });
+    
+    res.json(partner);
 });
 
 apiRoutes.get('/getPartnerById/', (req, res) => {
@@ -110,7 +149,7 @@ apiRoutes.post('/addPartner', async (req, res) => {
     res.json(dbPartner);
 });
 
-apiRoutes.get('/getProjectNames', async (req, res) => {
+apiRoutes.get('/getProjectItemNames', async (req, res) => {
     const projectList = await db.Project.findAll({
         attributes: [
             'name',
@@ -119,6 +158,19 @@ apiRoutes.get('/getProjectNames', async (req, res) => {
     });
 
     res.json(projectList);
+});
+
+apiRoutes.get('/getProjectByPath/', (req, res) => {
+    res.end();
+});
+apiRoutes.get('/getProjectByPath/:path', async (req, res) => {
+    const project = await db.Project.findAll({
+        where: {
+            path: req.params.path
+        }
+    });
+    
+    res.json(project);
 });
 
 apiRoutes.get('/getProjectById/:projId', async (req, res) => {

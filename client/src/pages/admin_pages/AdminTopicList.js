@@ -13,11 +13,11 @@ function AdminTopicList() {
     const [topicItems, setTopicItems] = useState([]);
 
     useEffect(() => {
-        getTopics();
+        getTopicItems();
     }, [topicString]);
 
-    async function getTopics() {
-        const { data } = await API.getTopicNames(topicString.replace(/[ -]/g, '').slice(0, -1));
+    async function getTopicItems() {
+        const { data } = await API.getTopicItemNames(topicString.replace(/[ -]/g, '').slice(0, -1));
 
         setTopicItems(data);
     }
