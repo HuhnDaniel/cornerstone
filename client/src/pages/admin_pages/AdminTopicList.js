@@ -36,9 +36,9 @@ function AdminTopicList() {
                             const destination = window.location.host.split('.')[0] === 'admin' ? '/' + topic + '/' + item.path : '/admin/' + topic + '/' + item.path;
 
                             return (
-                            <Link to={ destination } key={ i }>
-                                <li className={`text-xl py-1 px-4 ${bgGray} hover:bg-gray-200 hover:rounded`}>{ item.name }</li>
-                            </Link>
+                                <Link to={ destination } key={ i }>
+                                    <li className={`text-xl py-1 px-4 ${bgGray} hover:bg-gray-200 hover:rounded`}>{ item.name }</li>
+                                </Link>
                             )
                         })
                     }

@@ -19,9 +19,7 @@ function AdminTopicItem() {
     async function getItemDetails() {
         const { data } = await API.getItemByPath(topicString, item);
         
-        for (const [key, value] of Object.entries(data[0])) {
-            console.log(key, value);
-        }
+        // console.log(Object.keys(data[0]));
         setItemDetails(data[0]);
     }
 
@@ -34,6 +32,20 @@ function AdminTopicItem() {
                     <h1 className="mb-4 mx-4">
                         { itemDetails.name ? itemDetails.name : null }
                     </h1>
+                    <section>
+                    {
+                        Object.keys(itemDetails).map((key, i) => {
+                            if (key !== "name" && key !== "path") {
+                                return (
+                                    <article key={i} className="text-xl my-2 mx-4">
+                                        <h1 className="p-1">{ key }:</h1>
+                                        <p className="p-1">{ itemDetails[key] }</p>
+                                    </article>
+                                )
+                            }
+                        })
+                    }
+                    </section>
                 </main>
             </div>
         </div>
