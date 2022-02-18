@@ -19,8 +19,16 @@ function AdminTopicItem() {
     async function getItemDetails() {
         const { data } = await API.getItemByPath(topicString, item);
         
-        // console.log(Object.keys(data[0]));
         setItemDetails(data[0]);
+    }
+
+    async function updateItemDetails(e) {
+        e.preventDefault();
+
+        setItemDetails({
+            ...itemDetails,
+            [e.target.name]: e.target.value
+        })
     }
 
     return (
@@ -32,20 +40,21 @@ function AdminTopicItem() {
                     <h1 className="mb-4 mx-4">
                         { itemDetails.name ? itemDetails.name : null }
                     </h1>
-                    <section>
+                    <form>
                     {
                         Object.keys(itemDetails).map((key, i) => {
-                            if (key !== "name" && key !== "path") {
+                            if (key !== "name" && key !== "path" && key !== "id") {
+                                let displayKey;
                                 return (
-                                    <article key={i} className="text-xl my-2 mx-4">
-                                        <h1 className="p-1">{ key }:</h1>
-                                        <p className="p-1">{ itemDetails[key] }</p>
+                                    <article key={ i } className="text-xl my-2 mx-4">
+                                        <label htmlFor={ key } className="p-1 mr-1">{ displayKey = key[0].toUpperCase() + key.slice(1) }:</label>
+                                        <input type="text" id={ key } name={ key } value={ itemDetails[key] ? itemDetails[key] : "" } onChange={ updateItemDetails } className="p-1 border border-gray-400 rounded-md"></input>
                                     </article>
                                 )
                             }
                         })
                     }
-                    </section>
+                    </form>
                 </main>
             </div>
         </div>
