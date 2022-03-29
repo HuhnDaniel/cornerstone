@@ -27,5 +27,9 @@ export default {
 
     getProjectById: async function (projId) {
         return await axios.get(`/api/getProjectById/${projId}`);
+    },
+
+    updateItem: async function (topic, itemDetails) {
+        return await axios.put(`/api/update${topic}ById/${itemDetails.id}`, itemDetails);
     }
 }

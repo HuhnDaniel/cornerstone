@@ -32,6 +32,9 @@ module.exports = function (sequelize, DataTypes) {
         },
         path: {
             type: DataTypes.STRING
+        },
+        image: {
+            type: DataTypes.STRING
         }
     }, {
         timestamps: false

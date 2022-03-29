@@ -67,6 +67,19 @@ apiRoutes.post('/addDiscipline', async (req, res) => {
     res.json(dbDiscipline);
 });
 
+apiRoutes.put('/updateDisciplineByPath/', (req, res) => {
+    res.end();
+});
+apiRoutes.put('/updateDisciplineById/:disciplineId', async (req, res) => {
+    const discipline = await db.Discipline.update(req.body, {
+        where: {
+            id: req.params.disciplineId
+        }
+    });
+
+    res.json(discipline);
+});
+
 apiRoutes.get('/getSubDisciplineItemNames', async (req, res) => {
     const subDisciplineList = await db.SubDiscipline.findAll({
         attributes: [

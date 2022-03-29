@@ -48,10 +48,24 @@ function AdminTopicItem() {
     async function updateItemDetails(e) {
         e.preventDefault();
 
-        setItemDetails({
-            ...itemDetails,
-            [e.target.name]: e.target.value
-        })
+        if (e.target.name === 'name') {
+            setItemDetails({
+                ...itemDetails,
+                [e.target.name]: e.target.value,
+                path: e.target.value.toLowerCase().replace(/[^a-zA-Z0-9 \-]/g, '').replace(/ +(\/ )*/g, '-')
+            });
+        } else {
+            setItemDetails({
+                ...itemDetails,
+                [e.target.name]: e.target.value
+            });
+        }
+        
+    }
+
+    async function handleEdit() {
+        await API.updateItem(topicString, itemDetails);
+        window.location.host.split('.')[0] === 'admin' ? window.location.pathname = `/${topic}/${itemDetails.path}` : window.location.pathname = `/admin/${topic}/${itemDetails.path}`;
     }
 
     return (
@@ -95,14 +109,14 @@ function AdminTopicItem() {
                                         return (
                                             <article key={ i } className="flex text-xl my-2 mx-4">
                                                 <label htmlFor={ key } className="flex-none p-1 mr-1">{ displayKey = key[0].toUpperCase() + key.slice(1) }:</label>
-                                                <textarea id={ key } name={ key } value={ itemDetails[key] ? itemDetails[key] : "" } onChange={ updateItemDetails } className="flex-1 p-1 mr-4 h-36 resize-y border border-gray-400 rounded-md w-full" />
+                                                <textarea id={ key } name={ key } value={ itemDetails[key] ? itemDetails[key] : "" } onChange={ updateItemDetails } className="flex-1 p-1 h-36 resize-y border border-gray-400 rounded-md" />
                                             </article>
                                         );
                                     case 'DisciplineId':
                                         return (
                                             <article key={ i } className="flex text-xl my-2 mx-4">
                                                 <label htmlFor={ key } className="flex-none p-1 mr-1">{ displayKey = key[0].toUpperCase() + key.slice(1) }:</label>
-                                                <select id={ key } name={ key } value={ itemDetails[key] } onChange={ updateItemDetails } className="flex-1flex  p-1 border border-gray-400 rounded-md">
+                                                <select id={ key } name={ key } value={ itemDetails[key] } onChange={ updateItemDetails } className="flex-1 p-1 border border-gray-400 rounded-md">
                                                     {
                                                         disciplineList.map((discipline, i) => {
                                                             return (
@@ -117,7 +131,7 @@ function AdminTopicItem() {
                                         return (
                                             <article key={ i } className="flex text-xl my-2 mx-4">
                                                 <label htmlFor={ key } className="flex-none p-1 mr-1">{ displayKey = key[0].toUpperCase() + key.slice(1) }:</label>
-                                                <select id={ key } name={ key } value={ itemDetails[key] } onChange={ updateItemDetails } className="flex-1 p-1 border border-gray-400 rounded-md">
+                                                <select id={ key } name={ key } value={ itemDetails[key] } onChange={ updateItemDetails } className="flex-1 p-1 border border-gray-400 rounded-md w-full">
                                                     {
                                                         partnerList.map((partner, i) => {
                                                             return (
@@ -148,6 +162,7 @@ function AdminTopicItem() {
                                 }
                             })
                         }
+                        <button type="button" onClick={ handleEdit } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300">Save Changes</button>
                     </form>
                 </main>
             </div>

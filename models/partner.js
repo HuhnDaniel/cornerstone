@@ -17,6 +17,9 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING(1024)
         },
         path: {
+            type: DataTypes.STRING
+        },
+        image: {
             type: DataTypes.STRING,
             defaultValue: 'defaultUser'
         }
