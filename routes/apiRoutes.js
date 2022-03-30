@@ -67,7 +67,7 @@ apiRoutes.post('/addDiscipline', async (req, res) => {
     res.json(dbDiscipline);
 });
 
-apiRoutes.put('/updateDisciplineByPath/', (req, res) => {
+apiRoutes.put('/updateDisciplineById/', (req, res) => {
     res.end();
 });
 apiRoutes.put('/updateDisciplineById/:disciplineId', async (req, res) => {
@@ -102,6 +102,19 @@ apiRoutes.get('/getSubDisciplineByPath/:path', async (req, res) => {
         }
     });
     
+    res.json(subDiscipline);
+});
+
+apiRoutes.put('/updateSubDisciplineById/', (req, res) => {
+    res.end();
+});
+apiRoutes.put('/updateSubDisciplineById/:subDisciplineId', async (req, res) => {
+    const subDiscipline = await db.SubDiscipline.update(req.body, {
+        where: {
+            id: req.params.subDisciplineId
+        }
+    });
+
     res.json(subDiscipline);
 });
 
@@ -165,6 +178,19 @@ apiRoutes.post('/addPartner', async (req, res) => {
     res.json(dbPartner);
 });
 
+apiRoutes.put('/updatePartnerById/', (req, res) => {
+    res.end();
+});
+apiRoutes.put('/updatePartnerById/:partnerId', async (req, res) => {
+    const partner = await db.Partner.update(req.body, {
+        where: {
+            id: req.params.partnerId
+        }
+    });
+
+    res.json(partner);
+});
+
 apiRoutes.get('/getProjectItemNames', async (req, res) => {
     const projectList = await db.Project.findAll({
         attributes: [
@@ -204,6 +230,19 @@ apiRoutes.get('/getProjectById/:projId', async (req, res) => {
                 ]
             }
         ]
+    });
+
+    res.json(project);
+});
+
+apiRoutes.put('/updateProjectById/', (req, res) => {
+    res.end();
+});
+apiRoutes.put('/updateProjectById/:projectId', async (req, res) => {
+    const project = await db.Project.update(req.body, {
+        where: {
+            id: req.params.projectId
+        }
     });
 
     res.json(project);

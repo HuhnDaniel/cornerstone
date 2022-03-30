@@ -9,6 +9,10 @@ export default {
         return await axios.get(`/api/get${topic}ByPath/${item}`);
     },
 
+    updateTopicItem: async function (topic, itemDetails) {
+        return await axios.put(`/api/update${topic}ById/${itemDetails.id}`, itemDetails);
+    },
+
     getDisciplines: async function () {
         return await axios.get('/api/getAllDisciplines');
     },
@@ -27,9 +31,5 @@ export default {
 
     getProjectById: async function (projId) {
         return await axios.get(`/api/getProjectById/${projId}`);
-    },
-
-    updateItem: async function (topic, itemDetails) {
-        return await axios.put(`/api/update${topic}ById/${itemDetails.id}`, itemDetails);
     }
 }

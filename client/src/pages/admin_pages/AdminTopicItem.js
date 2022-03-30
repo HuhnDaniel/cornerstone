@@ -64,7 +64,7 @@ function AdminTopicItem() {
     }
 
     async function handleEdit() {
-        await API.updateItem(topicString, itemDetails);
+        await API.updateTopicItem(topicString, itemDetails);
         window.location.host.split('.')[0] === 'admin' ? window.location.pathname = `/${topic}/${itemDetails.path}` : window.location.pathname = `/admin/${topic}/${itemDetails.path}`;
     }
 
