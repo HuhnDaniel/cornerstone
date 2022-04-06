@@ -9,6 +9,7 @@ import Project from '../pages/public_pages/Project';
 
 import AdminHome from '../pages/admin_pages/AdminHome';
 import AdminTopicList from '../pages/admin_pages/AdminTopicList';
+import AdminAddItem from '../pages/admin_pages/AdminAddItem';
 import AdminTopicItem from '../pages/admin_pages/AdminTopicItem';
 
 function Public() {
@@ -32,6 +33,7 @@ function Public() {
                     <Route exact path="/project/:projId" element={ <Project menuStatus={menuStatus} menuToggle={menuToggle} />} />
 
                     <Route path="/admin/:topic" element={ <AdminTopicList /> } />
+                    <Route exact path="/admin/:topic/add" element={ <AdminAddItem /> } />
                     <Route path="/admin/:topic/:item" element={ <AdminTopicItem /> } />
                     <Route path="/admin" element={ <AdminHome /> } />
                         

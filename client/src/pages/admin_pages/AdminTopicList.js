@@ -43,6 +43,8 @@ function AdminTopicList() {
                         })
                     }
                     </ul>
+
+                    <Link to={ window.location.host.split('.')[0] === 'admin' ? '/' + topic + '/add' : '/admin/' + topic + '/add' } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300"> Add {topicString.slice(0, topicString.length - 1)} </Link>
                 </main>
             </div>
         </div>
