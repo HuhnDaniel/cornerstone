@@ -59,8 +59,7 @@ function AdminTopicItem() {
                 ...itemDetails,
                 [e.target.name]: e.target.value
             });
-        }
-        
+        }        
     }
 
     async function handleEdit() {
@@ -74,15 +73,15 @@ function AdminTopicItem() {
             <div className="flex flex-col md:flex-row">
                 <OptionsNav hidden={"hidden md:block"} />
                 <main className="flex-1 m-8 text-2xl">
-                    <form>
-                        <input type="text" id="name" name="name" placeholder={ "Input " + topicString + " name" } value={ itemDetails.name ? itemDetails.name : "" } onChange={ updateItemDetails } className="p-1 mb-4 mx-4 border border-gray-400 rounded-md" />
+                    <form className="flex flex-col">
+                        <input type="text" id="name" name="name" placeholder={ "Input " + topicString + " name" } value={ itemDetails.name ? itemDetails.name : "" } onChange={ updateItemDetails } className="px-2 py-1 mb-4 mx-4 border border-gray-400 rounded-md" />
                         {
                             Object.keys(itemDetails).map((key, i) => {
                                 let displayKey;
 
                                 switch (key) {
-                                    case 'artistName':
-                                    case 'artistCredit':
+                                    // case 'artistName':
+                                    // case 'artistCredit':
                                     case 'awards':
                                     case 'client':
                                     case 'company':
@@ -93,14 +92,14 @@ function AdminTopicItem() {
                                         return (
                                             <article key={ i } className="flex text-xl my-2 mx-4">
                                                 <label htmlFor={ key } className="flex-none p-1 mr-1">{ displayKey = key[0].toUpperCase() + key.slice(1) }:</label>
-                                                <input type="text" id={ key } name={ key } value={ itemDetails[key] ? itemDetails[key] : "" } onChange={ updateItemDetails } className="flex-1 p-1 border border-gray-400 rounded-md" />
+                                                <input type="text" id={ key } name={ key } value={ itemDetails[key] ? itemDetails[key] : "" } onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md" />
                                             </article>
                                         );
                                     case 'email':
                                         return (
                                             <article key={ i } className="flex text-xl my-2 mx-4">
                                                 <label htmlFor={ key } className="flex-none p-1 mr-1">{ displayKey = key[0].toUpperCase() + key.slice(1) }:</label>
-                                                <input type="email" id={ key } name={ key } value={ itemDetails[key] ? itemDetails[key] : "" } onChange={ updateItemDetails } className="flex-1 p-1 border border-gray-400 rounded-md" />
+                                                <input type="email" id={ key } name={ key } value={ itemDetails[key] ? itemDetails[key] : "" } onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md" />
                                             </article>
                                         );
                                     case 'about':
@@ -109,18 +108,18 @@ function AdminTopicItem() {
                                         return (
                                             <article key={ i } className="flex text-xl my-2 mx-4">
                                                 <label htmlFor={ key } className="flex-none p-1 mr-1">{ displayKey = key[0].toUpperCase() + key.slice(1) }:</label>
-                                                <textarea id={ key } name={ key } value={ itemDetails[key] ? itemDetails[key] : "" } onChange={ updateItemDetails } className="flex-1 p-1 h-36 resize-y border border-gray-400 rounded-md" />
+                                                <textarea id={ key } name={ key } value={ itemDetails[key] ? itemDetails[key] : "" } onChange={ updateItemDetails } className="flex-1 px-2 py-1 h-36 resize-y border border-gray-400 rounded-md" />
                                             </article>
                                         );
                                     case 'DisciplineId':
                                         return (
                                             <article key={ i } className="flex text-xl my-2 mx-4">
                                                 <label htmlFor={ key } className="flex-none p-1 mr-1">{ displayKey = key[0].toUpperCase() + key.slice(1) }:</label>
-                                                <select id={ key } name={ key } value={ itemDetails[key] } onChange={ updateItemDetails } className="flex-1 p-1 border border-gray-400 rounded-md">
+                                                <select id={ key } name={ key } value={ itemDetails[key] } onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
                                                     {
                                                         disciplineList.map((discipline, i) => {
                                                             return (
-                                                                <option value={ discipline.id } key={ i }>{ discipline.id + ' - ' + discipline.name }</option>
+                                                                <option value={ discipline.id } key={ i }>{ discipline.name }</option>
                                                             )
                                                         })
                                                     }
@@ -131,11 +130,11 @@ function AdminTopicItem() {
                                         return (
                                             <article key={ i } className="flex text-xl my-2 mx-4">
                                                 <label htmlFor={ key } className="flex-none p-1 mr-1">{ displayKey = key[0].toUpperCase() + key.slice(1) }:</label>
-                                                <select id={ key } name={ key } value={ itemDetails[key] } onChange={ updateItemDetails } className="flex-1 p-1 border border-gray-400 rounded-md w-full">
+                                                <select id={ key } name={ key } value={ itemDetails[key] } onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md w-full">
                                                     {
                                                         partnerList.map((partner, i) => {
                                                             return (
-                                                                <option value={ partner.id } key={ i }>{ partner.id + ' - ' + partner.name }</option>
+                                                                <option value={ partner.id } key={ i }>{ partner.name }</option>
                                                             )
                                                         })
                                                     }
@@ -146,11 +145,11 @@ function AdminTopicItem() {
                                         return (
                                             <article key={ i } className="flex text-xl my-2 mx-4">
                                                 <label htmlFor={ key } className="flex-none p-1 mr-1">{ displayKey = key[0].toUpperCase() + key.slice(1) }:</label>
-                                                <select id={ key } name={ key } value={ itemDetails[key] } onChange={ updateItemDetails } className="flex-1 p-1 border border-gray-400 rounded-md">
+                                                <select id={ key } name={ key } value={ itemDetails[key] } onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
                                                     {
                                                         subDisciplineList.map((subDiscipline, i) => {
                                                             return (
-                                                                <option value={ subDiscipline.id } key={ i }>{ subDiscipline.id + ' - ' + subDiscipline.name }</option>
+                                                                <option value={ subDiscipline.id } key={ i }>{ + subDiscipline.name }</option>
                                                             )
                                                         })
                                                     }
@@ -162,7 +161,10 @@ function AdminTopicItem() {
                                 }
                             })
                         }
-                        <button type="button" onClick={ handleEdit } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300">Save Changes</button>
+
+                        <div>
+                            <button type="button" onClick={ handleEdit } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300">Save Changes</button>
+                        </div>
                     </form>
                 </main>
             </div>
