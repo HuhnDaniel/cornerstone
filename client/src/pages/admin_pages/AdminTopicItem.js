@@ -98,7 +98,7 @@ function AdminTopicItem() {
                                     case 'email':
                                         return (
                                             <article key={ i } className="flex text-xl my-2 mx-4">
-                                                <label htmlFor={ key } className="flex-none p-1 mr-1">{ displayKey = key[0].toUpperCase() + key.slice(1) }:</label>
+                                                <label htmlFor={ key } className="flex-none p-1 mr-1">Email:</label>
                                                 <input type="email" id={ key } name={ key } value={ itemDetails[key] ? itemDetails[key] : "" } onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md" />
                                             </article>
                                         );
@@ -114,7 +114,7 @@ function AdminTopicItem() {
                                     case 'DisciplineId':
                                         return (
                                             <article key={ i } className="flex text-xl my-2 mx-4">
-                                                <label htmlFor={ key } className="flex-none p-1 mr-1">{ displayKey = key[0].toUpperCase() + key.slice(1) }:</label>
+                                                <label htmlFor={ key } className="flex-none p-1 mr-1">Discipline:</label>
                                                 <select id={ key } name={ key } value={ itemDetails[key] } onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
                                                     {
                                                         disciplineList.map((discipline, i) => {
@@ -129,7 +129,7 @@ function AdminTopicItem() {
                                     case 'PartnerId':
                                         return (
                                             <article key={ i } className="flex text-xl my-2 mx-4">
-                                                <label htmlFor={ key } className="flex-none p-1 mr-1">{ displayKey = key[0].toUpperCase() + key.slice(1) }:</label>
+                                                <label htmlFor={ key } className="flex-none p-1 mr-1">Partner:</label>
                                                 <select id={ key } name={ key } value={ itemDetails[key] } onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md w-full">
                                                     {
                                                         partnerList.map((partner, i) => {
@@ -144,12 +144,12 @@ function AdminTopicItem() {
                                     case 'SubDisciplineId':
                                         return (
                                             <article key={ i } className="flex text-xl my-2 mx-4">
-                                                <label htmlFor={ key } className="flex-none p-1 mr-1">{ displayKey = key[0].toUpperCase() + key.slice(1) }:</label>
+                                                <label htmlFor={ key } className="flex-none p-1 mr-1">Sub-Discipline:</label>
                                                 <select id={ key } name={ key } value={ itemDetails[key] } onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
                                                     {
                                                         subDisciplineList.map((subDiscipline, i) => {
                                                             return (
-                                                                <option value={ subDiscipline.id } key={ i }>{ + subDiscipline.name }</option>
+                                                                <option value={ subDiscipline.id } key={ i }>{ subDiscipline.name }</option>
                                                             )
                                                         })
                                                     }
