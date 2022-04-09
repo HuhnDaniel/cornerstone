@@ -8,7 +8,7 @@ import AdminAddType from '../../components/admin_components/AdminAddType';
 import API from '../../utils/API';
 
 function AdminAddItem() {
-    const { topic, item } = useParams();
+    const { topic } = useParams();
     const topicString = topic.replace(/[^a-zA-Z0-9 ]/g, ' ').split(' ').map(e => e[0].toUpperCase() + e.slice(1)).join('-').replace(/[ -]/g, '').slice(0, -1);
 
     const [itemDetails, setItemDetails] = useState({});
@@ -55,8 +55,9 @@ function AdminAddItem() {
         }        
     }
 
-    async function handleAdd() {
-        console.log(itemDetails);
+    function handleAdd() {
+        API.addTopicItem(topicString, itemDetails);
+        window.location.host.split('.')[0] === 'admin' ? window.location.pathname = `/${topic}/${itemDetails.path}` : window.location.pathname = `/admin/${topic}/${itemDetails.path}`;
     }
 
     return (

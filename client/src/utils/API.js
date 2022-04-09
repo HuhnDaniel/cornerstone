@@ -13,6 +13,10 @@ export default {
         return await axios.put(`/api/update${topic}ById/${itemDetails.id}`, itemDetails);
     },
 
+    addTopicItem: async function (topic, itemDetails) {
+        return await axios.post(`/api/add${topic}`, itemDetails);
+    },
+
     getDisciplines: async function () {
         return await axios.get('/api/getAllDisciplines');
     },

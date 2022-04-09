@@ -105,6 +105,12 @@ apiRoutes.get('/getSubDisciplineByPath/:path', async (req, res) => {
     res.json(subDiscipline);
 });
 
+apiRoutes.post('/addSubDiscipline', async (req, res) => {
+    const dbSubDiscipline = await db.SubDiscipline.create(req.body);
+
+    res.json(dbSubDiscipline);
+});
+
 apiRoutes.put('/updateSubDisciplineById/', (req, res) => {
     res.end();
 });
@@ -233,6 +239,12 @@ apiRoutes.get('/getProjectById/:projId', async (req, res) => {
     });
 
     res.json(project);
+});
+
+apiRoutes.post('/addProject', async (req, res) => {
+    const dbProject = await db.Project.create(req.body);
+
+    res.json(dbProject);
 });
 
 apiRoutes.put('/updateProjectById/', (req, res) => {
