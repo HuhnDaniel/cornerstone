@@ -55,8 +55,9 @@ function AdminAddItem() {
         }        
     }
 
-    function handleAdd() {
-        API.addTopicItem(topicString, itemDetails);
+    async function handleAdd(e) {
+        await API.addTopicItem(topicString, itemDetails);
+        document.getElementById('add-item').reset();
         window.location.host.split('.')[0] === 'admin' ? window.location.pathname = `/${topic}/${itemDetails.path}` : window.location.pathname = `/admin/${topic}/${itemDetails.path}`;
     }
 

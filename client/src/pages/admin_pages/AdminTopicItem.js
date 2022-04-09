@@ -64,6 +64,7 @@ function AdminTopicItem() {
 
     function handleEdit() {
         API.updateTopicItem(topicString, itemDetails);
+        document.getElementById('edit-item').reset();
         window.location.host.split('.')[0] === 'admin' ? window.location.pathname = `/${topic}/${itemDetails.path}` : window.location.pathname = `/admin/${topic}/${itemDetails.path}`;
     }
 
@@ -73,7 +74,7 @@ function AdminTopicItem() {
             <div className="flex flex-col md:flex-row">
                 <OptionsNav hidden={"hidden md:block"} />
                 <main className="flex-1 m-8 text-2xl">
-                    <form className="flex flex-col">
+                    <form id="edit-item" className="flex flex-col">
                         <input type="text" id="name" name="name" placeholder={ "Input " + topicString + " name" } value={ itemDetails.name ? itemDetails.name : "" } onChange={ updateItemDetails } className="px-2 py-1 mb-4 mx-4 border border-gray-400 rounded-md" />
                         {
                             Object.keys(itemDetails).map((key, i) => {

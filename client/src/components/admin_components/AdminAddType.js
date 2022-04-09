@@ -5,7 +5,7 @@ function AdminAddType({ topic, updateItemDetails, handleAdd, disciplineList, par
     switch (topic) {
         case 'disciplines':
             return (
-                <form className="flex flex-col">
+                <form id="add-item" className="flex flex-col">
                     <input type="text" id="name" name="name" placeholder="Name" onChange={ updateItemDetails } className="px-2 py-1 m-4 border border-gray-400 rounded-md" />
 
                     <article className="flex text-xl my-2 mx-4">
@@ -20,7 +20,7 @@ function AdminAddType({ topic, updateItemDetails, handleAdd, disciplineList, par
             );
         case 'sub-disciplines':
             return (
-                <form className="flex flex-col">
+                <form id="add-item" className="flex flex-col">
                     <input type="text" id="name" name="name" placeholder="Name" onChange={ updateItemDetails } className="px-2 py-1 m-4 border border-gray-400 rounded-md" />
 
                     <article className="flex text-xl my-2 mx-4">
@@ -43,7 +43,7 @@ function AdminAddType({ topic, updateItemDetails, handleAdd, disciplineList, par
             );
         case 'partners':
             return (
-                <form className="flex flex-col">
+                <form id="add-item" className="flex flex-col">
                     <input type="text" id="name" name="name" placeholder="Name" onChange={ updateItemDetails } className="px-2 py-1 m-4 border border-gray-400 rounded-md" />
 
                     <article className="flex text-xl my-2 mx-4">
@@ -63,7 +63,7 @@ function AdminAddType({ topic, updateItemDetails, handleAdd, disciplineList, par
             );
         case 'projects':
             return (
-                <form className="flex flex-col">
+                <form id="add-item" className="flex flex-col">
                     <input type="text" id="name" name="name" placeholder="Name" onChange={ updateItemDetails } className="px-2 py-1 m-4 border border-gray-400 rounded-md" />
 
                     <article className="flex text-xl my-2 mx-4">
