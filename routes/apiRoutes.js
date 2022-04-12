@@ -80,6 +80,16 @@ apiRoutes.put('/updateDisciplineById/:disciplineId', async (req, res) => {
     res.json(discipline);
 });
 
+apiRoutes.delete('/deleteDisciplineByPath/:disciplinePath', async (req, res) => {
+    const dbDiscipline = await db.Discipline.destroy({
+        where: {
+            path: req.params.disciplinePath
+        }
+    });
+
+    res.json(dbDiscipline);
+});
+
 apiRoutes.get('/getSubDisciplineItemNames', async (req, res) => {
     const subDisciplineList = await db.SubDiscipline.findAll({
         attributes: [
@@ -122,6 +132,16 @@ apiRoutes.put('/updateSubDisciplineById/:subDisciplineId', async (req, res) => {
     });
 
     res.json(subDiscipline);
+});
+
+apiRoutes.delete('/deleteSubDisciplineByPath/:subDisciplinePath', async (req, res) => {
+    const dbSubDiscipline = await db.SubDiscipline.destroy({
+        where: {
+            path: req.params.subDisciplinePath
+        }
+    });
+
+    res.json(dbSubDiscipline);
 });
 
 apiRoutes.get('/getPartnerItemNames', async (req, res) => {
@@ -197,6 +217,16 @@ apiRoutes.put('/updatePartnerById/:partnerId', async (req, res) => {
     res.json(partner);
 });
 
+apiRoutes.delete('/deletePartnerByPath/:partnerPath', async (req, res) => {
+    const dbPartner = await db.Partner.destroy({
+        where: {
+            path: req.params.partnerPath
+        }
+    });
+
+    res.json(dbPartner);
+});
+
 apiRoutes.get('/getProjectItemNames', async (req, res) => {
     const projectList = await db.Project.findAll({
         attributes: [
@@ -258,6 +288,16 @@ apiRoutes.put('/updateProjectById/:projectId', async (req, res) => {
     });
 
     res.json(project);
+});
+
+apiRoutes.delete('/deleteProjectByPath/:projectPath', async (req, res) => {
+    const dbProject = await db.Project.destroy({
+        where: {
+            path: req.params.projectPath
+        }
+    });
+
+    res.json(dbProject);
 });
 
 module.exports = apiRoutes;

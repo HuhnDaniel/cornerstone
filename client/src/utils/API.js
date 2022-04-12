@@ -17,6 +17,10 @@ export default {
         return await axios.post(`/api/add${topic}`, itemDetails);
     },
 
+    deleteItemByPath: async function (topic, item) {
+        return await axios.delete(`/api/delete${topic}ByPath/${item}`);
+    },
+
     getDisciplines: async function () {
         return await axios.get('/api/getAllDisciplines');
     },

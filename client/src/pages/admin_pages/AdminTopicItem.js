@@ -96,7 +96,6 @@ function AdminTopicItem() {
                 <div className="flex flex-col md:flex-row">
                     <OptionsNav hidden={"hidden md:block"} />
                     <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } />
-                    
                 </div>
             </div>
         );
