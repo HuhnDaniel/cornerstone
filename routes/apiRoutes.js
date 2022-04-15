@@ -1,6 +1,30 @@
 const Router = require('express').Router;
 const db = require('../models');
 const apiRoutes = Router();
+const passport = require('../config/passport');
+const isAuthenticated = require('../config/middleware/isAuthenticated');
+
+apiRoutes.post('/login', passport.authenticate('local'), (req, res) => {
+    
+    res.json(req.body);
+});
+
+apiRoutes.get("/checkAuthentication", isAuthenticated, (req, res) => {
+    const user = req.user ? req.user : null;
+    res.status(200).json({
+        user: user
+    });
+});
+
+apiRoutes.get('/logout', function (req, res) {
+    req.logout();
+    req.session.destroy(function (err) {
+        if (err) {
+            return next(err);
+        }
+        return res.send({ success: true });
+    });
+});
 
 apiRoutes.get('/getDisciplineItemNames', async (req,res) => {
     const disciplineList = await db.Discipline.findAll({
