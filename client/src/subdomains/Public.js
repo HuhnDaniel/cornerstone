@@ -10,6 +10,7 @@ import Project from '../pages/public_pages/Project';
 import AdminHome from '../pages/admin_pages/AdminHome';
 import AdminTopicList from '../pages/admin_pages/AdminTopicList';
 import AdminTopicItem from '../pages/admin_pages/AdminTopicItem';
+import AdminLogIn from '../pages/admin_pages/AdminLogIn';
 
 function Public() {
     const [menuStatus, setMenuStatus] = useState(false)
@@ -31,6 +32,8 @@ function Public() {
                     <Route exact path="/contact" element={ <Contact menuStatus={menuStatus} menuToggle={menuToggle} /> } />
                     <Route exact path="/project/:projId" element={ <Project menuStatus={menuStatus} menuToggle={menuToggle} />} />
 
+                    
+                    <Route path="/admin/login" element={ <AdminLogIn /> } />
                     <Route path="/admin/:topic" element={ <AdminTopicList /> } />
                     <Route path="/admin/:topic/:item" element={ <AdminTopicItem /> } />
                     <Route path="/admin" element={ <AdminHome /> } />

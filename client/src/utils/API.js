@@ -1,6 +1,20 @@
 import axios from "axios";
 
 export default {
+    logIn: async function (userdata) {
+        return await axios.post("/api/login", userdata);
+    },
+
+    logOut: async function () {
+        return await axios.get('api/logout');
+    },
+
+    checkAuth: async function () {
+        const { data } = await axios.get("api/checkAuthentication");
+        console.log(data);
+        return data;
+    },
+
     getTopicItemNames: async function (topic) {
         return await axios.get(`/api/get${topic}ItemNames`);
     },
