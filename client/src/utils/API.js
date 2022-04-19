@@ -6,12 +6,11 @@ export default {
     },
 
     logOut: async function () {
-        return await axios.get('api/logout');
+        return await axios.get('/api/logout');
     },
 
     checkAuth: async function () {
-        const { data } = await axios.get("api/checkAuthentication");
-        console.log(data);
+        const { data } = await axios.get("/api/checkAuthentication");
         return data;
     },
 

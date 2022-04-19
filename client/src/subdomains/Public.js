@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+import ProtectedRoute from '../components/ProtectedRoute';
+
 import Homepage from '../pages/public_pages/Homepage';
 import Partners from '../pages/public_pages/Partners';
 import Disciplines from '../pages/public_pages/Disciplines';
@@ -13,7 +15,7 @@ import AdminTopicItem from '../pages/admin_pages/AdminTopicItem';
 import AdminLogIn from '../pages/admin_pages/AdminLogIn';
 
 function Public() {
-    const [menuStatus, setMenuStatus] = useState(false)
+    const [menuStatus, setMenuStatus] = useState(false);
 
     function menuToggle(e) {
         if (menuStatus) {
@@ -30,13 +32,13 @@ function Public() {
                     <Route exact path="/partners" element={ <Partners menuStatus={menuStatus} menuToggle={menuToggle} /> } />
                     <Route exact path="/disciplines" element={ <Disciplines menuStatus={menuStatus} menuToggle={menuToggle} /> } />
                     <Route exact path="/contact" element={ <Contact menuStatus={menuStatus} menuToggle={menuToggle} /> } />
-                    <Route exact path="/project/:projId" element={ <Project menuStatus={menuStatus} menuToggle={menuToggle} />} />
+                    <Route path="/project/:projId" element={ <Project menuStatus={menuStatus} menuToggle={menuToggle} />} />
 
                     
                     <Route path="/admin/login" element={ <AdminLogIn /> } />
-                    <Route path="/admin/:topic" element={ <AdminTopicList /> } />
-                    <Route path="/admin/:topic/:item" element={ <AdminTopicItem /> } />
-                    <Route path="/admin" element={ <AdminHome /> } />
+                    <Route path="/admin/:topic" element={ <ProtectedRoute component={ <AdminTopicList /> } /> } />
+                    <Route path="/admin/:topic/:item" element={ <ProtectedRoute component={ <AdminTopicItem /> } /> } />
+                    <Route path="/admin" element={ <ProtectedRoute component={ <AdminHome /> } /> } />
                         
                     <Route path="/*" element={ <Homepage menuStatus={menuStatus} menuToggle={menuToggle} /> } />
                 </Routes>
@@ -49,7 +51,7 @@ function Public() {
                     <Route exact path="/partners" element={ <Partners menuStatus={menuStatus} menuToggle={menuToggle} /> } />
                     <Route exact path="/disciplines" element={ <Disciplines menuStatus={menuStatus} menuToggle={menuToggle} /> } />
                     <Route exact path="/contact" element={ <Contact menuStatus={menuStatus} menuToggle={menuToggle} /> } />
-                    <Route exact path="/project/:projId" element={ <Project menuStatus={menuStatus} menuToggle={menuToggle} />} />
+                    <Route path="/project/:projId" element={ <Project menuStatus={menuStatus} menuToggle={menuToggle} />} />
                         
                     <Route path="/*" element={ <Homepage menuStatus={menuStatus} menuToggle={menuToggle} /> } />
                 </Routes>

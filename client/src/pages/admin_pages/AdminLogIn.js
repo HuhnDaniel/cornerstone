@@ -10,13 +10,9 @@ function AdminLogIn() {
         await API.logIn({
             email: e.target.email.value,
             password: e.target.password.value
-        })
-        .then(() => {
-            console.log("success");
-        })
-        .catch(() => {
-            console.log("failure");
         });
+
+        window.location.host.split('.')[0] === 'admin' ? window.location.pathname = '/' : window.location.pathname = '/admin/';
     }
 
     return (

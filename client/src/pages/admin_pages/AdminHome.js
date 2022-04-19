@@ -2,17 +2,16 @@ import React, { useEffect } from 'react';
 
 import AdminHeader from '../../components/admin_components/AdminHeader';
 import OptionsNav from '../../components/admin_components/OptionsNav';
-import API from '../../utils/API';
+// import API from '../../utils/API';
 
 function AdminHome() {
-    useEffect(() => {
-        // authCheck();
-    }, []);
+    // useEffect(() => {
+    //     authCheck();
+    // }, []);
 
-    async function authCheck() {
-        const data = await API.checkAuth();
-        console.log(data);
-    }
+    // async function authCheck() {
+    //     const data = await API.checkAuth();
+    // }
 
     return (
         <div>
