@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import $ from 'jquery';
 
 import ProjectCard from './ProjectCard';
 
@@ -10,25 +9,26 @@ const initialInfo = {};
 function PartnerOverlay({ overlayVisibility, overlayPositioning, currentPartner }) {
     const [partnerInfo, setPartnerInfo] = useState(initialInfo);
 
-    useEffect(async () => {
+    useEffect(() => {
+        getNewPartner();
+    }, [currentPartner]);
+
+    async function getNewPartner() {
         if (partnerInfo.id != currentPartner) {
-            const partner = await getPartner(currentPartner);
+            const { data } = await API.getPartnerById(currentPartner);
+            console.log(data[0]);
             
-            if (Boolean(partner)) {
-                setPartnerInfo(partner);
+            if (Boolean(data[0])) {
+                setPartnerInfo(data[0]);
             } else {
                 setPartnerInfo(initialInfo);
             }
         }
-    }, [currentPartner]);
+    }
+
     useEffect(() => {
         return () => {};
     }, []);
-
-    async function getPartner(currentPartner) {
-        const { data } = await API.getPartnerById(currentPartner);
-        return data[0];
-    }
 
     if (overlayVisibility) {
         return (

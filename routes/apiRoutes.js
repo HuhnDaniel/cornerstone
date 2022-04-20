@@ -80,7 +80,8 @@ apiRoutes.get('/getDisciplineById/:disciplineId', async (req, res) => {
                         attributes: [
                             'id',
                             'path',
-                            'name'
+                            'name',
+                            'image'
                         ]
                     }
                 ]
@@ -219,7 +220,8 @@ apiRoutes.get('/getPartnerById/:partnerId', async (req, res) => {
                 attributes: [
                     'id',
                     'path',
-                    'name'
+                    'name',
+                    'image'
                 ]
             }
         ]
