@@ -8,7 +8,7 @@ import AdminAddType from '../../components/admin_components/AdminAddType';
 
 import API from '../../utils/API';
 
-function AdminTopicItem() {
+function AdminTopicItem({ adminPath }) {
     const { topic, item } = useParams();
     const topicString = topic.replace(/[^a-zA-Z0-9 ]/g, ' ').split(' ').map(e => e[0].toUpperCase() + e.slice(1)).join('-').replace(/[ -]/g, '').slice(0, -1);
 
@@ -18,7 +18,6 @@ function AdminTopicItem() {
     const [subDisciplineList, setSubDisciplineList] = useState([]);
 
     useEffect(() => {
-        console.log(item);
         if (item !== "add") {
             getItemDetails();
         }
@@ -70,21 +69,21 @@ function AdminTopicItem() {
     function handleEdit() {
         API.updateTopicItem(topicString, itemDetails);
         document.getElementById('edit-item').reset();
-        window.location.host.split('.')[0] === 'admin' ? window.location.pathname = `/${topic}/${itemDetails.path}` : window.location.pathname = `/admin/${topic}/${itemDetails.path}`;
+        window.location.pathname = `${adminPath}${topic}/${itemDetails.path}`;
     }
 
     async function handleAdd(e) {
         await API.addTopicItem(topicString, itemDetails);
         document.getElementById('add-item').reset();
-        window.location.host.split('.')[0] === 'admin' ? window.location.pathname = `/${topic}/${itemDetails.path}` : window.location.pathname = `/admin/${topic}/${itemDetails.path}`;
+        window.location.pathname = `${adminPath}${topic}/${itemDetails.path}`;
     }
 
     if (item === "add") {
         return (
             <div>
-                <AdminHeader />
+                <AdminHeader adminPath={ adminPath } />
                 <div className="flex flex-col md:flex-row">
-                    <OptionsNav hidden={"hidden md:block"} />
+                    <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } />
                     <AdminAddType topic={ topic } topicString={ topicString } updateItemDetails={ updateItemDetails } handleAdd={ handleAdd } disciplineList={ disciplineList } partnerList= { partnerList } subDisciplineList={ subDisciplineList } />
                 </div>
             </div>
@@ -92,9 +91,9 @@ function AdminTopicItem() {
     } else {
         return (
             <div>
-                <AdminHeader />
+                <AdminHeader adminPath={ adminPath } />
                 <div className="flex flex-col md:flex-row">
-                    <OptionsNav hidden={"hidden md:block"} />
+                    <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } />
                     <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } />
                 </div>
             </div>

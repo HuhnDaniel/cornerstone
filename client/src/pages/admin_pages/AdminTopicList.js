@@ -6,7 +6,7 @@ import OptionsNav from '../../components/admin_components/OptionsNav';
 
 import API from '../../utils/API';
 
-function AdminTopicList() {
+function AdminTopicList({ adminPath }) {
     const { topic } = useParams();
     const topicString = topic.replace(/[^a-zA-Z0-9 ]/g, ' ').split(' ').map(e => e[0].toUpperCase() + e.slice(1)).join('-');
 
@@ -30,16 +30,16 @@ function AdminTopicList() {
     
     return (
         <div>
-            <AdminHeader />
+            <AdminHeader adminPath={ adminPath } />
             <div className="flex flex-col md:flex-row">
-                <OptionsNav hidden={"hidden md:block"} />
+                <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } />
                 <main className="flex-1 m-8 text-2xl">
                     <h1 className="mb-4 mx-4">{ topicString }<span className="float-right text-xl">Remove</span></h1>
                     <ul>
                     {
                         topicItems.map((item, i) => {
                             const bgGray = i % 2 == 0 ? 'bg-gray-100 rounded' : '';
-                            const destination = window.location.host.split('.')[0] === 'admin' ? '/' + topic + '/' + item.path : '/admin/' + topic + '/' + item.path;
+                            const destination = adminPath + topic + '/' + item.path;
 
                             return (
                                 <li className={`flex text-xl py-1 px-4 ${bgGray} hover:bg-gray-200 hover:rounded`} key={ i }>
@@ -51,7 +51,7 @@ function AdminTopicList() {
                     }
                     </ul>
 
-                    <Link to={ window.location.host.split('.')[0] === 'admin' ? '/' + topic + '/add' : '/admin/' + topic + '/add' } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300"> Add {topicString.slice(0, topicString.length - 1)} </Link>
+                    <Link to={ adminPath + topic + '/add' } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300"> Add {topicString.slice(0, topicString.length - 1)} </Link>
                 </main>
             </div>
         </div>

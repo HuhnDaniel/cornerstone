@@ -3,19 +3,18 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import ProtectedRoute from '../components/ProtectedRoute';
 
-import AdminHome from '../pages/admin_pages/AdminHome';
-import AdminTopicList from '../pages/admin_pages/AdminTopicList';
-import AdminTopicItem from '../pages/admin_pages/AdminTopicItem';
 import AdminLogIn from '../pages/admin_pages/AdminLogIn';
 
 function Admin() {
+    const adminPath = '/';
+
     return (
         <Router>
                 <Routes>
-                    <Route path="/login" element={ <AdminLogIn /> } />
-                    <Route path="/:topic" element={ <ProtectedRoute component={ <AdminTopicList /> } /> } />
-                    <Route path="/:topic/:item" element={ <ProtectedRoute component={ <AdminTopicItem /> } /> } />
-                    <Route path="" element={ <ProtectedRoute component={ <AdminHome /> } /> } />
+                    <Route path="/login" element={ <AdminLogIn adminPath={ adminPath } /> } />
+                    <Route path="/:topic" element={ <ProtectedRoute component='topicList' adminPath={ adminPath } /> } />
+                    <Route path="/:topic/:item" element={ <ProtectedRoute component='topicItem' adminPath={ adminPath } /> } />
+                    <Route path="/" element={ <ProtectedRoute component='home' adminPath={ adminPath } /> } />
                 </Routes>
         </Router>
     );

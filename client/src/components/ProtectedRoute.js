@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import AdminLogin from '../pages/admin_pages/AdminLogIn';
+
+import AdminHome from '../pages/admin_pages/AdminHome';
+import AdminTopicList from '../pages/admin_pages/AdminTopicList';
+import AdminTopicItem from '../pages/admin_pages/AdminTopicItem';
+
 import API from '../utils/API';
 
-function ProtectedRoute({ component }) {
-    
+function ProtectedRoute({ component, adminPath }) {
     const [currentUser, setCurrentUser] = useState({});
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -19,9 +23,26 @@ function ProtectedRoute({ component }) {
         }
     }
 
-    return (
-        isAuthenticated ? component : <AdminLogin />
-    );
+    if (isAuthenticated) {
+        switch (component) {
+            case 'topicList':
+                return (
+                    <AdminTopicList adminPath={ adminPath } />
+                );
+            case 'topicItem':
+                return (
+                    <AdminTopicItem adminPath={ adminPath } />
+                );
+            default:
+                return (
+                    <AdminHome adminPath={ adminPath } />
+                );
+        }
+    } else {
+        return (
+            <AdminLogin adminPath={ adminPath } />
+        );
+    }
 };
 
 export default ProtectedRoute;

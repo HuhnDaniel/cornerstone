@@ -16,7 +16,6 @@ function PartnerOverlay({ overlayVisibility, overlayPositioning, currentPartner 
     async function getNewPartner() {
         if (partnerInfo.id != currentPartner) {
             const { data } = await API.getPartnerById(currentPartner);
-            console.log(data[0]);
             
             if (Boolean(data[0])) {
                 setPartnerInfo(data[0]);

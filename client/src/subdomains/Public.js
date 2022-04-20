@@ -9,13 +9,11 @@ import Disciplines from '../pages/public_pages/Disciplines';
 import Contact from '../pages/public_pages/Contact';
 import Project from '../pages/public_pages/Project';
 
-import AdminHome from '../pages/admin_pages/AdminHome';
-import AdminTopicList from '../pages/admin_pages/AdminTopicList';
-import AdminTopicItem from '../pages/admin_pages/AdminTopicItem';
 import AdminLogIn from '../pages/admin_pages/AdminLogIn';
 
 function Public() {
     const [menuStatus, setMenuStatus] = useState(false);
+    const adminPath = '/admin/';
 
     function menuToggle(e) {
         if (menuStatus) {
@@ -34,11 +32,10 @@ function Public() {
                     <Route exact path="/contact" element={ <Contact menuStatus={menuStatus} menuToggle={menuToggle} /> } />
                     <Route path="/project/:projId" element={ <Project menuStatus={menuStatus} menuToggle={menuToggle} />} />
 
-                    
-                    <Route path="/admin/login" element={ <AdminLogIn /> } />
-                    <Route path="/admin/:topic" element={ <ProtectedRoute component={ <AdminTopicList /> } /> } />
-                    <Route path="/admin/:topic/:item" element={ <ProtectedRoute component={ <AdminTopicItem /> } /> } />
-                    <Route path="/admin" element={ <ProtectedRoute component={ <AdminHome /> } /> } />
+                    <Route path="/admin/:topic" element={ <ProtectedRoute component='topicList' adminPath={ adminPath } /> } />
+                    <Route path="/admin/:topic/:item" element={ <ProtectedRoute component='topicItem' adminPath={ adminPath } /> } />
+                    <Route path="/admin" element={ <ProtectedRoute component='home' adminPath={ adminPath } /> } />
+                    <Route path="/admin/login" element={ <AdminLogIn adminPath={ adminPath } /> } />
                         
                     <Route path="/*" element={ <Homepage menuStatus={menuStatus} menuToggle={menuToggle} /> } />
                 </Routes>

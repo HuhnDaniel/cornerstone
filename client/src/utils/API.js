@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default {
+const API = {
     logIn: async function (userdata) {
         return await axios.post("/api/login", userdata);
     },
@@ -54,3 +54,5 @@ export default {
         return await axios.get(`/api/getProjectById/${projId}`);
     }
 }
+
+export default API;

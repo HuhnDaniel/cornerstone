@@ -2,22 +2,13 @@ import React, { useEffect } from 'react';
 
 import AdminHeader from '../../components/admin_components/AdminHeader';
 import OptionsNav from '../../components/admin_components/OptionsNav';
-// import API from '../../utils/API';
 
-function AdminHome() {
-    // useEffect(() => {
-    //     authCheck();
-    // }, []);
-
-    // async function authCheck() {
-    //     const data = await API.checkAuth();
-    // }
-
+function AdminHome({ adminPath }) {
     return (
         <div>
-            <AdminHeader />
+            <AdminHeader adminPath={ adminPath } />
             <div className="flex flex-col md:flex-row">
-                <OptionsNav hidden={""} />
+                <OptionsNav hidden={""} adminPath={ adminPath } />
                 <main className="flex-1 m-8 text-2xl">
                     Select a Topic
                 </main>

@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import AdminHeader from '../../components/admin_components/AdminHeader';
 import API from '../../utils/API';
 
-function AdminLogIn() {
+function AdminLogIn({ adminPath }) {
     async function loginHandler(e) {
         e.preventDefault();
 
@@ -11,13 +11,14 @@ function AdminLogIn() {
             email: e.target.email.value,
             password: e.target.password.value
         });
+        console.log(window.location.pathname);
 
-        window.location.host.split('.')[0] === 'admin' ? window.location.pathname = '/' : window.location.pathname = '/admin/';
+        window.location.pathname = `${adminPath}`;
     }
 
     return (
         <div>
-            <AdminHeader />
+            <AdminHeader adminPath={ adminPath } />
             <main className="m-8 text-2xl">
                 <h1>Please provide Admin Credentials</h1>
                 <form className="flex flex-col items-center" onSubmit={loginHandler}>
