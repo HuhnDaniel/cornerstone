@@ -1,10 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import API from '../../utils/API';
 
 function AdminHeader({ adminPath }) {
     function handleLogout(e) {
         e.preventDefault();
-        console.log("This will do something when I add login functionality");
+        API.logOut();
+        window.location.pathname = `${adminPath}logIn`;
     }
 
     return (
@@ -24,7 +27,7 @@ function AdminHeader({ adminPath }) {
                     )
                 }
                 
-                <a href={ `${adminPath}login` } onClick={ handleLogout } className="p-1 underline">Log Out</a>
+                <button onClick={ handleLogout } className="p-1 underline">Log Out</button>
             </nav>
         </header>
     );

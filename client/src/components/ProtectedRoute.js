@@ -21,6 +21,7 @@ function ProtectedRoute({ component, adminPath }) {
             setCurrentUser(user);
             setIsAuthenticated(true);
         }
+        console.log(user);
     }
 
     if (isAuthenticated) {
