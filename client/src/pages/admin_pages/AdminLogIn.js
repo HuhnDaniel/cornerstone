@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import AdminHeader from '../../components/admin_components/AdminHeader';
 import API from '../../utils/API';
 
 function AdminLogIn({ adminPath }) {
+    const [loginUnauth, setLoginUnauth] = useState('hidden');
+
     async function loginHandler(e) {
         e.preventDefault();
+        const { email, password } = e.target;
 
         await API.logIn({
-            email: e.target.email.value,
-            password: e.target.password.value
+            email: email.value,
+            password: password.value
+        })
+        .then(() => {
+            setLoginUnauth('none');
+            window.location.pathname = `${adminPath}`;
+        }).catch(() => {
+            setLoginUnauth('');
         });
-        console.log(window.location.pathname);
-
-        window.location.pathname = `${adminPath}`;
     }
 
     return (
@@ -32,6 +38,7 @@ function AdminLogIn({ adminPath }) {
                         <input type="password" id="password" name="password" className="flex-1 px-2 py-1 border border-gray-400 rounded-md" />
                     </article>
 
+                    <p className={`text-center text-red-500 ${loginUnauth}`}>Email and password pair not found</p>
                     <button className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300" type="submit">Log In</button>
                 </form>
             </main>
