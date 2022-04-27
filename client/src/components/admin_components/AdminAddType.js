@@ -32,6 +32,7 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
                         <article className="flex text-xl my-2 mx-4">
                             <label htmlFor="discipline" className="flex-none p-1 mr-1">Discipline:</label>
                             <select id="discipline" name="discipline" className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
+                                <option value={ 0 }>Select an option</option>
                                 {
                                     disciplineList.map((discipline, i) => {
                                         return (
@@ -123,6 +124,7 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
                         <article className="flex text-xl my-2 mx-4">
                             <label htmlFor="partnerId" className="flex-none p-1 mr-1">Partner:</label>
                             <select id="partnerId" name="partnerId" className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
+                                <option value={ 0 }>Select an option</option>
                                 {
                                     partnerList.map((partner, i) => {
                                         return (
@@ -136,6 +138,7 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
                         <article className="flex text-xl my-2 mx-4">
                             <label htmlFor="subDiscipline" className="flex-none p-1 mr-1">Sub-Discipline:</label>
                             <select id="subDiscipline" name="subDiscipline" className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
+                                <option value={ 0 }>Select an option</option>
                                 {
                                     subDisciplineList.map((subDiscipline, i) => {
                                         return (

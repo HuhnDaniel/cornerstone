@@ -13,9 +13,12 @@ function AdminTopicItem({ adminPath }) {
     const topicString = topic.replace(/[^a-zA-Z0-9 ]/g, ' ').split(' ').map(e => e[0].toUpperCase() + e.slice(1)).join('-').replace(/[ -]/g, '').slice(0, -1);
 
     const [itemDetails, setItemDetails] = useState({});
+    const [initialItemDetails, setInitialItemDetails] = useState({});
+
     const [disciplineList, setDisciplineList] = useState([]);
     const [partnerList, setPartnerList] = useState([]);
     const [subDisciplineList, setSubDisciplineList] = useState([]);
+    const [editButtonDisabled, setEditButtonDisabled] = useState(true);
 
     useEffect(() => {
         if (item !== "add") {
@@ -26,13 +29,22 @@ function AdminTopicItem({ adminPath }) {
             getSubDisciplineAssociations();
         } else if (topic === 'projects') {
             getProjectAssociations();
-        }  
+        }
     }, [item]);
+
+    useEffect(() => {
+        if (editButtonDisabled && initialItemDetails !== itemDetails) {
+            setEditButtonDisabled(false);
+        } else {
+            setEditButtonDisabled(true);
+        }
+    }, [itemDetails]);
 
     async function getItemDetails() {
         const { data } = await API.getItemByPath(topicString, item);
         
         setItemDetails(data[0]);
+        setInitialItemDetails(data[0]);
     }
 
     async function getSubDisciplineAssociations() {
@@ -63,16 +75,16 @@ function AdminTopicItem({ adminPath }) {
                 ...itemDetails,
                 [e.target.name]: e.target.value
             });
-        }        
+        }
     }
 
-    function handleEdit() {
-        API.updateTopicItem(topicString, itemDetails);
+    async function handleEdit() {
+        await API.updateTopicItem(topicString, itemDetails);
         document.getElementById('edit-item').reset();
         window.location.pathname = `${adminPath}${topic}/${itemDetails.path}`;
     }
 
-    async function handleAdd(e) {
+    async function handleAdd() {
         await API.addTopicItem(topicString, itemDetails);
         document.getElementById('add-item').reset();
         window.location.pathname = `${adminPath}${topic}/${itemDetails.path}`;
@@ -94,7 +106,7 @@ function AdminTopicItem({ adminPath }) {
                 <AdminHeader adminPath={ adminPath } />
                 <div className="flex flex-col md:flex-row">
                     <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } />
-                    <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } />
+                    <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } editButtonDisabled={ editButtonDisabled } />
                 </div>
             </div>
         );

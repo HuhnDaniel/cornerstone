@@ -29,7 +29,7 @@ module.exports = function (sequelize, DataTypes) {
 
     Partner.associate = function (models) {
         Partner.hasMany(models.Project, {
-            onDelete: 'cascade'
+            // onDelete: 'cascade'
 		});
     };
 

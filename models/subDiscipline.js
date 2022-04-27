@@ -17,7 +17,7 @@ module.exports = function (sequelize, DataTypes) {
 		SubDiscipline.belongsTo(models.Discipline, {});
 
 		SubDiscipline.hasMany(models.Project, {
-			onDelete: 'cascade'
+			// onDelete: 'cascade'
 		});
 	};
 

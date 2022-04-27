@@ -38,7 +38,7 @@ function AdminLogIn({ adminPath }) {
                         <input type="password" id="password" name="password" className="flex-1 px-2 py-1 border border-gray-400 rounded-md" />
                     </article>
 
-                    <p className={`text-center text-red-500 ${loginUnauth}`}>Email and password pair not found</p>
+                    <p className={`text-center text-red-500 text-lg mt-2 ${loginUnauth}`}>Invalid Email and/or password</p>
                     <button className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300" type="submit">Log In</button>
                 </form>
             </main>
