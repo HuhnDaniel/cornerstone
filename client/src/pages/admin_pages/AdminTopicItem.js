@@ -37,7 +37,7 @@ function AdminTopicItem({ adminPath }) {
     useEffect(() => {
         if (!_.isEqual(initialItemDetails, itemDetails) && editButtonDisabled && !_.isEqual(initialItemDetails, {})) {
             setEditButtonDisabled(false);
-        } else if (_.isEqual(initialItemDetails, itemDetails) && !editButtonDisabled) {
+        } else if ((_.isEqual(initialItemDetails, itemDetails) || !itemDetails.name) && !editButtonDisabled) {
             setEditButtonDisabled(true);
         }
     }, [itemDetails]);
