@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import _ from 'underscore';
 
 import AdminHeader from '../../components/admin_components/AdminHeader';
 import OptionsNav from '../../components/admin_components/OptionsNav';
@@ -18,6 +19,7 @@ function AdminTopicItem({ adminPath }) {
     const [disciplineList, setDisciplineList] = useState([]);
     const [partnerList, setPartnerList] = useState([]);
     const [subDisciplineList, setSubDisciplineList] = useState([]);
+
     const [editButtonDisabled, setEditButtonDisabled] = useState(true);
 
     useEffect(() => {
@@ -33,9 +35,9 @@ function AdminTopicItem({ adminPath }) {
     }, [item]);
 
     useEffect(() => {
-        if (editButtonDisabled && initialItemDetails !== itemDetails) {
+        if (!_.isEqual(initialItemDetails, itemDetails) && editButtonDisabled && !_.isEqual(initialItemDetails, {})) {
             setEditButtonDisabled(false);
-        } else {
+        } else if (_.isEqual(initialItemDetails, itemDetails) && !editButtonDisabled) {
             setEditButtonDisabled(true);
         }
     }, [itemDetails]);
@@ -61,7 +63,7 @@ function AdminTopicItem({ adminPath }) {
         setSubDisciplineList(subDisciplineData);
     }
 
-    async function updateItemDetails(e) {
+    function updateItemDetails(e) {
         e.preventDefault();
 
         if (e.target.name === 'name') {

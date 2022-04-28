@@ -6,16 +6,15 @@ import API from '../../utils/API';
 function AdminLogIn({ adminPath }) {
     const [loginUnauth, setLoginUnauth] = useState('hidden');
 
-    async function loginHandler(e) {
+    function loginHandler(e) {
         e.preventDefault();
         const { email, password } = e.target;
 
-        await API.logIn({
+        API.logIn({
             email: email.value,
             password: password.value
         })
         .then(() => {
-            setLoginUnauth('none');
             window.location.pathname = `${adminPath}`;
         }).catch(() => {
             setLoginUnauth('');
