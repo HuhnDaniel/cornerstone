@@ -126,7 +126,7 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
 
                         <article className="flex text-xl my-2 mx-4">
                             <label htmlFor="partnerId" className="flex-none p-1 mr-1">Partner:</label>
-                            <select id="partnerId" name="partnerId" className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
+                            <select id="partnerId" name="partnerId" onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
                                 <option value={ 0 }>Select an option</option>
                                 {
                                     partnerList.map((partner, i) => {
@@ -140,7 +140,7 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
 
                         <article className="flex text-xl my-2 mx-4">
                             <label htmlFor="subDiscipline" className="flex-none p-1 mr-1">Sub-Discipline:</label>
-                            <select id="subDiscipline" name="subDiscipline" className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
+                            <select id="subDiscipline" name="subDiscipline" onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
                                 <option value={ 0 }>Select an option</option>
                                 {
                                     subDisciplineList.map((subDiscipline, i) => {
@@ -159,6 +159,43 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
                     </form>
                 </main>
             );
+        case 'users':
+            return (
+                <main className="flex-1 m-8 text-2xl">
+                    <h1 className="p-1 m-4">New { topicString }</h1>
+
+                    <form id="add-item" className="flex flex-col">
+                        <article className="flex text-xl my-2 mx-4">
+                            <label htmlFor="name" className="flex-none p-1 mr-1">Name:</label>
+                            <input type="text" id="name" name="name" onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md" />
+                        </article>
+
+                        <article className="flex text-xl my-2 mx-4">
+                            <label htmlFor="email" className="flex-none p-1 mr-1">Email:</label>
+                            <input type="email" id="email" name="email" onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md" />
+                        </article>
+
+                        <article className="flex text-xl my-2 mx-4">
+                            <label htmlFor="password" className="flex-none p-1 mr-1">Password:</label>
+                            <input type="password" id="password" name="password" onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md" />
+                        </article>
+
+                        <article className="flex text-xl my-2 mx-4">
+                            <label htmlFor="rank" className="flex-none p-1 mr-1">Rank:</label>
+                            <select id="rank" name="rank" onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
+                                <option value="user">Select an option</option>
+                                <option value="partner">Partner</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </article>
+
+                        <div>
+                            <p className={`text-center text-red-500 text-lg mt-2 ${emailFormatMsg}`}>Invalid Email format</p>
+                            <button type="button" onClick={ handleAdd } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200" disabled={ buttonDisabled }>Add New</button>
+                        </div>
+                    </form>
+                </main>
+            )
         default:
             return null;
     }

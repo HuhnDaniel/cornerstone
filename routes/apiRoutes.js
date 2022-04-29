@@ -4,12 +4,6 @@ const apiRoutes = Router();
 const passport = require('../config/passport');
 const isAuthenticated = require('../config/middleware/isAuthenticated');
 
-apiRoutes.post('/addUser', async (req, res) => {
-    const userData = await db.User.create(req.body);
-
-    res.json(userData);
-});
-
 apiRoutes.post('/login', passport.authenticate('local'), (req, res) => {
     
     res.json(req.body);
@@ -32,7 +26,67 @@ apiRoutes.get('/logout', function (req, res) {
     });
 });
 
-apiRoutes.get('/getDisciplineItemNames', async (req,res) => {
+apiRoutes.get('/getUserItemNames', async (req, res) => {
+    const userList = await db.User.findAll({
+        attributes: [
+            'id',
+            'name',
+            'path'
+        ]
+    });
+
+    res.json(userList);
+});
+
+apiRoutes.get('/getAllUsers', async (req, res) => {
+    const userList = await db.User.findAll({});
+
+    res.send(userList);
+});
+
+apiRoutes.get('/getUserByPath/', (req, res) => {
+    res.end();
+});
+apiRoutes.get('/getUserByPath/:path', async (req, res) => {
+    const user = await db.User.findAll({
+        where: {
+            path: req.params.path
+        }
+    });
+    
+    res.json(user);
+});
+
+apiRoutes.post('/addUser/', async (req, res) => {
+    const userData = await db.User.create(req.body);
+
+    res.json(userData);
+});
+
+apiRoutes.put('/updateUserById/', (req, res) => {
+    res.end();
+});
+apiRoutes.put('/updateUserById/:userId', async (req, res) => {
+    const user = await db.User.update(req.body, {
+        where: {
+            id: req.params.userId
+        }
+    });
+
+    res.json(user);
+});
+
+apiRoutes.delete('/deleteUserByPath/:userPath', async (req, res) => {
+    const dbUser = await db.User.destroy({
+        where: {
+            path: req.params.userPath
+        }
+    });
+
+    res.json(dbUser);
+});
+
+apiRoutes.get('/getDisciplineItemNames', async (req, res) => {
     const disciplineList = await db.Discipline.findAll({
         attributes: [
             'id',
@@ -42,7 +96,7 @@ apiRoutes.get('/getDisciplineItemNames', async (req,res) => {
     });
 
     res.json(disciplineList);
-})
+});
 
 apiRoutes.get('/getAllDisciplines', async (req, res) => {
     const disciplineList = await db.Discipline.findAll({});

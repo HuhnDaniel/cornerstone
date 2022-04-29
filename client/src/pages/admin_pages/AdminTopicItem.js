@@ -38,7 +38,7 @@ function AdminTopicItem({ adminPath }) {
     useEffect(() => {
         if (!_.isEqual(initialItemDetails, itemDetails) && buttonDisabled && (!_.isEqual(initialItemDetails, {}) || item === 'add')) {
             setButtonDisabled(false);
-        } else if ((_.isEqual(initialItemDetails, itemDetails) || !itemDetails.name) && !buttonDisabled) {
+        } else if ((_.isEqual(initialItemDetails, itemDetails) || !itemDetails.name || (!itemDetails.password && topic === 'users')) && !buttonDisabled) {
             setButtonDisabled(true);
         }
     }, [itemDetails]);
@@ -82,7 +82,7 @@ function AdminTopicItem({ adminPath }) {
     }
 
     async function handleEdit() {
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(itemDetails.email)) {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(itemDetails.email) || !itemDetails.email) {
             await API.updateTopicItem(topicString, itemDetails);
             document.getElementById('edit-item').reset();
             setEmailFormatMsg('hidden');
@@ -94,7 +94,8 @@ function AdminTopicItem({ adminPath }) {
     }
 
     async function handleAdd() {
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(itemDetails.email)) {
+        console.log(itemDetails);
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(itemDetails.email) || !itemDetails.email) {
             await API.addTopicItem(topicString, itemDetails);
             document.getElementById('add-item').reset();
             setEmailFormatMsg('hidden');
