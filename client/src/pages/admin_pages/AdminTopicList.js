@@ -6,7 +6,7 @@ import OptionsNav from '../../components/admin_components/OptionsNav';
 
 import API from '../../utils/API';
 
-function AdminTopicList({ adminPath }) {
+function AdminTopicList({ adminPath, currentUser }) {
     const { topic } = useParams();
     const topicString = topic.replace(/[^a-zA-Z0-9 ]/g, ' ').split(' ').map(e => e[0].toUpperCase() + e.slice(1)).join('-');
 
@@ -32,7 +32,7 @@ function AdminTopicList({ adminPath }) {
         <div>
             <AdminHeader adminPath={ adminPath } />
             <div className="flex flex-col md:flex-row">
-                <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } />
+                <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } currentUser={ currentUser } />
                 <main className="flex-1 m-8 text-2xl">
                     <h1 className="mb-4 mx-4">{ topicString }<span className="float-right text-xl">Remove</span></h1>
                     <ul>

@@ -9,7 +9,7 @@ import AdminAddType from '../../components/admin_components/AdminAddType';
 
 import API from '../../utils/API';
 
-function AdminTopicItem({ adminPath }) {
+function AdminTopicItem({ adminPath, currentUser }) {
     const { topic, item } = useParams();
     const topicString = topic.replace(/[^a-zA-Z0-9 ]/g, ' ').split(' ').map(e => e[0].toUpperCase() + e.slice(1)).join('-').replace(/[ -]/g, '').slice(0, -1);
 
@@ -111,7 +111,7 @@ function AdminTopicItem({ adminPath }) {
             <div>
                 <AdminHeader adminPath={ adminPath } />
                 <div className="flex flex-col md:flex-row">
-                    <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } />
+                    <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } currentUser={ currentUser } />
                     <AdminAddType topic={ topic } topicString={ topicString } updateItemDetails={ updateItemDetails } handleAdd={ handleAdd } disciplineList={ disciplineList } partnerList= { partnerList } subDisciplineList={ subDisciplineList } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
                 </div>
             </div>
@@ -121,7 +121,7 @@ function AdminTopicItem({ adminPath }) {
             <div>
                 <AdminHeader adminPath={ adminPath } />
                 <div className="flex flex-col md:flex-row">
-                    <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } />
+                    <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } currentUser={ currentUser } />
                     <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
                 </div>
             </div>

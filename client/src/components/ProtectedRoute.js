@@ -27,20 +27,20 @@ function ProtectedRoute({ component, adminPath }) {
         switch (component) {
             case 'topicList':
                 return (
-                    <AdminTopicList adminPath={ adminPath } />
+                    <AdminTopicList adminPath={ adminPath } currentUser={ currentUser } />
                 );
             case 'topicItem':
                 return (
-                    <AdminTopicItem adminPath={ adminPath } />
+                    <AdminTopicItem adminPath={ adminPath } currentUser={ currentUser } />
                 );
             default:
                 return (
-                    <AdminHome adminPath={ adminPath } />
+                    <AdminHome adminPath={ adminPath } currentUser={ currentUser } />
                 );
         }
     } else {
         return (
-            <AdminLogin adminPath={ adminPath } />
+            <AdminLogin adminPath={ adminPath } currentUser={ currentUser } />
         );
     }
 };

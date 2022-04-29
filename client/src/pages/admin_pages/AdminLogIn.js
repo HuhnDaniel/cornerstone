@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import AdminHeader from '../../components/admin_components/AdminHeader';
 import API from '../../utils/API';
 
-function AdminLogIn({ adminPath }) {
+function AdminLogIn({ adminPath, currentUser }) {
     const [loginUnauth, setLoginUnauth] = useState('hidden');
 
     function loginHandler(e) {
@@ -23,7 +23,7 @@ function AdminLogIn({ adminPath }) {
 
     return (
         <div>
-            <AdminHeader adminPath={ adminPath } />
+            <AdminHeader adminPath={ adminPath } currentUser={ currentUser } />
             <main className="m-8 text-2xl">
                 <h1>Please provide Admin Credentials</h1>
                 <form className="flex flex-col items-center" onSubmit={loginHandler}>
