@@ -1,6 +1,6 @@
 import React from 'react';
 
-function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, disciplineList, partnerList, subDisciplineList }) {
+function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, disciplineList, partnerList, subDisciplineList, buttonDisabled, emailFormatMsg }) {
     switch (topic) {
         case 'disciplines':
             return (
@@ -16,7 +16,8 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
                         </article>
 
                         <div>
-                            <button type="button" onClick={ handleAdd } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300">Add New</button>
+                            <p className={`text-center text-red-500 text-lg mt-2 ${emailFormatMsg}`}>Invalid Email format</p>
+                            <button type="button" onClick={ handleAdd } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200" disabled={ buttonDisabled }>Add New</button>
                         </div>
                     </form>
                 </main>
@@ -44,7 +45,8 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
                         </article>
 
                         <div>
-                            <button type="button" onClick={ handleAdd } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300">Add New</button>
+                            <p className={`text-center text-red-500 text-lg mt-2 ${emailFormatMsg}`}>Invalid Email format</p>
+                            <button type="button" onClick={ handleAdd } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200" disabled={ buttonDisabled }>Add New</button>
                         </div>
                     </form>
                 </main>
@@ -68,7 +70,8 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
                         </article>
 
                         <div>
-                            <button type="button" onClick={ handleAdd } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300">Add New</button>
+                            <p className={`text-center text-red-500 text-lg mt-2 ${emailFormatMsg}`}>Invalid Email format</p>
+                            <button type="button" onClick={ handleAdd } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200" disabled={ buttonDisabled }>Add New</button>
                         </div>
                     </form>
                 </main>
@@ -150,7 +153,8 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
                         </article>
 
                         <div>
-                            <button type="button" onClick={ handleAdd } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300">Add New</button>
+                            <p className={`text-center text-red-500 text-lg mt-2 ${emailFormatMsg}`}>Invalid Email format</p>
+                            <button type="button" onClick={ handleAdd } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200" disabled={ buttonDisabled }>Add New</button>
                         </div>
                     </form>
                 </main>

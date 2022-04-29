@@ -20,10 +20,11 @@ function AdminTopicItem({ adminPath }) {
     const [partnerList, setPartnerList] = useState([]);
     const [subDisciplineList, setSubDisciplineList] = useState([]);
 
-    const [editButtonDisabled, setEditButtonDisabled] = useState(true);
+    const [buttonDisabled, setButtonDisabled] = useState(true);
+    const [emailFormatMsg, setEmailFormatMsg] = useState('hidden');
 
     useEffect(() => {
-        if (item !== "add") {
+        if (item !== 'add') {
             getItemDetails();
         }
 
@@ -35,10 +36,10 @@ function AdminTopicItem({ adminPath }) {
     }, [item]);
 
     useEffect(() => {
-        if (!_.isEqual(initialItemDetails, itemDetails) && editButtonDisabled && !_.isEqual(initialItemDetails, {})) {
-            setEditButtonDisabled(false);
-        } else if ((_.isEqual(initialItemDetails, itemDetails) || !itemDetails.name) && !editButtonDisabled) {
-            setEditButtonDisabled(true);
+        if (!_.isEqual(initialItemDetails, itemDetails) && buttonDisabled && (!_.isEqual(initialItemDetails, {}) || item === 'add')) {
+            setButtonDisabled(false);
+        } else if ((_.isEqual(initialItemDetails, itemDetails) || !itemDetails.name) && !buttonDisabled) {
+            setButtonDisabled(true);
         }
     }, [itemDetails]);
 
@@ -81,15 +82,27 @@ function AdminTopicItem({ adminPath }) {
     }
 
     async function handleEdit() {
-        await API.updateTopicItem(topicString, itemDetails);
-        document.getElementById('edit-item').reset();
-        window.location.pathname = `${adminPath}${topic}/${itemDetails.path}`;
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(itemDetails.email)) {
+            await API.updateTopicItem(topicString, itemDetails);
+            document.getElementById('edit-item').reset();
+            setEmailFormatMsg('hidden');
+
+            window.location.pathname = `${adminPath}${topic}/${itemDetails.path}`;
+        } else {
+            setEmailFormatMsg('');
+        }
     }
 
     async function handleAdd() {
-        await API.addTopicItem(topicString, itemDetails);
-        document.getElementById('add-item').reset();
-        window.location.pathname = `${adminPath}${topic}/${itemDetails.path}`;
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(itemDetails.email)) {
+            await API.addTopicItem(topicString, itemDetails);
+            document.getElementById('add-item').reset();
+            setEmailFormatMsg('hidden');
+
+            window.location.pathname = `${adminPath}${topic}/${itemDetails.path}`;
+        } else {
+            setEmailFormatMsg('');
+        }
     }
 
     if (item === "add") {
@@ -98,7 +111,7 @@ function AdminTopicItem({ adminPath }) {
                 <AdminHeader adminPath={ adminPath } />
                 <div className="flex flex-col md:flex-row">
                     <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } />
-                    <AdminAddType topic={ topic } topicString={ topicString } updateItemDetails={ updateItemDetails } handleAdd={ handleAdd } disciplineList={ disciplineList } partnerList= { partnerList } subDisciplineList={ subDisciplineList } />
+                    <AdminAddType topic={ topic } topicString={ topicString } updateItemDetails={ updateItemDetails } handleAdd={ handleAdd } disciplineList={ disciplineList } partnerList= { partnerList } subDisciplineList={ subDisciplineList } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
                 </div>
             </div>
         );
@@ -108,7 +121,7 @@ function AdminTopicItem({ adminPath }) {
                 <AdminHeader adminPath={ adminPath } />
                 <div className="flex flex-col md:flex-row">
                     <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } />
-                    <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } editButtonDisabled={ editButtonDisabled } />
+                    <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
                 </div>
             </div>
         );

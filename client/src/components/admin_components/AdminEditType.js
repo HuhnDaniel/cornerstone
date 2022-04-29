@@ -1,6 +1,6 @@
 import React from 'react';
 
-function AdminEditType({ topicString, itemDetails, updateItemDetails, disciplineList, partnerList, subDisciplineList, handleEdit, editButtonDisabled }) {
+function AdminEditType({ topicString, itemDetails, updateItemDetails, disciplineList, partnerList, subDisciplineList, handleEdit, buttonDisabled, emailFormatMsg }) {
     return (
         <main className="flex-1 m-8 text-2xl">
             <form id="edit-item" className="flex flex-col">
@@ -94,7 +94,8 @@ function AdminEditType({ topicString, itemDetails, updateItemDetails, discipline
                 }
 
                 <div>
-                    <button type="button" onClick={ handleEdit } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200" disabled={ editButtonDisabled }>Save Changes</button>
+                    <p className={`text-center text-red-500 text-lg mt-2 ${emailFormatMsg}`}>Invalid Email format</p>
+                    <button type="button" onClick={ handleEdit } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200" disabled={ buttonDisabled }>Save Changes</button>
                 </div>
             </form>
         </main>
