@@ -2,9 +2,12 @@
 
 module.exports = function (sequelize, DataTypes) {
     const Discipline = sequelize.define('Discipline', {
-        field: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        path: {
+            type: DataTypes.STRING
         },
         image: {
             type: DataTypes.STRING
@@ -25,7 +28,7 @@ module.exports = function (sequelize, DataTypes) {
 
     Discipline.associate = function (models) {
         Discipline.hasMany(models.SubDiscipline, {
-            onDelete: 'cascade'
+            // onDelete: 'cascade'
 		});
     };
 

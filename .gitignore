@@ -13,7 +13,7 @@ node_modules
 /build
 /client/build
 /seed_history
-/seeders
+# /seeders
 
 # misc
 .DS_Store

@@ -9,8 +9,9 @@ const initialState = {
     artistCredit: '',
     artistName: '',
     description: '',
-    field: '',
+    name: '',
     id: '',
+    path: '',
     image: ''
 }
 
@@ -44,14 +45,14 @@ class DisciplineOverlay extends Component {
                 <section data-id="margin" className={`absolute flex items-center justify-center top-0 left-0 pb-24 h-full w-full`}>
                     <div className={`${this.props.overlayPositioning} flex flex-col md:flex-row p-4 w-full sm:rounded sm:w-11/12 bg-gray-400 opacity-100 overflow-y-auto md:overflow-y-hidden`}>
                         <div className="hidden md:flex flex-col flex-initial md:flex-1 p-4 overflow-y-auto">
-                            <h1 className="text-2xl mb-4">{this.state.field}</h1>
-							<img className="rounded-md h-60 w-60 mx-auto mb-4" src={this.state.image ? `/images/${this.state.image}.jpg` : null} alt={this.state.field} />
+                            <h1 className="text-2xl mb-4">{this.state.name}</h1>
+							<img className="rounded-md h-60 w-60 mx-auto mb-4" src={this.state.image ? `/images/${this.state.image}.jpg` : null} alt={this.state.name} />
                             <p>{this.state.description}</p>
                         </div>
 
                         <h2 data-id="close" className="absolute self-end text-xl cursor-pointer px-2 md:hidden">⨯</h2>
-                        <h1 className="text-2xl mb-4 md:hidden">{this.state.field}</h1>
-						<img className="rounded-md h-60 w-60 mx-auto mb-4 md:hidden" src={this.state.image ? `/images/${this.state.image}.jpg` : null} alt={this.state.field} />
+                        <h1 className="text-2xl mb-4 md:hidden">{this.state.name}</h1>
+						<img className="rounded-md h-60 w-60 mx-auto mb-4 md:hidden" src={this.state.image ? `/images/${this.state.image}.jpg` : null} alt={this.state.name} />
                         <p className="text-lg md:hidden">{this.state.description}</p>
 
                         <hr className="border-black mt-6 md:hidden" />

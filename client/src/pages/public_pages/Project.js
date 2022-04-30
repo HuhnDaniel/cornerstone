@@ -15,6 +15,7 @@ const emptyProject = {
     awards: "",
     client: "",
     id: null,
+    path: "",
     image: "",
     link: "",
     location: "",

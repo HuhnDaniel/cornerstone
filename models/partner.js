@@ -16,7 +16,10 @@ module.exports = function (sequelize, DataTypes) {
         about: {
             type: DataTypes.STRING(1024)
         },
-        profilePic: {
+        path: {
+            type: DataTypes.STRING
+        },
+        image: {
             type: DataTypes.STRING,
             defaultValue: 'defaultUser'
         }
@@ -25,8 +28,10 @@ module.exports = function (sequelize, DataTypes) {
 	});
 
     Partner.associate = function (models) {
+        Partner.hasOne(models.User, {});
+
         Partner.hasMany(models.Project, {
-            onDelete: 'cascade'
+            // onDelete: 'cascade'
 		});
     };
 

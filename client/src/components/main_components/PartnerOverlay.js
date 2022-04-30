@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import $ from 'jquery';
 
 import ProjectCard from './ProjectCard';
 
@@ -10,25 +9,25 @@ const initialInfo = {};
 function PartnerOverlay({ overlayVisibility, overlayPositioning, currentPartner }) {
     const [partnerInfo, setPartnerInfo] = useState(initialInfo);
 
-    useEffect(async () => {
+    useEffect(() => {
+        getNewPartner();
+    }, [currentPartner]);
+
+    async function getNewPartner() {
         if (partnerInfo.id != currentPartner) {
-            const partner = await getPartner(currentPartner);
+            const { data } = await API.getPartnerById(currentPartner);
             
-            if (Boolean(partner)) {
-                setPartnerInfo(partner);
+            if (Boolean(data[0])) {
+                setPartnerInfo(data[0]);
             } else {
                 setPartnerInfo(initialInfo);
             }
         }
-    }, [currentPartner]);
+    }
+
     useEffect(() => {
         return () => {};
     }, []);
-
-    async function getPartner(currentPartner) {
-        const { data } = await API.getPartnerById(currentPartner);
-        return data[0];
-    }
 
     if (overlayVisibility) {
         return (
@@ -36,14 +35,14 @@ function PartnerOverlay({ overlayVisibility, overlayPositioning, currentPartner 
                 <div className={`${overlayPositioning} flex flex-col md:flex-row p-4 w-full sm:rounded sm:w-11/12 bg-gray-400 opacity-100 overflow-y-auto md:overflow-y-hidden`}>
                     <div className="hidden md:flex flex-col flex-initial md:flex-1 p-4 overflow-y-auto">
                         <h1 className="text-2xl mb-4">{partnerInfo.name}</h1>
-						<img className="rounded-md h-60 w-60 mx-auto mb-4" src={partnerInfo.profilePic ? `/images/${partnerInfo.profilePic}.jpg` : "/images/default-user.svg"} alt={partnerInfo.name} />
+						<img className="rounded-md h-60 w-60 mx-auto mb-4" src={partnerInfo.image ? `/images/${partnerInfo.image}.jpg` : "/images/default-user.svg"} alt={partnerInfo.name} />
                         <p className="text-lg mb-4">{partnerInfo.about}</p>
                         <a href={`mailto:${partnerInfo.email}`} className="text-lg">{partnerInfo.email}</a>
                     </div>
 
                     <h2 data-id="close" className="absolute self-end text-xl cursor-pointer px-2 md:hidden">⨯</h2>
                     <h1 className="text-2xl mb-4 md:hidden">{partnerInfo.name}</h1>
-					<img className="rounded-md h-60 w-60 mx-auto mb-4 md:hidden" src={partnerInfo.profilePic ? `/images/${partnerInfo.profilePic}.jpg` : "/images/default-user.svg"} alt={partnerInfo.name} />
+					<img className="rounded-md h-60 w-60 mx-auto mb-4 md:hidden" src={partnerInfo.image ? `/images/${partnerInfo.image}.jpg` : "/images/default-user.svg"} alt={partnerInfo.name} />
                     <p className="text-lg mb-4 md:hidden">{partnerInfo.about}</p>
                     <a href={`mailto:${partnerInfo.email}`} className="text-lg md:hidden">{partnerInfo.email}</a>
 

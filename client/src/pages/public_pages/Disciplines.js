@@ -27,7 +27,7 @@ function Disciplines({ menuStatus, menuToggle }) {
     async function getDisciplines() {
         const { data } = await API.getDisciplines();
 
-        setDisciplineList(data)
+        setDisciplineList(data);
     }
 
     function handleScroll(e) {
@@ -72,9 +72,9 @@ function Disciplines({ menuStatus, menuToggle }) {
                         disciplineList.map((discipline, i) => {
                             return (
                                 <article className="rounded-md text-white cursor-pointer mx-auto my-4 h-72 w-72 hover:shadow-md transition transition-transform duration-200 transform hover:scale-105" onClick={openOverlay.bind(this)} key={i}>
-									<img data-id={discipline.id} className="rounded-md h-72 w-72" src={`/images/${discipline.image}.jpg`} alt={discipline.field} />
+									<img data-id={discipline.id} className="rounded-md h-72 w-72" src={`/images/${discipline.image}.jpg`} alt={discipline.name} />
                                     <div data-id={discipline.id} className="absolute top-0 bg-black p-4 rounded-t-md bg-opacity-30 w-72">
-                                        <h3 data-id={discipline.id} className="text-2xl">{discipline.field}</h3>
+                                        <h3 data-id={discipline.id} className="text-2xl">{discipline.name}</h3>
                                     </div>
                                     {
                                         discipline.artistCredit ? (

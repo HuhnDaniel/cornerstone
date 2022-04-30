@@ -5,7 +5,10 @@ module.exports = function (sequelize, DataTypes) {
 		name: {
 			type: DataTypes.STRING,
 			allowNull: false
-		}
+		},
+        path: {
+            type: DataTypes.STRING
+        }
 	}, {
 		timestamps: false
 	});
@@ -14,7 +17,7 @@ module.exports = function (sequelize, DataTypes) {
 		SubDiscipline.belongsTo(models.Discipline, {});
 
 		SubDiscipline.hasMany(models.Project, {
-			onDelete: 'cascade'
+			// onDelete: 'cascade'
 		});
 	};
 
