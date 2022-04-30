@@ -20,9 +20,9 @@ module.exports = function (sequelize, DataTypes) {
         password: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [6]
-            }
+            // validate: {
+            //     len: [6]
+            // }
         },
         rank: {
             type: DataTypes.STRING,
@@ -32,6 +32,10 @@ module.exports = function (sequelize, DataTypes) {
     }, {
 		timestamps: false
 	});
+
+    User.associate = function (models) {
+        User.belongsTo(models.Partner, {});
+    }
 
     User.prototype.validPassword = function (password) {
         return bcrypt.compareSync(password, this.password);

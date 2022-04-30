@@ -57,7 +57,7 @@ apiRoutes.get('/getUserByPath/:path', async (req, res) => {
     res.json(user);
 });
 
-apiRoutes.post('/addUser/', async (req, res) => {
+apiRoutes.post('/addUser', async (req, res) => {
     const userData = await db.User.create(req.body);
 
     res.json(userData);

@@ -112,7 +112,13 @@ function AdminTopicItem({ adminPath, currentUser }) {
                 <AdminHeader adminPath={ adminPath } />
                 <div className="flex flex-col md:flex-row">
                     <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } currentUser={ currentUser } />
-                    <AdminAddType topic={ topic } topicString={ topicString } updateItemDetails={ updateItemDetails } handleAdd={ handleAdd } disciplineList={ disciplineList } partnerList= { partnerList } subDisciplineList={ subDisciplineList } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
+                    {
+                        topic === 'users' && currentUser.rank !== 'admin' ? (
+                            <h1 className="flex-1 m-12 text-2xl">Not authorized to be on this page</h1>
+                        ) : (
+                            <AdminAddType topic={ topic } topicString={ topicString } updateItemDetails={ updateItemDetails } handleAdd={ handleAdd } disciplineList={ disciplineList } partnerList= { partnerList } subDisciplineList={ subDisciplineList } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
+                        )
+                    }
                 </div>
             </div>
         );
@@ -122,7 +128,13 @@ function AdminTopicItem({ adminPath, currentUser }) {
                 <AdminHeader adminPath={ adminPath } />
                 <div className="flex flex-col md:flex-row">
                     <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } currentUser={ currentUser } />
-                    <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
+                    {
+                        topic === 'users' && currentUser.rank !== 'admin' ? (
+                            <h1 className="flex-1 m-12 text-2xl">Not authorized to be on this page</h1>
+                        ) : (
+                            <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
+                        )
+                    }
                 </div>
             </div>
         );

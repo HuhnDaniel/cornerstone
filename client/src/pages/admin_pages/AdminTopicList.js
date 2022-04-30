@@ -33,26 +33,32 @@ function AdminTopicList({ adminPath, currentUser }) {
             <AdminHeader adminPath={ adminPath } />
             <div className="flex flex-col md:flex-row">
                 <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } currentUser={ currentUser } />
-                <main className="flex-1 m-8 text-2xl">
-                    <h1 className="mb-4 mx-4">{ topicString }<span className="float-right text-xl">Remove</span></h1>
-                    <ul>
-                    {
-                        topicItems.map((item, i) => {
-                            const bgGray = i % 2 == 0 ? 'bg-gray-100 rounded' : '';
-                            const destination = adminPath + topic + '/' + item.path;
+                {
+                    topic === 'users' && currentUser.rank !== 'admin' ? (
+                        <h1 className="flex-1 m-12 text-2xl">Not authorized to be on this page</h1>
+                    ) : (
+                        <main className="flex-1 m-8 text-2xl">
+                            <h1 className="mb-4 mx-4">{ topicString }<span className="float-right text-xl">Remove</span></h1>
+                            <ul>
+                            {
+                                topicItems.map((item, i) => {
+                                    const bgGray = i % 2 == 0 ? 'bg-gray-100 rounded' : '';
+                                    const destination = adminPath + topic + '/' + item.path;
 
-                            return (
-                                <li className={`flex text-xl py-1 px-4 ${bgGray} hover:bg-gray-200 hover:rounded`} key={ i }>
-                                    <Link className="flex-1" to={ destination }>{ item.name }</Link>
-                                    <button id={ item.path } className="flex-none text-red-600 mx-4" onClick={ handleDelete }>X</button>
-                                </li>
-                            )
-                        })
-                    }
-                    </ul>
+                                    return (
+                                        <li className={`flex text-xl py-1 px-4 ${bgGray} hover:bg-gray-200 hover:rounded`} key={ i }>
+                                            <Link className="flex-1" to={ destination }>{ item.name }</Link>
+                                            <button id={ item.path } className="flex-none text-red-600 mx-4" onClick={ handleDelete }>X</button>
+                                        </li>
+                                    )
+                                })
+                            }
+                            </ul>
 
-                    <Link to={ adminPath + topic + '/add' } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300"> Add {topicString.slice(0, topicString.length - 1)} </Link>
-                </main>
+                            <Link to={ adminPath + topic + '/add' } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300"> Add {topicString.slice(0, topicString.length - 1)} </Link>
+                        </main>
+                    )
+                }
             </div>
         </div>
     );
