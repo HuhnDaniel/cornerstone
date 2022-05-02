@@ -34,7 +34,7 @@ function AdminTopicList({ adminPath, currentUser }) {
             <div className="flex flex-col md:flex-row">
                 <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } currentUser={ currentUser } />
                 {
-                    topic === 'users' && currentUser.rank !== 'admin' ? (
+                    ['users', 'disciplines'].includes(topic) && currentUser.rank !== 'admin' ? (
                         <h1 className="flex-1 m-12 text-2xl">Not authorized to be on this page</h1>
                     ) : (
                         <main className="flex-1 m-8 text-2xl">
