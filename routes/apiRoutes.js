@@ -318,7 +318,8 @@ apiRoutes.get('/getProjectItemNames', async (req, res) => {
         attributes: [
             'id',
             'name',
-            'path'
+            'path',
+            'PartnerId'
         ]
     });
 

@@ -122,22 +122,71 @@ function AdminTopicItem({ adminPath, currentUser }) {
                 </div>
             </div>
         );
-    } else {
+    } else if (currentUser.rank === 'admin') {
         return (
             <div>
                 <AdminHeader adminPath={ adminPath } />
                 <div className="flex flex-col md:flex-row">
                     <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } currentUser={ currentUser } />
-                    {
-                        ['users', 'disciplines'].includes(topic) && currentUser.rank !== 'admin' ? (
-                            <h1 className="flex-1 m-12 text-2xl">Not authorized to be on this page</h1>
-                        ) : (
-                            <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
-                        )
-                    }
+                    <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
                 </div>
             </div>
         );
+    } else {
+        switch (topic) {
+            case 'partners':
+                return (
+                    <div>
+                        <AdminHeader adminPath={ adminPath } />
+                        <div className="flex flex-col md:flex-row">
+                            <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } currentUser={ currentUser } />
+                            {
+                                itemDetails.id !== currentUser.PartnerId ? (
+                                    <h1 className="flex-1 m-12 text-2xl">Not authorized to be on this page</h1>
+                                ) : (
+                                    <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
+                                )
+                            }
+                        </div>
+                    </div>
+                );
+            case 'projects':
+                return (
+                    <div>
+                        <AdminHeader adminPath={ adminPath } />
+                        <div className="flex flex-col md:flex-row">
+                            <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } currentUser={ currentUser } />
+                            {
+                                itemDetails.PartnerId !== currentUser.PartnerId ? (
+                                    <h1 className="flex-1 m-12 text-2xl">Not authorized to be on this page</h1>
+                                ) : (
+                                    <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
+                                )
+                            }
+                        </div>
+                    </div>
+                );
+            case 'sub-disciplines':
+                return (
+                    <div>
+                        <AdminHeader adminPath={ adminPath } />
+                        <div className="flex flex-col md:flex-row">
+                            <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } currentUser={ currentUser } />
+                            <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
+                        </div>
+                    </div>
+                );
+            default:
+                return (
+                    <div>
+                        <AdminHeader adminPath={ adminPath } />
+                        <div className="flex flex-col md:flex-row">
+                            <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } currentUser={ currentUser } />
+                            <h1 className="flex-1 m-12 text-2xl">Not authorized to be on this page</h1>
+                        </div>
+                    </div>
+                );
+        }
     }
 }
 
