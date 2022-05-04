@@ -7,9 +7,13 @@ function OptionsNav({ hidden, adminPath, currentUser }) {
             <article className="mb-4">
                 <h2 className="text-2xl bg-blue-300 p-2">Discipline Topics</h2>
                 <ul className="text-lg">
-                    <li className="p-2">
-                        <Link to={ `${ adminPath }disciplines` }>Disciplines</Link>
-                    </li>
+                {
+                    currentUser.rank === 'admin' ? (
+                        <li className="p-2">
+                            <Link to={ `${ adminPath }disciplines` }>Disciplines</Link>
+                        </li>
+                    ) : null
+                }
                     <li className="p-2">
                         <Link to={ `${ adminPath }sub-disciplines` }>Sub-Disciplines</Link>
                     </li>
