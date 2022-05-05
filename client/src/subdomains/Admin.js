@@ -12,6 +12,7 @@ function Admin() {
         <Router>
                 <Routes>
                     <Route path="/login" element={ <AdminLogIn adminPath={ adminPath } /> } />
+                    <Route path="/updatePW" element={ <ProtectedRoute component='updatePW' adminPath={ adminPath } />} />
                     <Route path="/:topic" element={ <ProtectedRoute component='topicList' adminPath={ adminPath } /> } />
                     <Route path="/:topic/:item" element={ <ProtectedRoute component='topicItem' adminPath={ adminPath } /> } />
                     <Route path="/" element={ <ProtectedRoute component='home' adminPath={ adminPath } /> } />

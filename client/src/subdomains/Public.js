@@ -36,6 +36,7 @@ function Public() {
                     <Route path="/admin/:topic/:item" element={ <ProtectedRoute component='topicItem' adminPath={ adminPath } /> } />
                     <Route path="/admin" element={ <ProtectedRoute component='home' adminPath={ adminPath } /> } />
                     <Route path="/admin/login" element={ <AdminLogIn adminPath={ adminPath } /> } />
+                    <Route path="/admin/updatePW" element={ <ProtectedRoute component='updatePW' adminPath={ adminPath } />} />
                         
                     <Route path="/*" element={ <Homepage menuStatus={menuStatus} menuToggle={menuToggle} /> } />
                 </Routes>
