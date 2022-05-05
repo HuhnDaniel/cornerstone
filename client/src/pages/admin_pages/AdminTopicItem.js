@@ -128,7 +128,7 @@ function AdminTopicItem({ adminPath, currentUser }) {
                 <AdminHeader adminPath={ adminPath } />
                 <div className="flex flex-col md:flex-row">
                     <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } currentUser={ currentUser } />
-                    <AdminEditType adminPath={ adminPath } topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } currentUser={ currentUser } />
+                    <AdminEditType adminPath={ adminPath } topic={ topic } topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } currentUser={ currentUser } />
                 </div>
             </div>
         );

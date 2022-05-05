@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function AdminEditType({ adminPath, topicString, itemDetails, updateItemDetails, disciplineList, partnerList, subDisciplineList, handleEdit, buttonDisabled, emailFormatMsg, currentUser }) {
+function AdminEditType({ adminPath, topic, topicString, itemDetails, updateItemDetails, disciplineList, partnerList, subDisciplineList, handleEdit, buttonDisabled, emailFormatMsg, currentUser }) {
     return (
         <main className="flex-1 m-8 text-2xl">
             <form id="edit-item" className="flex flex-col">
@@ -40,17 +40,6 @@ function AdminEditType({ adminPath, topicString, itemDetails, updateItemDetails,
                                         <textarea id={ key } name={ key } value={ itemDetails[key] ? itemDetails[key] : "" } onChange={ updateItemDetails } className="flex-1 px-2 py-1 h-36 resize-y border border-gray-400 rounded-md" />
                                     </article>
                                 );
-                            // case 'password':
-                            //     if (currentUser.PartnerId === itemDetails.PartnerId && topicString === "User") {
-                            //         return (
-                            //         <article key={ i } className="flex text-xl my-2 mx-4">
-                            //             <label htmlFor={ key } className="flex-none p-1 mr-1">New { key[0].toUpperCase() + key.slice(1) }:</label>
-                            //             <input type="password" id={ key } name={ key } value="" onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md" />
-                            //         </article>
-                            //         );
-                            //     } else {
-                            //         return null;
-                            //     }
                             case 'DisciplineId':
                                 return (
                                     <article key={ i } className="flex text-xl my-2 mx-4">
@@ -109,8 +98,8 @@ function AdminEditType({ adminPath, topicString, itemDetails, updateItemDetails,
                     <p className={`text-center text-red-500 text-lg mt-2 ${emailFormatMsg}`}>Invalid Email format</p>
                     <button type="button" onClick={ handleEdit } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200" disabled={ buttonDisabled }>Save Changes</button>
                     {
-                        (currentUser.PartnerId === itemDetails.PartnerId) && topicString === "User" ? (
-                            <Link to={`${ adminPath }updatePW`} className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200">Change Password</Link>
+                        (currentUser.PartnerId === itemDetails.PartnerId) && topic === "users" ? (
+                            <Link to={`${ adminPath }users/${ itemDetails.path }/updatePW`} className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200">Change Password</Link>
                         ) : null
                     }
                 </div>
