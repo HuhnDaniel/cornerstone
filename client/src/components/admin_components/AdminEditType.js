@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function AdminEditType({ topicString, itemDetails, updateItemDetails, disciplineList, partnerList, subDisciplineList, handleEdit, buttonDisabled, emailFormatMsg }) {
+function AdminEditType({ adminPath, topic, topicString, itemDetails, updateItemDetails, disciplineList, partnerList, subDisciplineList, handleEdit, buttonDisabled, emailFormatMsg, currentUser }) {
     return (
         <main className="flex-1 m-8 text-2xl">
             <form id="edit-item" className="flex flex-col">
@@ -37,6 +38,16 @@ function AdminEditType({ topicString, itemDetails, updateItemDetails, discipline
                                     <article key={ i } className="flex text-xl my-2 mx-4">
                                         <label htmlFor={ key } className="flex-none p-1 mr-1">{ key[0].toUpperCase() + key.slice(1) }:</label>
                                         <textarea id={ key } name={ key } value={ itemDetails[key] ? itemDetails[key] : "" } onChange={ updateItemDetails } className="flex-1 px-2 py-1 h-36 resize-y border border-gray-400 rounded-md" />
+                                    </article>
+                                );case 'rank':
+                                return (
+                                    <article key={ i } className="flex text-xl my-2 mx-4">
+                                        <label htmlFor={ key } className="flex-none p-1 mr-1">Rank:</label>
+                                        <select id={ key } name={ key } value={ itemDetails[key] || 'user' } onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
+                                            <option value="user">Select an option</option>
+                                            <option value="partner">Partner</option>
+                                            <option value="admin">Admin</option>
+                                        </select>
                                     </article>
                                 );
                             case 'DisciplineId':
@@ -87,6 +98,7 @@ function AdminEditType({ topicString, itemDetails, updateItemDetails, discipline
                                         </select>
                                     </article>
                                 );
+                            
                             default:
                                 return (null);
                         }
@@ -96,6 +108,11 @@ function AdminEditType({ topicString, itemDetails, updateItemDetails, discipline
                 <div>
                     <p className={`text-center text-red-500 text-lg mt-2 ${emailFormatMsg}`}>Invalid Email format</p>
                     <button type="button" onClick={ handleEdit } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200" disabled={ buttonDisabled }>Save Changes</button>
+                    {
+                        (currentUser.PartnerId === itemDetails.PartnerId) && topic === "users" ? (
+                            <Link to={`${ adminPath }users/${ itemDetails.path }/updatePW`} className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200">Change Password</Link>
+                        ) : null
+                    }
                 </div>
             </form>
         </main>

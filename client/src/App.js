@@ -9,7 +9,6 @@ function App() {
             <Public />
         );
     } else if (window.location.host.split('.')[0] === 'admin') {
-        console.log('hi');
         return (
             <Admin />
         );

@@ -4,6 +4,7 @@ import AdminLogin from '../pages/admin_pages/AdminLogIn';
 import AdminHome from '../pages/admin_pages/AdminHome';
 import AdminTopicList from '../pages/admin_pages/AdminTopicList';
 import AdminTopicItem from '../pages/admin_pages/AdminTopicItem';
+import AdminUpdatePW from '../pages/admin_pages/AdminUpdatePW';
 
 import API from '../utils/API';
 
@@ -33,6 +34,10 @@ function ProtectedRoute({ component, adminPath }) {
                 return (
                     <AdminTopicItem adminPath={ adminPath } currentUser={ currentUser } />
                 );
+            case 'updatePW':
+                return (
+                    <AdminUpdatePW adminPath={ adminPath } currentUser={ currentUser } />
+                )
             default:
                 return (
                     <AdminHome adminPath={ adminPath } currentUser={ currentUser } />

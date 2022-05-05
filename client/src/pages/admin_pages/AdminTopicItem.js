@@ -30,7 +30,7 @@ function AdminTopicItem({ adminPath, currentUser }) {
 
         if (topic === 'sub-disciplines') {
             getSubDisciplineAssociations();
-        } else if (topic === 'projects') {
+        } else if (topic === 'projects' || topic === 'users') {
             getProjectAssociations();
         }
     }, [item]);
@@ -94,7 +94,6 @@ function AdminTopicItem({ adminPath, currentUser }) {
     }
 
     async function handleAdd() {
-        console.log(itemDetails);
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(itemDetails.email) || !itemDetails.email) {
             await API.addTopicItem(topicString, itemDetails);
             document.getElementById('add-item').reset();
@@ -128,7 +127,7 @@ function AdminTopicItem({ adminPath, currentUser }) {
                 <AdminHeader adminPath={ adminPath } />
                 <div className="flex flex-col md:flex-row">
                     <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } currentUser={ currentUser } />
-                    <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
+                    <AdminEditType adminPath={ adminPath } topic={ topic } topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } currentUser={ currentUser } />
                 </div>
             </div>
         );
