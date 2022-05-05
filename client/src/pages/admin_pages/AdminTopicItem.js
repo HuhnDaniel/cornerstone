@@ -30,7 +30,7 @@ function AdminTopicItem({ adminPath, currentUser }) {
 
         if (topic === 'sub-disciplines') {
             getSubDisciplineAssociations();
-        } else if (topic === 'projects') {
+        } else if (topic === 'projects' || topic === 'users') {
             getProjectAssociations();
         }
     }, [item]);
@@ -94,7 +94,6 @@ function AdminTopicItem({ adminPath, currentUser }) {
     }
 
     async function handleAdd() {
-        console.log(itemDetails);
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(itemDetails.email) || !itemDetails.email) {
             await API.addTopicItem(topicString, itemDetails);
             document.getElementById('add-item').reset();

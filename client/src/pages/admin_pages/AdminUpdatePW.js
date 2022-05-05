@@ -37,12 +37,10 @@ function AdminUpdatePW({ adminPath, currentUser }) {
 
     async function handleUpdatePW(e) {
         e.preventDefault();
-        // console.log(currentUser, userToEdit, e.target.password.value);
         await API.updateTopicItem('User', {
             ...userToEdit,
             password: e.target.password.value
         });
-        // document.getElementById('edit-pw').reset();
 
         window.location.pathname = `${ adminPath }users/${ item }`;
     }
