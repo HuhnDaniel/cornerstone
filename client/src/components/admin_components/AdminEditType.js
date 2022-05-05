@@ -39,6 +39,13 @@ function AdminEditType({ topicString, itemDetails, updateItemDetails, discipline
                                         <textarea id={ key } name={ key } value={ itemDetails[key] ? itemDetails[key] : "" } onChange={ updateItemDetails } className="flex-1 px-2 py-1 h-36 resize-y border border-gray-400 rounded-md" />
                                     </article>
                                 );
+                            // case 'password':
+                            //     return (
+                            //         <article key={ i } className="flex text-xl my-2 mx-4">
+                            //             <label htmlFor={ key } className="flex-none p-1 mr-1">New { key[0].toUpperCase() + key.slice(1) }:</label>
+                            //             <input type="password" id={ key } name={ key } value="" onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md" />
+                            //         </article>
+                            //     );
                             case 'DisciplineId':
                                 return (
                                     <article key={ i } className="flex text-xl my-2 mx-4">
