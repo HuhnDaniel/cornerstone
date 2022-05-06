@@ -70,6 +70,16 @@ apiRoutes.put('/updateUserById/:userId', async (req, res) => {
     const user = await db.User.update(req.body, {
         where: {
             id: req.params.userId
+        }
+    });
+
+    res.json(user);
+});
+
+apiRoutes.put('/updateUserPW/:userId', async (req, res) => {
+    const user = await db.User.update(req.body, {
+        where: {
+            id: req.params.userId
         },
         individualHooks: true
     });

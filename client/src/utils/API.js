@@ -14,6 +14,10 @@ const API = {
         return data;
     },
 
+    updatePW: async function (itemDetails) {
+        return await axios.put(`/api/updateUserPW/${itemDetails.id}`, itemDetails);
+    },
+
     getTopicItemNames: async function (topic) {
         return await axios.get(`/api/get${topic}ItemNames`);
     },
