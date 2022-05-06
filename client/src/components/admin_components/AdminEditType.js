@@ -39,7 +39,8 @@ function AdminEditType({ adminPath, topic, topicString, itemDetails, updateItemD
                                         <label htmlFor={ key } className="flex-none p-1 mr-1">{ key[0].toUpperCase() + key.slice(1) }:</label>
                                         <textarea id={ key } name={ key } value={ itemDetails[key] ? itemDetails[key] : "" } onChange={ updateItemDetails } className="flex-1 px-2 py-1 h-36 resize-y border border-gray-400 rounded-md" />
                                     </article>
-                                );case 'rank':
+                                );
+                            case 'rank':
                                 return (
                                     <article key={ i } className="flex text-xl my-2 mx-4">
                                         <label htmlFor={ key } className="flex-none p-1 mr-1">Rank:</label>

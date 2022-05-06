@@ -37,7 +37,7 @@ function AdminUpdatePW({ adminPath, currentUser }) {
 
     async function handleUpdatePW(e) {
         e.preventDefault();
-        await API.updateTopicItem('User', {
+        await API.updatePW({
             ...userToEdit,
             password: e.target.password.value
         });

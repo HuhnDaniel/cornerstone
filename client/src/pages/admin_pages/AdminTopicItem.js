@@ -84,10 +84,9 @@ function AdminTopicItem({ adminPath, currentUser }) {
     async function handleEdit() {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(itemDetails.email) || !itemDetails.email) {
             await API.updateTopicItem(topicString, itemDetails);
-            document.getElementById('edit-item').reset();
             setEmailFormatMsg('hidden');
 
-            window.location.pathname = `${adminPath}${topic}/${itemDetails.path}`;
+            // window.location.pathname = `${adminPath}${topic}/${itemDetails.path}`;
         } else {
             setEmailFormatMsg('');
         }
