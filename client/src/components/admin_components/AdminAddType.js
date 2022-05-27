@@ -32,7 +32,7 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
 
                         <article className="flex text-xl my-2 mx-4">
                             <label htmlFor="discipline" className="flex-none p-1 mr-1">Discipline:</label>
-                            <select id="discipline" name="discipline" className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
+                            <select id="discipline" name="DisciplineId" className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
                                 <option value={ 0 }>Select an option</option>
                                 {
                                     disciplineList.map((discipline, i) => {
@@ -125,8 +125,8 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
                         </article>
 
                         <article className="flex text-xl my-2 mx-4">
-                            <label htmlFor="partnerId" className="flex-none p-1 mr-1">Partner:</label>
-                            <select id="partnerId" name="partnerId" onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
+                            <label htmlFor="partner" className="flex-none p-1 mr-1">Partner:</label>
+                            <select id="partner" name="PartnerId" onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
                                 <option value={ 0 }>Select an option</option>
                                 {
                                     partnerList.map((partner, i) => {
@@ -140,7 +140,7 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
 
                         <article className="flex text-xl my-2 mx-4">
                             <label htmlFor="subDiscipline" className="flex-none p-1 mr-1">Sub-Discipline:</label>
-                            <select id="subDiscipline" name="subDiscipline" onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
+                            <select id="subDiscipline" name="SubDisciplineId" onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md">
                                 <option value={ 0 }>Select an option</option>
                                 {
                                     subDisciplineList.map((subDiscipline, i) => {

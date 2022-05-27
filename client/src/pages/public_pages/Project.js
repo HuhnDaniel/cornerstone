@@ -89,7 +89,7 @@ function Project({ menuStatus, menuToggle }) {
 
     function NewlineText(overview) {
         const text = overview.text;
-        const newText = text.split('\n').map(str => <p>{str}</p>);
+        const newText = text.split('\n').map((str, i) => <p key={ i }>{str}</p>);
         
         return newText;
     }
@@ -106,9 +106,10 @@ function Project({ menuStatus, menuToggle }) {
                             {
                                 project.Partner ? ( <h2 className="text-xl mb-8"><span className="font-semibold">Project Partner(s): </span><span data-id={project.Partner.id} className="cursor-pointer" onClick={openOverlay.bind(this)}>{project.Partner.name}</span></h2> ) : ( null )
                             }
-                            {
+                            {/* {
                                 project.image ? ( <img src={`/images/${project.image}-rect.jpg`} className="pr-8 max-h-screen" alt={`${project.name}`}/> ) : ( null )
-                            }
+                            } */}
+                            <img src={project.image ? `/images/${project.image}-rect.jpg` : "/images/default-project.svg"} className="pr-8 max-h-screen" alt={`${project.name}`}/>
                             
                         </article>
                         <article className="flex flex-col flex-1 m-4">

@@ -31,7 +31,6 @@ const API = {
     },
 
     addTopicItem: async function (topic, itemDetails) {
-        console.log(topic, itemDetails);
         return await axios.post(`/api/add${topic}`, itemDetails);
     },
 

@@ -45,7 +45,6 @@ function AdminTopicItem({ adminPath, currentUser }) {
 
     async function getItemDetails() {
         const { data } = await API.getItemByPath(topicString, item);
-        console.log(data[0]);
         
         setItemDetails(data[0]);
         setInitialItemDetails(data[0]);
@@ -88,7 +87,7 @@ function AdminTopicItem({ adminPath, currentUser }) {
             document.getElementById('edit-item').reset();
             setEmailFormatMsg('hidden');
 
-            // window.location.pathname = `${adminPath}${topic}/${itemDetails.path}`;
+            window.location.pathname = `${adminPath}${topic}/${itemDetails.path}`;
         } else {
             setEmailFormatMsg('');
         }
