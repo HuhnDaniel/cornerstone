@@ -87,6 +87,13 @@ function Project({ menuStatus, menuToggle }) {
         menuToggle(e);
     }
 
+    function NewlineText(overview) {
+        const text = overview.text;
+        const newText = text.split('\n').map((str, i) => <p key={ i }>{str}</p>);
+        
+        return newText;
+    }
+
     return (
         <main onClick={closeOverlay} className="absolute min-h-full min-w-full">
             <Header menuStatus={menuStatus} />
@@ -99,9 +106,10 @@ function Project({ menuStatus, menuToggle }) {
                             {
                                 project.Partner ? ( <h2 className="text-xl mb-8"><span className="font-semibold">Project Partner(s): </span><span data-id={project.Partner.id} className="cursor-pointer" onClick={openOverlay.bind(this)}>{project.Partner.name}</span></h2> ) : ( null )
                             }
-                            {
+                            {/* {
                                 project.image ? ( <img src={`/images/${project.image}-rect.jpg`} className="pr-8 max-h-screen" alt={`${project.name}`}/> ) : ( null )
-                            }
+                            } */}
+                            <img src={project.image ? `/images/${project.image}-rect.jpg` : "/images/default-project.svg"} className="pr-8 max-h-screen" alt={`${project.name}`}/>
                             
                         </article>
                         <article className="flex flex-col flex-1 m-4">
@@ -112,7 +120,9 @@ function Project({ menuStatus, menuToggle }) {
                                 project.location ? ( <h3 className="m-4 text-lg"><span className="font-semibold">Location: </span>{project.location}</h3> ) : ( null )
                             }
 
-                            <p className="m-4 text-lg">{project.overview}</p>
+                            <div className="m-4 text-lg">
+                                <NewlineText text={ project.overview } />
+                            </div>
                             <p className="m-4 text-lg"><span className="font-semibold">Completion: </span>{project.timeframe}</p>
                             {
                                 project.awards ? ( <p className="m-4 text-lg"><span className="font-semibold">Awards: </span>{project.awards}</p> ) : ( null )

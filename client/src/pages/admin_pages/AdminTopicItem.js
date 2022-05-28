@@ -143,7 +143,7 @@ function AdminTopicItem({ adminPath, currentUser }) {
                                 itemDetails.id !== currentUser.PartnerId ? (
                                     <h1 className="flex-1 m-12 text-2xl">Not authorized to be on this page</h1>
                                 ) : (
-                                    <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
+                                    <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } currentUser={ currentUser } />
                                 )
                             }
                         </div>
@@ -159,7 +159,7 @@ function AdminTopicItem({ adminPath, currentUser }) {
                                 itemDetails.PartnerId !== currentUser.PartnerId ? (
                                     <h1 className="flex-1 m-12 text-2xl">Not authorized to be on this page</h1>
                                 ) : (
-                                    <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
+                                    <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } currentUser={ currentUser } />
                                 )
                             }
                         </div>
@@ -171,7 +171,7 @@ function AdminTopicItem({ adminPath, currentUser }) {
                         <AdminHeader adminPath={ adminPath } />
                         <div className="flex flex-col md:flex-row">
                             <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } currentUser={ currentUser } />
-                            <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
+                            <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } currentUser={ currentUser } />
                         </div>
                     </div>
                 );

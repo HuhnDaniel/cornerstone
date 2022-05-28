@@ -20,8 +20,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING
         },
         image: {
-            type: DataTypes.STRING,
-            defaultValue: 'defaultUser'
+            type: DataTypes.STRING
         }
     }, {
 		timestamps: false
