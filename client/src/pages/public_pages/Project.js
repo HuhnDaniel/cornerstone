@@ -111,7 +111,7 @@ function Project({ menuStatus, menuToggle }) {
                                 project.image ? (
                                     <embed src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/projects/${project.image}`} className={ project.image.split(".")[1] === "pdf#toolbar=0" ? "flex-auto pr-8 h-full w-full" : "flex-auto pr-8 max-h-screen" } alt={`${project.name}`}/>
                                 ) : (
-                                    <img src="https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1666744746/Cornerstone/svgs/default-project.svg" className="pr-8 max-h-screen" alt={`${project.name}`}/>
+                                    <img src="/images/default-project.svg" className="pr-8 max-h-screen" alt={`${project.name}`}/>
                                 )
                             }
                             </div>
