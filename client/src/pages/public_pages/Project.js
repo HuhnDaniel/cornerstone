@@ -101,22 +101,29 @@ function Project({ menuStatus, menuToggle }) {
             {
                 project ? (
                     <section data-id="block" className="relative flex flex-col md:flex-row px-8 pt-2 md:px-16 pb-24">
-                        <article className="flex flex-col flex-2 m-4">
-                            <h1 className="flex-auto text-3xl mb-8">{project.name}</h1>
+                        <article className="flex-2 m-4">
+                            <h1 className="text-3xl mb-8">{project.name}</h1>
                             {
-                                project.Partner ? ( <h2 className="flex-auto text-xl mb-8"><span className="font-semibold">Project Partner(s): </span><span data-id={project.Partner.id} className="cursor-pointer" onClick={openOverlay.bind(this)}>{project.Partner.name}</span></h2> ) : ( null )
+                                project.Partner ? ( <h2 className="text-xl mb-8"><span className="font-semibold">Project Partner(s): </span><span data-id={project.Partner.id} className="cursor-pointer" onClick={openOverlay.bind(this)}>{project.Partner.name}</span></h2> ) : ( null )
                             }
-                            <div className="h-full">
                             {
                                 project.image ? (
-                                    <embed src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/projects/${project.image}`} className={ project.image.split(".")[1] === "pdf#toolbar=0" ? "flex-auto pr-8 h-full w-full" : "flex-auto pr-8 max-h-screen" } alt={`${project.name}`}/>
+                                    <div className="h-full">
+                                    {
+                                        project.image.split(".")[1] === "pdf#toolbar=0" ? (
+                                            <embed src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/projects/${project.image}`} className="pr-8 h-full w-full" alt={`${project.name}`}/>
+                                        ) : (
+                                            <img src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/projects/${project.image}`} className="pr-8 max-h-screen" alt={`${project.name}`}/>
+                                        )
+                                    }
+                                    </div>
+                                    
                                 ) : (
                                     <img src="/images/default-project.svg" className="pr-8 max-h-screen" alt={`${project.name}`}/>
                                 )
                             }
-                            </div>
-                            
                         </article>
+
                         <article className="flex flex-col flex-1 m-4">
                             {
                                 project.client ? ( <h3 className="m-4 mb-0 text-lg"><span className="font-semibold">Client: </span>{project.client}</h3> ) : ( null )
