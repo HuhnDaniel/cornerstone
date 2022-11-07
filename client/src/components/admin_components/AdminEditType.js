@@ -99,7 +99,6 @@ function AdminEditType({ adminPath, topic, topicString, itemDetails, updateItemD
                                         </select>
                                     </article>
                                 );
-                            
                             default:
                                 return (null);
                         }

@@ -106,9 +106,24 @@ function Project({ menuStatus, menuToggle }) {
                             {
                                 project.Partner ? ( <h2 className="text-xl mb-8"><span className="font-semibold">Project Partner(s): </span><span data-id={project.Partner.id} className="cursor-pointer" onClick={openOverlay.bind(this)}>{project.Partner.name}</span></h2> ) : ( null )
                             }
-                            <img src={project.image ? `/images/${project.image}-rect.jpg` : "/images/default-project.svg"} className="pr-8 max-h-screen" alt={`${project.name}`}/>
-                            
+                            {
+                                project.image ? (
+                                    <div className="h-full">
+                                    {
+                                        project.image.split(".")[1] === "pdf#toolbar=0" ? (
+                                            <embed src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/projects/${project.image}`} className="pr-8 h-full w-full" alt={`${project.name}`}/>
+                                        ) : (
+                                            <img src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/projects/${project.image}`} className="pr-8 max-h-screen" alt={`${project.name}`}/>
+                                        )
+                                    }
+                                    </div>
+                                    
+                                ) : (
+                                    <img src="/images/default-project.svg" className="pr-8 max-h-screen" alt={`${project.name}`}/>
+                                )
+                            }
                         </article>
+
                         <article className="flex flex-col flex-1 m-4">
                             {
                                 project.client ? ( <h3 className="m-4 mb-0 text-lg"><span className="font-semibold">Client: </span>{project.client}</h3> ) : ( null )
