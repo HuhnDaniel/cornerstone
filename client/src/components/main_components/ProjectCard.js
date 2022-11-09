@@ -5,8 +5,8 @@ function ProjectCard({ project }) {
     return (
         <Link to={`/project/${project.id}`} className="relative rounded-md cursor-pointer inline-block m-4 h-40 w-40 hover:shadow-md transition transition-transform duration-200 transform hover:scale-105">
             {
-                project.image.split(".")[1] === "pdf#toolbar=0" ? (
-                    <embed data-id="projectCard" className="rounded-md max-w-full h-full" src={project.image ? `https://res.cloudinary.com/cornerstone-collaborative/image/upload/c_thumb,w_200,ar_1:1,g_face/v1654454503/Cornerstone/projects/${project.image}` : "/images/default-project.svg"} alt={project.name} />
+                project.image.split(".")[1] === "pdf" ? (
+                    <embed data-id="projectCard" className="rounded-md max-w-full h-full" src={project.image ? `https://res.cloudinary.com/cornerstone-collaborative/image/upload/c_thumb,w_200,ar_1:1,g_face/v1654454503/Cornerstone/projects/${project.image}#toolbar=0` : "/images/default-project.svg"} alt={project.name} />
 
                 ) : (
                     <img data-id="projectCard" className="rounded-md" src={project.image ? `https://res.cloudinary.com/cornerstone-collaborative/image/upload/c_thumb,w_200,ar_1:1,g_face/v1654454503/Cornerstone/projects/${project.image}` : "/images/default-project.svg"} alt={project.name} />
