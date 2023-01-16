@@ -111,7 +111,7 @@ function Project({ menuStatus, menuToggle }) {
                                     <div className="max-h-screen h-full md:pb-24 pb-0">
                                     {
                                         project.image.split(".")[1] === "pdf" ? (
-                                            <iframe src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/projects/${project.image}#toolbar=0&view=FitH`} className="pr-8 h-full w-full" alt={`${project.name}`}/>
+                                            <iframe src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/projects/${project.image}#toolbar=0&view=FitH&embedded=true`} className="pr-8 h-full w-full" alt={`${project.name}`}/>
                                         ) : (
                                             <img src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/projects/${project.image}`} className="pr-8 max-h-screen" alt={`${project.name}`}/>
                                         )
