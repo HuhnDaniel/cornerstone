@@ -89,7 +89,7 @@ function Project({ menuStatus, menuToggle }) {
 
     function NewlineText(overview) {
         const text = overview.text;
-        const newText = text.split('\n').map((str, i) => <p key={ i }>{str}</p>);
+        const newText = text.split('\n').map((str, i) => <p key={ i } className="h-7">{str}</p>);
         
         return newText;
     }
@@ -140,7 +140,7 @@ function Project({ menuStatus, menuToggle }) {
                                 project.awards ? ( <p className="m-4 text-lg"><span className="font-semibold">Awards: </span>{project.awards}</p> ) : ( null )
                             }
 
-                            <div className="flex flex-row m-4 text-md">
+                            <div className="flex flex-row m-4 text-lg">
                                 {
                                     project.company && project.role ? ( <h3 className="flex-1 text-gray-600">Project experience while at {project.company}, {project.role}</h3> ) : ( null )
                                 }
