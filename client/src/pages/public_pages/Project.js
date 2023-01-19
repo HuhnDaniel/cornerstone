@@ -140,7 +140,7 @@ function Project({ menuStatus, menuToggle }) {
                                 project.awards ? ( <p className="m-4 text-lg"><span className="font-semibold">Awards: </span>{project.awards}</p> ) : ( null )
                             }
 
-                            <div className="flex flex-row m-4 text-md">
+                            <div className="flex flex-row m-4 text-lg">
                                 {
                                     project.company && project.role ? ( <h3 className="flex-1 text-gray-600">Project experience while at {project.company}, {project.role}</h3> ) : ( null )
                                 }
