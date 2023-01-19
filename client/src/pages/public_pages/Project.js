@@ -89,7 +89,7 @@ function Project({ menuStatus, menuToggle }) {
 
     function NewlineText(overview) {
         const text = overview.text;
-        const newText = text.split('\n').map((str, i) => <p key={ i }>{str}</p>);
+        const newText = text.split('\n').map((str, i) => <p key={ i } className="h-7">{str}</p>);
         
         return newText;
     }
