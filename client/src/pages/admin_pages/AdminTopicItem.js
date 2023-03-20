@@ -81,6 +81,14 @@ function AdminTopicItem({ adminPath, currentUser }) {
         }
     }
 
+    function updateItemImage(imageRef) {
+        console.log(imageRef);
+        setItemDetails({
+            ...itemDetails,
+            image: imageRef
+        });
+    }
+
     async function handleEdit() {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(itemDetails.email) || !itemDetails.email) {
             await API.updateTopicItem(topicString, itemDetails);
@@ -115,7 +123,7 @@ function AdminTopicItem({ adminPath, currentUser }) {
                         ['users', 'disciplines'].includes(topic) && currentUser.rank !== 'admin' ? (
                             <h1 className="flex-1 m-12 text-2xl">Not authorized to be on this page</h1>
                         ) : (
-                            <AdminAddType topic={ topic } topicString={ topicString } updateItemDetails={ updateItemDetails } handleAdd={ handleAdd } disciplineList={ disciplineList } partnerList= { partnerList } subDisciplineList={ subDisciplineList } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
+                            <AdminAddType topic={ topic } topicString={ topicString } updateItemDetails={ updateItemDetails } updateItemImage={ updateItemImage } handleAdd={ handleAdd } disciplineList={ disciplineList } partnerList= { partnerList } subDisciplineList={ subDisciplineList } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
                         )
                     }
                 </div>
@@ -127,7 +135,7 @@ function AdminTopicItem({ adminPath, currentUser }) {
                 <AdminHeader adminPath={ adminPath } />
                 <div className="flex flex-col md:flex-row">
                     <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } currentUser={ currentUser } />
-                    <AdminEditType adminPath={ adminPath } topic={ topic } topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } currentUser={ currentUser } />
+                    <AdminEditType adminPath={ adminPath } topic={ topic } topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } updateItemImage={ updateItemImage } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } currentUser={ currentUser } />
                 </div>
             </div>
         );
@@ -143,7 +151,7 @@ function AdminTopicItem({ adminPath, currentUser }) {
                                 itemDetails.id !== currentUser.PartnerId ? (
                                     <h1 className="flex-1 m-12 text-2xl">Not authorized to be on this page</h1>
                                 ) : (
-                                    <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } currentUser={ currentUser } />
+                                    <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } updateItemImage={ updateItemImage } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } currentUser={ currentUser } />
                                 )
                             }
                         </div>
@@ -159,7 +167,7 @@ function AdminTopicItem({ adminPath, currentUser }) {
                                 itemDetails.PartnerId !== currentUser.PartnerId ? (
                                     <h1 className="flex-1 m-12 text-2xl">Not authorized to be on this page</h1>
                                 ) : (
-                                    <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } currentUser={ currentUser } />
+                                    <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } updateItemImage={ updateItemImage } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } currentUser={ currentUser } />
                                 )
                             }
                         </div>
@@ -171,7 +179,7 @@ function AdminTopicItem({ adminPath, currentUser }) {
                         <AdminHeader adminPath={ adminPath } />
                         <div className="flex flex-col md:flex-row">
                             <OptionsNav hidden={"hidden md:block"} adminPath={ adminPath } currentUser={ currentUser } />
-                            <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } currentUser={ currentUser } />
+                            <AdminEditType topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } updateItemImage={ updateItemImage } disciplineList={ disciplineList } partnerList={ partnerList } subDisciplineList={ subDisciplineList } handleEdit={ handleEdit } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } currentUser={ currentUser } />
                         </div>
                     </div>
                 );

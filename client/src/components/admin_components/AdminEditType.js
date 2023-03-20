@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function AdminEditType({ adminPath, topic, topicString, itemDetails, updateItemDetails, disciplineList, partnerList, subDisciplineList, handleEdit, buttonDisabled, emailFormatMsg, currentUser }) {
+import UploadWidget from '../utilities/UploadWidget';
+
+function AdminEditType({ adminPath, topic, topicString, itemDetails, updateItemDetails, updateItemImage, disciplineList, partnerList, subDisciplineList, handleEdit, buttonDisabled, emailFormatMsg, currentUser }) {
     return (
         <main className="flex-1 m-8 text-2xl">
             <form id="edit-item" className="flex flex-col">
@@ -38,6 +40,23 @@ function AdminEditType({ adminPath, topic, topicString, itemDetails, updateItemD
                                     <article key={ i } className="flex text-xl my-2 mx-4">
                                         <label htmlFor={ key } className="flex-none p-1 mr-1">{ key[0].toUpperCase() + key.slice(1) }:</label>
                                         <textarea id={ key } name={ key } value={ itemDetails[key] ? itemDetails[key] : "" } onChange={ updateItemDetails } className="flex-1 px-2 py-1 h-36 resize-y border border-gray-400 rounded-md" />
+                                    </article>
+                                );
+                            case 'image':
+                                return (
+                                    <article key={ i } className="flex flex-col text-xl my-2 mx-4">
+                                        <div className="max-h-screen h-full p-1">
+                                        {
+                                            itemDetails[key].split(".")[1] === "pdf" ? (
+                                                <iframe src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/${topic}/${itemDetails[key]}#toolbar=0&view=FitH&embedded=true`} className="h-full w-full" alt={`${itemDetails[key]}`}/>
+                                            ) : (
+                                                <img src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/${topic}/${itemDetails[key]}`} className="max-h-screen" alt={`${itemDetails[key]}`}/>
+                                            )
+                                        }
+                                        </div>
+                                        <div>
+                                            <UploadWidget targetFolder={'Cornerstone/' + topic} functionality='edit' updateItemImage={ updateItemImage } />
+                                        </div>
                                     </article>
                                 );
                             case 'rank':
