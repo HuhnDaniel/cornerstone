@@ -47,10 +47,18 @@ function AdminEditType({ adminPath, topic, topicString, itemDetails, updateItemD
                                     <article key={ i } className="flex flex-col text-xl my-2 mx-4">
                                         <div className="max-h-screen h-full p-1">
                                         {
-                                            itemDetails[key].split(".")[1] === "pdf" ? (
-                                                <iframe src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/${topic}/${itemDetails[key]}#toolbar=0&view=FitH&embedded=true`} className="h-full w-full" alt={`${itemDetails[key]}`}/>
+                                            itemDetails[key] ? (
+                                                <div>
+                                                {
+                                                    itemDetails[key].split(".")[1] === "pdf" ? (
+                                                        <iframe src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/${topic}/${itemDetails[key]}#toolbar=0&view=FitH&embedded=true`} className="h-full w-full" alt={`${itemDetails[key]}`}/>
+                                                    ) : (
+                                                        <img src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/${topic}/${itemDetails[key]}`} className="max-h-screen" alt={`${itemDetails[key]}`}/>
+                                                    )
+                                                }
+                                                </div>
                                             ) : (
-                                                <img src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/${topic}/${itemDetails[key]}`} className="max-h-screen" alt={`${itemDetails[key]}`}/>
+                                                <img src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/svgs/default-${topic}`} className="max-h-screen" alt={`${itemDetails[key]}`}/>
                                             )
                                         }
                                         </div>

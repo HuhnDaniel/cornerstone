@@ -20,7 +20,8 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING
         },
         image: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: true
         }
     }, {
 		timestamps: false
