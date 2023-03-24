@@ -127,6 +127,7 @@ function AdminEditType({ adminPath, topic, topicString, itemDetails, updateItemD
                 <div>
                     <p className={`text-center text-red-500 text-lg mt-2 ${emailFormatMsg}`}>Invalid Email format</p>
                     <button type="button" onClick={ handleEdit } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200" disabled={ buttonDisabled }>Save Changes</button>
+                    <button type="button" onClick={ () => window.location.reload(false) } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200" disabled={ buttonDisabled }>Revert Changes</button>
                     {
                         (currentUser.PartnerId === itemDetails.PartnerId) && topic === "users" ? (
                             <Link to={`${ adminPath }users/${ itemDetails.path }/updatePW`} className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200">Change Password</Link>

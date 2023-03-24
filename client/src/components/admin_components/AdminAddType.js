@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, disciplineList, partnerList, subDisciplineList, buttonDisabled, emailFormatMsg }) {
+function AdminAddType({ adminPath, topic, topicString, updateItemDetails, handleAdd, disciplineList, partnerList, subDisciplineList, buttonDisabled, emailFormatMsg }) {
     switch (topic) {
         case 'disciplines':
             return (
@@ -18,6 +19,7 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
                         <div>
                             <p className={`text-center text-red-500 text-lg mt-2 ${emailFormatMsg}`}>Invalid Email format</p>
                             <button type="button" onClick={ handleAdd } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200" disabled={ buttonDisabled }>Add New</button>
+                            <Link to={ `${ adminPath }${ topic }` } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300">Cancel</Link>
                         </div>
                     </form>
                 </main>
@@ -47,6 +49,7 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
                         <div>
                             <p className={`text-center text-red-500 text-lg mt-2 ${emailFormatMsg}`}>Invalid Email format</p>
                             <button type="button" onClick={ handleAdd } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200" disabled={ buttonDisabled }>Add New</button>
+                            <Link to={ `${ adminPath }${ topic }` } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300">Cancel</Link>
                         </div>
                     </form>
                 </main>
@@ -72,6 +75,7 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
                         <div>
                             <p className={`text-center text-red-500 text-lg mt-2 ${emailFormatMsg}`}>Invalid Email format</p>
                             <button type="button" onClick={ handleAdd } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200" disabled={ buttonDisabled }>Add New</button>
+                            <Link to={ `${ adminPath }${ topic }` } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300">Cancel</Link>
                         </div>
                     </form>
                 </main>
@@ -155,6 +159,7 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
                         <div>
                             <p className={`text-center text-red-500 text-lg mt-2 ${emailFormatMsg}`}>Invalid Email format</p>
                             <button type="button" onClick={ handleAdd } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200" disabled={ buttonDisabled }>Add New</button>
+                            <Link to={ `${ adminPath }${ topic }` } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300">Cancel</Link>
                         </div>
                     </form>
                 </main>
@@ -192,6 +197,7 @@ function AdminAddType({ topic, topicString, updateItemDetails, handleAdd, discip
                         <div>
                             <p className={`text-center text-red-500 text-lg mt-2 ${emailFormatMsg}`}>Invalid Email format</p>
                             <button type="button" onClick={ handleAdd } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300 disabled:bg-slate-200" disabled={ buttonDisabled }>Add New</button>
+                            <Link to={ `${ adminPath }${ topic }` } className="p-2 text-lg float-right mr-8 mt-4 rounded-lg bg-blue-300">Cancel</Link>
                         </div>
                     </form>
                 </main>
