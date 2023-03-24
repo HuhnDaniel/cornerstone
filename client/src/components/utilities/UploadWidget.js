@@ -15,8 +15,8 @@ function UploadWidget( { targetFolder, functionality, updateItemImage } ) {
             folder: targetFolder
         }, (err, res) => {
             if (res.event === 'success') {
-                console.log(res.info.public_id.split('/')[res.info.public_id.split('/').length - 1]);
-                updateItemImage(res.info.public_id.split('/')[res.info.public_id.split('/').length - 1]);
+                console.log(res);
+                updateItemImage(res.info.public_id.split('/')[res.info.public_id.split('/').length - 1] + '.' + res.info.format);
             }
         });
     }, [targetFolder])
