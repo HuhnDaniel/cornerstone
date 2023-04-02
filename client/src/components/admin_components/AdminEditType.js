@@ -43,7 +43,6 @@ function AdminEditType({ adminPath, topic, topicString, itemDetails, updateItemD
                                     </article>
                                 );
                             case 'image':
-                                console.log(itemDetails[key]);
                                 return (
                                     <article key={ i } className="flex flex-col text-xl my-2 mx-4">
                                         <div className="max-h-screen h-full p-1">

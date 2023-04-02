@@ -82,7 +82,6 @@ function AdminTopicItem({ adminPath, currentUser }) {
     }
 
     function updateItemImage(imageRef) {
-        console.log(imageRef);
         setItemDetails({
             ...itemDetails,
             image: imageRef
@@ -123,7 +122,7 @@ function AdminTopicItem({ adminPath, currentUser }) {
                         ['users', 'disciplines'].includes(topic) && currentUser.rank !== 'admin' ? (
                             <h1 className="flex-1 m-12 text-2xl">Not authorized to be on this page</h1>
                         ) : (
-                            <AdminAddType adminPath={ adminPath } topic={ topic } topicString={ topicString } updateItemDetails={ updateItemDetails } updateItemImage={ updateItemImage } handleAdd={ handleAdd } disciplineList={ disciplineList } partnerList= { partnerList } subDisciplineList={ subDisciplineList } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
+                            <AdminAddType adminPath={ adminPath } topic={ topic } topicString={ topicString } itemDetails={ itemDetails } updateItemDetails={ updateItemDetails } updateItemImage={ updateItemImage } handleAdd={ handleAdd } disciplineList={ disciplineList } partnerList= { partnerList } subDisciplineList={ subDisciplineList } buttonDisabled={ buttonDisabled } emailFormatMsg={ emailFormatMsg } />
                         )
                     }
                 </div>

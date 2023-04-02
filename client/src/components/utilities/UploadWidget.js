@@ -3,28 +3,28 @@
 import { useEffect, useRef } from "react";
 
 function UploadWidget( { targetFolder, functionality, updateItemImage } ) {
-    const cloudinaryRef = useRef();
-    const widgetRef = useRef();
     useEffect(() => {
-        cloudinaryRef.current = window.cloudinary;
-        widgetRef.current = cloudinaryRef.current.createUploadWidget({
-            cloudName: process.env.REACT_APP_CLOUDNAME,
-            uploadPreset: process.env.REACT_APP_UPLOAD_PRESET,
-            showUploadMoreButton: false,
-            multiple: false,
-            folder: targetFolder
-        }, (err, res) => {
-            if (res.event === 'success') {
-                console.log(res);
-                updateItemImage(res.info.public_id.split('/')[res.info.public_id.split('/').length - 1] + '.' + res.info.format);
-            }
-        });
     }, [targetFolder])
 
     function openWidget(e) {
         e.preventDefault();
 
-        widgetRef.current.open()
+        var myWidget = window.cloudinary.createUploadWidget(
+            {
+                cloudName: process.env.REACT_APP_CLOUDNAME,
+                uploadPreset: process.env.REACT_APP_UPLOAD_PRESET,
+                showUploadMoreButton: false,
+                multiple: false,
+                folder: targetFolder
+            },
+            (error, res) => {
+                if (!error && res && res.event === "success") {
+                    updateItemImage(res.info.public_id.split('/')[res.info.public_id.split('/').length - 1] + '.' + res.info.format);
+                }
+            }
+          );
+
+        myWidget.open();
     }
 
     return (

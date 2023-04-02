@@ -1,6 +1,8 @@
 import React from "react";
 
-function AddTypeFields({ topic, updateItemDetails, disciplineList, partnerList, subDisciplineList }) {
+import UploadWidget from "../utilities/UploadWidget";
+
+function AddTypeFields({ topic, itemDetails, updateItemDetails, updateItemImage, disciplineList, partnerList, subDisciplineList }) {
     switch (topic) {
         case 'disciplines':
             return (
@@ -37,7 +39,30 @@ function AddTypeFields({ topic, updateItemDetails, disciplineList, partnerList, 
                         <label htmlFor="about" className="flex-none p-1 mr-1">About:</label>
                         <textarea id="about" name="about" onChange={ updateItemDetails } className="flex-1 px-2 py-1 h-36 resize-y border border-gray-400 rounded-md" />
                     </article>
-                </div>   
+
+                    <article className="flex flex-col text-xl my-2 mx-4">
+                        <div className="max-h-screen h-full p-1">
+                        {
+                            itemDetails['image'] ? (
+                                <div>
+                                {
+                                    itemDetails['image'].split(".")[1] === "pdf" ? (
+                                        <iframe src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/${topic}/${itemDetails['image']}#toolbar=0&view=FitH&embedded=true`} className="h-full w-full" alt={`${itemDetails['image']}`}/>
+                                    ) : (
+                                        <img src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/${topic}/${itemDetails['image']}`} className="max-h-screen" alt={`${itemDetails['image']}`}/>
+                                    )
+                                }
+                                </div>
+                            ) : (
+                                <img src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/svgs/default-${topic}`} className="max-h-screen" alt={`${itemDetails['image']}`}/>
+                            )
+                        }
+                        </div>
+                        <div>
+                            <UploadWidget targetFolder={'Cornerstone/' + topic} functionality='edit' updateItemImage={ updateItemImage } />
+                        </div>
+                    </article>
+                </div>
             );
         case 'projects':
             return (
@@ -80,6 +105,29 @@ function AddTypeFields({ topic, updateItemDetails, disciplineList, partnerList, 
                     <article className="flex text-xl my-2 mx-4">
                         <label htmlFor="role" className="flex-none p-1 mr-1">Role:</label>
                         <input type="text" id="role" name="role" onChange={ updateItemDetails } className="flex-1 px-2 py-1 border border-gray-400 rounded-md" />
+                    </article>
+
+                    <article className="flex flex-col text-xl my-2 mx-4">
+                        <div className="max-h-screen h-full p-1">
+                        {
+                            itemDetails['image'] ? (
+                                <div>
+                                {
+                                    itemDetails['image'].split(".")[1] === "pdf" ? (
+                                        <iframe src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/${topic}/${itemDetails['image']}#toolbar=0&view=FitH&embedded=true`} className="h-full w-full" alt={`${itemDetails['image']}`}/>
+                                    ) : (
+                                        <img src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/${topic}/${itemDetails['image']}`} className="max-h-screen" alt={`${itemDetails['image']}`}/>
+                                    )
+                                }
+                                </div>
+                            ) : (
+                                <img src={`https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654454502/Cornerstone/svgs/default-${topic}`} className="max-h-screen" alt={`${itemDetails['image']}`}/>
+                            )
+                        }
+                        </div>
+                        <div>
+                            <UploadWidget targetFolder={'Cornerstone/' + topic} functionality='edit' updateItemImage={ updateItemImage } />
+                        </div>
                     </article>
 
                     <article className="flex text-xl my-2 mx-4">
