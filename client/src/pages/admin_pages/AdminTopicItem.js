@@ -95,6 +95,10 @@ function AdminTopicItem({ adminPath, currentUser }) {
     async function handleEdit() {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(itemDetails.email) || !itemDetails.email) {
             await API.updateTopicItem(topicString, itemDetails);
+            if (initialItemDetails.image) {
+                await API.deleteUnusedImage(topic, initialItemDetails.image.split('.')[0]);
+            }
+
             document.getElementById('edit-item').reset();
             setEmailFormatMsg('hidden');
 
@@ -107,6 +111,9 @@ function AdminTopicItem({ adminPath, currentUser }) {
     async function handleAdd() {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(itemDetails.email) || !itemDetails.email) {
             await API.addTopicItem(topicString, itemDetails);
+            if (initialItemDetails.image) {
+                await API.deleteUnusedImage(topic, initialItemDetails.image.split('.')[0]);
+            }
             document.getElementById('add-item').reset();
             setEmailFormatMsg('hidden');
 
