@@ -81,7 +81,11 @@ function AdminTopicItem({ adminPath, currentUser }) {
         }
     }
 
-    function updateItemImage(imageRef) {
+    async function updateItemImage(imageRef) {
+        if (itemDetails.image != initialItemDetails.image) {
+            await API.deleteUnusedImage(topic, itemDetails.image.split('.')[0]);
+        }
+
         setItemDetails({
             ...itemDetails,
             image: imageRef

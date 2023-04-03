@@ -1,11 +1,21 @@
+require('dotenv').config();
+
 const Router = require('express').Router;
 const db = require('../models');
 const apiRoutes = Router();
 const passport = require('../config/passport');
 const isAuthenticated = require('../config/middleware/isAuthenticated');
+const cloudinary = require('cloudinary');
+
+console.log('----------------', process.env.REACT_APP_API_KEY, process.env.REACT_APP_API_SECRET);
+
+cloudinary.config({
+    cloud_name: process.env.REACT_APP_CLOUDNAME,
+    api_key: process.env.REACT_APP_API_KEY,
+    api_secret: process.env.REACT_APP_API_SECRET
+});
 
 apiRoutes.post('/login', passport.authenticate('local'), (req, res) => {
-    
     res.json(req.body);
 });
 
@@ -396,6 +406,15 @@ apiRoutes.delete('/deleteProjectByPath/:projectPath', async (req, res) => {
     });
 
     res.json(dbProject);
+});
+
+apiRoutes.delete('/deleteUnusedImage/:topic/:image', async (req, res) => {
+
+    cloudinary.v2.uploader.destroy('Cornerstone/' + req.params.topic + '/' + req.params.image, function(result, error) {
+        console.log(result, error);
+    });
+
+    res.end();
 });
 
 module.exports = apiRoutes;
