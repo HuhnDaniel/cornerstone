@@ -56,6 +56,10 @@ const API = {
 
     getProjectById: async function (projId) {
         return await axios.get(`/api/getProjectById/${projId}`);
+    },
+
+    deleteUnusedImage: async function (topic, image) {
+        return await axios.delete(`/api/deleteUnusedImage/${topic}/${image}`);
     }
 }
 
