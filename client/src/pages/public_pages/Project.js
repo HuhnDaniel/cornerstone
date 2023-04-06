@@ -88,8 +88,9 @@ function Project({ menuStatus, menuToggle }) {
     }
 
     function NewlineText(overview) {
+        const noWrap = project.SubDisciplineId === 11 ? 'whitespace-nowrap  text-xs sm:text-sm md:text-base lg:text-sm xl:text-lg' : '';
         const text = overview.text;
-        const newText = text.split('\n').map((str, i) => <p key={ i } className={ str === '' ? "h-7" : "" }>{ str }</p>);
+        const newText = text.split('\n').map((str, i) => <p key={ i } className={ str === '' ? 'h-7' : noWrap }>{ str }</p>);
         
         return newText;
     }
@@ -100,7 +101,7 @@ function Project({ menuStatus, menuToggle }) {
 
             {
                 project ? (
-                    <section data-id="block" className="relative flex flex-col md:flex-row px-8 pt-2 md:px-16 pb-24">
+                    <section data-id="block" className={"relative flex flex-col px-8 pt-2 md:px-16 pb-24" + (project.SubDisciplineId === 11 ? ' lg:flex-row' : ' md:flex-row')}>
                         <article className="flex-2 m-4">
                             <h1 className="text-3xl mb-8">{project.name}</h1>
                             {
@@ -132,7 +133,7 @@ function Project({ menuStatus, menuToggle }) {
                                 project.location ? ( <h3 className="m-4 text-lg"><span className="font-semibold">Location: </span>{project.location}</h3> ) : ( null )
                             }
 
-                            <div className="m-4 text-lg">
+                            <div className="sm:m-4 text-lg">
                                 <NewlineText text={ project.overview } />
                             </div>
                             <p className="m-4 text-lg"><span className="font-semibold">Completion: </span>{project.timeframe}</p>
