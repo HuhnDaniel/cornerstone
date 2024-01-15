@@ -88,7 +88,7 @@ function Project({ menuStatus, menuToggle }) {
     }
 
     function NewlineText(overview) {
-        const noWrap = project.SubDisciplineId === 11 ? 'whitespace-nowrap  text-xs sm:text-sm md:text-base lg:text-sm xl:text-lg' : '';
+        const noWrap = project.SubDisciplineId === 11 ? 'whitespace-nowrap  text-xs sm:text-sm md:text-base lg:text-sm xl:text-lg select-none' : '';
         const text = overview.text;
         const newText = text.split('\n').map((str, i) => <p key={ i } className={ str === '' ? 'h-7' : noWrap }>{ str }</p>);
         
@@ -136,7 +136,9 @@ function Project({ menuStatus, menuToggle }) {
                             <div className="sm:m-4 text-lg">
                                 <NewlineText text={ project.overview } />
                             </div>
-                            <p className="m-4 text-lg"><span className="font-semibold">Completion: </span>{project.timeframe}</p>
+                            {
+                                project.timeframe ? ( <p className="m-4 text-lg"><span className="font-semibold">Completion: </span>{project.timeframe}</p> ) : ( null )
+                            }
                             {
                                 project.awards ? ( <p className="m-4 text-lg"><span className="font-semibold">Awards: </span>{project.awards}</p> ) : ( null )
                             }
