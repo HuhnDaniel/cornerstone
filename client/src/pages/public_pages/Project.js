@@ -5,6 +5,7 @@ import $ from 'jquery';
 import Header from '../../components/main_components/Header';
 import PartnerOverlay from '../../components/main_components/PartnerOverlay';
 import Footer from '../../components/main_components/Footer';
+import NewlineText from '../../utils/NewlineText';
 
 import API from '../../utils/API';
 
@@ -87,14 +88,6 @@ function Project({ menuStatus, menuToggle }) {
         menuToggle(e);
     }
 
-    function NewlineText(overview) {
-        const noWrap = project.SubDisciplineId === 11 ? 'whitespace-nowrap  text-xs sm:text-sm md:text-base lg:text-sm xl:text-lg' : '';
-        const text = overview.text;
-        const newText = text.split('\n').map((str, i) => <p key={ i } className={ str === '' ? 'h-7' : noWrap }>{ str }</p>);
-        
-        return newText;
-    }
-
     return (
         <main onClick={closeOverlay} className="absolute min-h-full min-w-full">
             <Header menuStatus={menuStatus} />
@@ -134,9 +127,14 @@ function Project({ menuStatus, menuToggle }) {
                             }
 
                             <div className="sm:m-4 text-lg">
-                                <NewlineText text={ project.overview } />
+                                <NewlineText text={ project.overview } subID={ project.subDisciplineId } />
                             </div>
-                            <p className="m-4 text-lg"><span className="font-semibold">Completion: </span>{project.timeframe}</p>
+                            {
+                                project.link ? ( <p className="m-4 text-lg"><span className="font-semibold">Project Website: </span><a href={ project.link } className='text-blue-500 hover:underline' target='_blank' rel='noopener noreferrer'>{ project.name }</a></p> ) : ( null )
+                            }
+                            {
+                                project.timeframe ? ( <p className="m-4 text-lg"><span className="font-semibold">Completion: </span>{project.timeframe}</p> ) : ( null )
+                            }
                             {
                                 project.awards ? ( <p className="m-4 text-lg"><span className="font-semibold">Awards: </span>{project.awards}</p> ) : ( null )
                             }

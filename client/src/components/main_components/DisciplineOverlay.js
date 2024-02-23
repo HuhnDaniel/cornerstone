@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import SubDiscipline from './SubDiscipline';
+import NewlineText from '../../utils/NewlineText';
 
 import API from '../../utils/API';
 
@@ -46,14 +47,26 @@ class DisciplineOverlay extends Component {
                     <div className={`${this.props.overlayPositioning} flex flex-col md:flex-row p-4 w-full sm:rounded sm:w-11/12 bg-gray-400 opacity-100 overflow-y-auto md:overflow-y-hidden`}>
                         <div className="hidden md:flex flex-col flex-initial md:flex-1 p-4 overflow-y-auto">
                             <h1 className="text-2xl mb-4">{this.state.name}</h1>
-							<img className="rounded-md h-60 w-60 mx-auto mb-4" src={this.state.image ? `/images/${this.state.image}.jpg` : null} alt={this.state.name} />
-                            <p>{this.state.description}</p>
+							<img className="rounded-md h-60 w-60 mx-auto mb-4" src={this.state.image ? `https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1705351934/Cornerstone/disciplines/${this.state.image}` : null} alt={this.state.name} />
+                            {
+                                this.state.description ? (
+                                    <div className="text-lg mb-4">
+                                        <NewlineText text={ this.state.description } />
+                                    </div>
+                                ) : null
+                            }
                         </div>
 
                         <h2 data-id="close" className="absolute self-end text-xl cursor-pointer px-2 md:hidden">⨯</h2>
                         <h1 className="text-2xl mb-4 md:hidden">{this.state.name}</h1>
-						<img className="rounded-md h-60 w-60 mx-auto mb-4 md:hidden" src={this.state.image ? `/images/${this.state.image}.jpg` : null} alt={this.state.name} />
-                        <p className="text-lg md:hidden">{this.state.description}</p>
+						<img className="rounded-md h-60 w-60 mx-auto mb-4 md:hidden" src={this.state.image ? `https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1705351934/Cornerstone/disciplines/${this.state.image}` : null} alt={this.state.name} />
+                        {
+                            this.state.description ? (
+                                <div className="text-lg mb-4 md:hidden">
+                                    <NewlineText text={ this.state.description } />
+                                </div>
+                            ) : null
+                        }
 
                         <hr className="border-black mt-6 md:hidden" />
 

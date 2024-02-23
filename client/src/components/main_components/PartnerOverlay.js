@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import ProjectCard from './ProjectCard';
+import NewlineText from '../../utils/NewlineText';
 
 import API from '../../utils/API';
 
@@ -36,14 +37,26 @@ function PartnerOverlay({ overlayVisibility, overlayPositioning, currentPartner 
                     <div className="hidden md:flex flex-col flex-initial md:flex-1 p-4 overflow-y-auto">
                         <h1 className="text-2xl mb-4">{partnerInfo.name}</h1>
 						<img className="rounded-md h-60 w-60 mx-auto mb-4" src={partnerInfo.image ? `https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654452515/Cornerstone/partners/${partnerInfo.image}` : "/images/default-user.svg"} alt={partnerInfo.name} />
-                        <p className="text-lg mb-4">{partnerInfo.about}</p>
+                        {
+                            partnerInfo.about ? (
+                                <div className="text-lg mb-4">
+                                    <NewlineText text={ partnerInfo.about } />
+                                </div>
+                            ) : null
+                        }
                         <a href={`mailto:${partnerInfo.email}`} className="text-lg">{partnerInfo.email}</a>
                     </div>
 
                     <h2 data-id="close" className="absolute self-end text-xl cursor-pointer px-2 md:hidden">⨯</h2>
                     <h1 className="text-2xl mb-4 md:hidden">{partnerInfo.name}</h1>
 					<img className="rounded-md h-60 w-60 mx-auto mb-4 md:hidden" src={partnerInfo.image ? `https://res.cloudinary.com/cornerstone-collaborative/image/upload/v1654452515/Cornerstone/partners/${partnerInfo.image}` : "/images/default-user.svg"} alt={partnerInfo.name} />
-                    <p className="text-lg mb-4 md:hidden">{partnerInfo.about}</p>
+                    { 
+                        partnerInfo.about ? (
+                            <div className="text-lg mb-4 md:hidden">
+                                <NewlineText text={ partnerInfo.about } />
+                            </div>
+                        ) : null
+                    }
                     <a href={`mailto:${partnerInfo.email}`} className="text-lg md:hidden">{partnerInfo.email}</a>
 
                     <hr className="border-black mt-6 md:hidden" />
