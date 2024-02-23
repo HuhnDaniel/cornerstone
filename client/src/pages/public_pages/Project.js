@@ -5,7 +5,7 @@ import $ from 'jquery';
 import Header from '../../components/main_components/Header';
 import PartnerOverlay from '../../components/main_components/PartnerOverlay';
 import Footer from '../../components/main_components/Footer';
-import NewlineText from '../../utils/Utilities';
+import NewlineText from '../../utils/NewlineText';
 
 import API from '../../utils/API';
 
@@ -129,6 +129,9 @@ function Project({ menuStatus, menuToggle }) {
                             <div className="sm:m-4 text-lg">
                                 <NewlineText text={ project.overview } subID={ project.subDisciplineId } />
                             </div>
+                            {
+                                project.link ? ( <p className="m-4 text-lg"><span className="font-semibold">Project Website: </span><a href={ project.link } className='text-blue-500 hover:underline' target='_blank' rel='noopener noreferrer'>{ project.name }</a></p> ) : ( null )
+                            }
                             {
                                 project.timeframe ? ( <p className="m-4 text-lg"><span className="font-semibold">Completion: </span>{project.timeframe}</p> ) : ( null )
                             }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import ProjectCard from './ProjectCard';
-import NewlineText from '../../utils/Utilities';
+import NewlineText from '../../utils/NewlineText';
 
 import API from '../../utils/API';
 
@@ -31,7 +31,6 @@ function PartnerOverlay({ overlayVisibility, overlayPositioning, currentPartner 
     }, []);
 
     if (overlayVisibility) {
-        console.log(partnerInfo);
         return (
             <section data-id="margin" className={`absolute flex items-center justify-center top-0 left-0 pb-24 h-full w-full`}>
                 <div className={`${overlayPositioning} flex flex-col md:flex-row p-4 w-full sm:rounded sm:w-11/12 bg-gray-400 opacity-100 overflow-y-auto md:overflow-y-hidden`}>

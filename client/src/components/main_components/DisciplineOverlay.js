@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import SubDiscipline from './SubDiscipline';
-import NewlineText from '../../utils/Utilities';
+import NewlineText from '../../utils/NewlineText';
 
 import API from '../../utils/API';
 
